@@ -53,9 +53,12 @@ addEventListener('keydown',e=>{if(e.key==='Escape'){closeAcct();document.getElem
   document.querySelectorAll('.sl-media-item').forEach(m=>media[m.dataset.year]=m);
   const io=new IntersectionObserver(es=>es.forEach(e=>{
     if(!e.isIntersecting) return;
-    e.target.classList.add('on');
     const idx=items.indexOf(e.target);
     const year=e.target.dataset.year;
+    items.forEach((it,i)=>{
+      it.classList.toggle('on', i===idx);
+      it.classList.toggle('past', i<idx);
+    });
     yr.textContent=year;
     const key=e.target.dataset.labelKey;
     const h3=e.target.querySelector('h3');
@@ -64,8 +67,28 @@ addEventListener('keydown',e=>{if(e.key==='Escape'){closeAcct();document.getElem
     pg.style.height = ((idx+1)/items.length*100)+'%';
     Object.values(media).forEach(m=>m.classList.remove('on'));
     if(media[year]) media[year].classList.add('on');
+    currentYear=year;
+    activeStartY=window.scrollY;
+    updateStorybook();
   }),{threshold:.5,rootMargin:'-15% 0px -35% 0px'});
   items.forEach(it=>io.observe(it));
+
+  const STORYBOOK_WINDOW=200;
+  let currentYear=null, activeStartY=0, ticking=false;
+  function updateStorybook(){
+    ticking=false;
+    if(!currentYear) return;
+    const m=media[currentYear];
+    if(!m) return;
+    const frames=[...m.querySelectorAll('.mi')];
+    if(frames.length<2) return;
+    const progress=Math.min(1,Math.max(0,(window.scrollY-activeStartY)/STORYBOOK_WINDOW));
+    const idx=Math.min(frames.length-1, Math.floor(progress*frames.length));
+    frames.forEach((f,i)=>f.classList.toggle('show', i===idx));
+  }
+  window.addEventListener('scroll',()=>{
+    if(!ticking){ticking=true;setTimeout(updateStorybook,16);}
+  },{passive:true});
 })();
 
 /* ---------- markets ---------- */
