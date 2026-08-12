@@ -594,7 +594,7 @@ strong,b{color:var(--gold-lt);font-weight:600}
 /* ================= CONTACT v2 — multi-office ================= */
 .office-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
 .office{border:1px solid rgba(198,162,104,.22);background:var(--glass)}
-.office .map{width:100%;aspect-ratio:16/10;border:0;display:block;filter:grayscale(.15) sepia(.08)}
+.office .map{width:100%;height:220px;border:0;display:block;filter:grayscale(.15) sepia(.08)}
 .office .body{padding:26px 28px 30px}
 .office h3{font-size:19px;line-height:1.35;margin-bottom:4px}
 .office .reg{font-size:11.5px;color:var(--txt-fade);margin-bottom:14px}
@@ -605,8 +605,12 @@ strong,b{color:var(--gold-lt);font-weight:600}
 .office .rows a{color:var(--txt-dim)}
 .office .rows a:hover{color:var(--gold-lt)}
 .office .dir{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);
-  display:inline-flex;align-items:center;gap:8px}
-.office .dir span{width:22px;height:1px;background:var(--gold-lt)}
+  display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.office .dir .dl{width:22px;height:1px;background:var(--gold-lt);flex:none}
+
+.ct-divider{display:flex;align-items:center;gap:22px;margin:64px 0 40px}
+.ct-divider .ln{flex:1;height:1px;background:rgba(198,162,104,.25)}
+.ct-divider .word{font-family:var(--display);font-size:14px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-lt);white-space:nowrap}
 
 @media(max-width:1040px){.office-grid{grid-template-columns:1fr}}
 

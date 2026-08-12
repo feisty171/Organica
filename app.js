@@ -51,32 +51,43 @@ addEventListener('keydown',e=>{if(e.key==='Escape'){closeAcct();document.getElem
   const yr=document.getElementById('sl-year'), lb=document.getElementById('sl-label'), pg=document.getElementById('sl-progress');
   const media={};
   document.querySelectorAll('.sl-media-item').forEach(m=>media[m.dataset.year]=m);
-  const io=new IntersectionObserver(es=>es.forEach(e=>{
-    if(!e.isIntersecting) return;
-    const idx=items.indexOf(e.target);
-    const year=e.target.dataset.year;
-    items.forEach((it,i)=>{
-      it.classList.toggle('on', i===idx);
-      it.classList.toggle('past', i<idx);
-    });
-    yr.textContent=year;
-    const key=e.target.dataset.labelKey;
-    const h3=e.target.querySelector('h3');
-    lb.textContent = h3 ? h3.textContent : '';
-    lb.dataset.i = key;
-    pg.style.height = ((idx+1)/items.length*100)+'%';
-    Object.values(media).forEach(m=>m.classList.remove('on'));
-    if(media[year]) media[year].classList.add('on');
-    currentYear=year;
-    activeStartY=window.scrollY;
-    updateStorybook();
-  }),{threshold:.5,rootMargin:'-15% 0px -35% 0px'});
-  items.forEach(it=>io.observe(it));
 
   const STORYBOOK_WINDOW=200;
   let currentYear=null, activeStartY=0, ticking=false;
+
+  function findActiveIndex(){
+    const refY=window.innerHeight*0.4;
+    let best=0, bestDist=Infinity;
+    items.forEach((it,i)=>{
+      const r=it.getBoundingClientRect();
+      const dist=Math.abs((r.top+r.bottom)/2-refY);
+      if(dist<bestDist){bestDist=dist;best=i;}
+    });
+    return best;
+  }
+
+  function setActive(idx){
+    const it=items[idx];
+    const year=it.dataset.year;
+    if(year!==currentYear){
+      items.forEach((el,i)=>{
+        el.classList.toggle('on', i===idx);
+        el.classList.toggle('past', i<idx);
+      });
+      yr.textContent=year;
+      const key=it.dataset.labelKey;
+      const h3=it.querySelector('h3');
+      lb.textContent = h3 ? h3.textContent : '';
+      lb.dataset.i = key;
+      pg.style.height = ((idx+1)/items.length*100)+'%';
+      Object.values(media).forEach(m=>m.classList.remove('on'));
+      if(media[year]) media[year].classList.add('on');
+      currentYear=year;
+      activeStartY=window.scrollY;
+    }
+  }
+
   function updateStorybook(){
-    ticking=false;
     if(!currentYear) return;
     const m=media[currentYear];
     if(!m) return;
@@ -86,9 +97,16 @@ addEventListener('keydown',e=>{if(e.key==='Escape'){closeAcct();document.getElem
     const idx=Math.min(frames.length-1, Math.floor(progress*frames.length));
     frames.forEach((f,i)=>f.classList.toggle('show', i===idx));
   }
+
+  function onScroll(){
+    ticking=false;
+    setActive(findActiveIndex());
+    updateStorybook();
+  }
   window.addEventListener('scroll',()=>{
-    if(!ticking){ticking=true;setTimeout(updateStorybook,16);}
+    if(!ticking){ticking=true;setTimeout(onScroll,16);}
   },{passive:true});
+  onScroll();
 })();
 
 /* ---------- markets ---------- */
