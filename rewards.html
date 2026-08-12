@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rewards — Organica International</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="mark" href="index.html">ORGANICA<small>INTERNATIONAL</small></a>
+    <div class="navright">
+      <div class="navlink">
+        <a href="house.html" data-i="nav_house">The House<span class="car"></span></a>
+        <div class="navdrop">
+          <a href="house.html#story" data-i="d_story">Our Story</a>
+          <a href="house.html#testimonials" data-i="d_testimonials">Testimonials</a>
+          <a href="house.html#contact" data-i="d_contact">Contact</a>
+        </div>
+      </div>
+      <div class="navlink">
+        <a href="shop.html" data-i="nav_collection">The Collection<span class="car"></span></a>
+        <div class="navdrop">
+          <a href="shop.html#juve">JUVE</a>
+          <a href="shop.html#mask">Bright Mask</a>
+        </div>
+      </div>
+      <div class="navlink">
+        <a href="learn.html" data-i="nav_science">The Science<span class="car"></span></a>
+        <div class="navdrop">
+          <a href="learn.html#ingredients" data-i="d_ingredients">Ingredients</a>
+          <a href="learn.html#how-to-use" data-i="d_howtouse">How to Use</a>
+          <a href="learn.html#articles" data-i="d_articles">Articles</a>
+          <a href="learn.html#faq" data-i="d_faq">FAQ</a>
+          <a href="learn.html#videos" data-i="d_videos">Videos</a>
+        </div>
+      </div>
+      <a href="rewards.html" class="active" data-i="nav_rewards" style="margin-right:2px">Rewards</a>
+      <span class="navsep"></span>
+      <div class="navicons">
+        <div class="lang" id="lang">
+          <button class="lang-btn" onclick="event.stopPropagation();document.getElementById('lang').classList.toggle('open')" aria-label="Language">
+            <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="1.2" fill="none"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>
+            <span class="car"></span>
+          </button>
+          <div class="langmenu">
+            <button onclick="setLang('en')" data-l="en">English</button>
+            <button onclick="setLang('zh')" data-l="zh">中文</button>
+            <button onclick="setLang('th')" data-l="th">ไทย</button>
+            <button onclick="setLang('ko')" data-l="ko">한국어</button>
+            <button onclick="setLang('ja')" data-l="ja">日本語</button>
+          </div>
+        </div>
+        <button class="icon-btn" onclick="openAcct('signin')" aria-label="Account" data-i-title="nav_account">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.6-4 5-6 7.5-6s5.9 2 7.5 6"/></svg>
+        </button>
+        <button class="icon-btn" onclick="gate('cart')" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M4 8h16l-1.4 11.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+          <span class="badge" id="cartn">0</span>
+        </button>
+        <button class="burger" onclick="document.getElementById('drawer').classList.toggle('open')" aria-label="Menu"><i></i><i></i><i></i></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="drawer" id="drawer" onclick="this.classList.remove('open')">
+  <a href="house.html" data-i="nav_house">The House</a>
+  <a href="shop.html" data-i="nav_collection">The Collection</a>
+  <a href="learn.html" data-i="nav_science">The Science</a>
+  <a href="rewards.html" data-i="nav_rewards">Rewards</a>
+</nav>
+
+<main>
+<section class="pagehero soon-wrap"><div class="wrap">
+  <p class="soon-badge" data-i="soon_badge">Coming soon</p>
+  <p class="eyebrow" data-i="rw_eyebrow">Rewards</p>
+  <h1 data-i="rw_h">Something worth waiting for.</h1>
+  <p class="lede" data-i="rw_p">We are building a rewards program we can actually stand behind &mdash; one balance, no tiers to decode, nothing to explain twice. It is not ready yet, so we would rather show you nothing than something half finished.</p>
+
+  <div class="soon-list">
+    <div><span class="n">01</span><span data-i="soon1">Credit on every order, applied automatically</span></div>
+    <div><span class="n">02</span><span data-i="soon2">A flat referral rate &mdash; no levels, no ranks</span></div>
+    <div><span class="n">03</span><span data-i="soon3">Early access to new products for account holders</span></div>
+  </div>
+
+  <div class="rcta" style="margin-top:40px">
+    <button class="btn btn-solid" onclick="openAcct('create')" data-i="rw_cta2">Create an account to be notified</button>
+  </div>
+</div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <p class="mark" style="margin:0">ORGANICA<small>INTERNATIONAL</small></p>
+        <p style="margin-top:16px;max-width:34ch">Biomimetic skincare formulated in Singapore, sold across six markets in Asia.</p>
+      </div>
+      <div><h4 data-i="f_shop">Shop</h4><ul>
+        <li><a href="shop.html#juve">JUVE</a></li>
+        <li><a href="shop.html#mask">Bright Mask</a></li></ul></div>
+      <div><h4 data-i="nav_account">Account</h4><ul>
+        <li><a href="#" onclick="openAcct('signin');return false" data-i="a_signin">Sign in</a></li>
+        <li><a href="#" onclick="openAcct('create');return false" data-i="a_create">Create account</a></li>
+        <li><a href="rewards.html" data-i="nav_rewards">Rewards</a></li>
+        <li><a href="#" data-i="f_delivery">Delivery and returns</a></li></ul></div>
+      <div><h4 data-i="f_company">Company</h4><ul>
+        <li><a href="house.html" data-i="nav_house">The House</a></li>
+        <li><a href="learn.html" data-i="nav_learn">Learn</a></li>
+        <li>
+</li>
+        <li><a href="house.html#contact" data-i="f_contact">Contact</a></li></ul></div>
+    </div>
+    <div class="fbase">
+      <span>© 2026 Organica International</span>
+      <span data-i="f_legal">Privacy · Terms · Product information</span>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim" onclick="closeAcct()"></div>
+<aside class="acct" id="acct" role="dialog" aria-label="Account">
+  <div class="atop">
+    <p class="eyebrow" data-i="nav_account">Account</p>
+    <button onclick="closeAcct()" aria-label="Close" style="font-size:21px">×</button>
+  </div>
+  <p class="gate" id="gatemsg"></p>
+  <div class="atabs" id="atabs">
+    <button class="on" onclick="atab('signin')" data-i="a_signin">Sign in</button>
+    <button onclick="atab('create')" data-i="a_create">Create account</button>
+  </div>
+  <div class="abody">
+    <div id="v-signin">
+      <div class="field"><label data-i="a_email">Email</label><input type="email" placeholder="you@email.com"></div>
+      <div class="field"><label data-i="a_pw">Password</label><input type="password" placeholder="••••••••"></div>
+      <button class="btn btn-solid" onclick="atab('member')" data-i="a_signin">Sign in</button>
+      <p class="helper"><a href="#" data-i="a_forgot">Reset your password</a></p>
+      <div class="divider" data-i="or">or</div>
+      <p class="helper" data-i="a_guest">You can also check out as a guest. We will create an account for you on the confirmation page, with your order already in it.</p>
+    </div>
+    <div id="v-create" class="hidden">
+      <div class="field"><label data-i="a_name">Name</label><input placeholder="Full name"></div>
+      <div class="field"><label data-i="a_email">Email</label><input type="email" placeholder="you@email.com"></div>
+      <div class="field"><label data-i="a_pw">Password</label><input type="password" placeholder="At least 8 characters"></div>
+      <button class="btn btn-solid" onclick="atab('member')" data-i="a_create">Create account</button>
+      <p class="helper" data-i="a_createnote">An account saves your delivery details, tracks your course, and holds the credit earned on every order.</p>
+    </div>
+    <div id="v-member" class="hidden">
+      <p class="eyebrow" data-i="a_signedin">Signed in</p>
+      <h3 style="margin:8px 0 24px;font-size:26px">Fei</h3>
+      <div class="bals">
+        <div class="bal"><p class="k" data-i="a_credit">Store credit</p><p class="v"><span class="ph">VAL</span></p><p class="s" data-i="a_credit_s">Applied at checkout</p></div>
+        <div class="bal"><p class="k" data-i="a_referrals">Referrals</p><p class="v"><span class="ph">VAL</span></p><p class="s" data-i="a_referrals_s">Credit earned</p></div>
+      </div>
+      <p class="eyebrow" style="margin-bottom:4px" data-i="a_current">Current course</p>
+      <div class="arow"><strong>JUVE</strong><span><span class="ph">3 of 7</span></span></div>
+      <div class="arow"><strong data-i="a_next">Next delivery</strong><span><span class="ph">DATE</span></span></div>
+      <div class="arow"><strong data-i="a_orders">Order history</strong><span><span class="ph">N</span></span></div>
+      <div class="arow"><strong data-i="a_addr">Delivery address</strong><span data-i="edit">Edit</span></div>
+      <button class="btn btn-ghost" style="margin-top:24px;width:100%" onclick="atab('signin')" data-i="a_signout">Sign out</button>
+    </div>
+  </div>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>

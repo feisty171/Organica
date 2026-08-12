@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Science — Organica International</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="mark" href="index.html">ORGANICA<small>INTERNATIONAL</small></a>
+    <div class="navright">
+      <div class="navlink">
+        <a href="house.html" data-i="nav_house">The House<span class="car"></span></a>
+        <div class="navdrop">
+          <a href="house.html#story" data-i="d_story">Our Story</a>
+          <a href="house.html#testimonials" data-i="d_testimonials">Testimonials</a>
+          <a href="house.html#contact" data-i="d_contact">Contact</a>
+        </div>
+      </div>
+      <div class="navlink">
+        <a href="shop.html" data-i="nav_collection">The Collection<span class="car"></span></a>
+        <div class="navdrop">
+          <a href="shop.html#juve">JUVE</a>
+          <a href="shop.html#mask">Bright Mask</a>
+        </div>
+      </div>
+      <div class="navlink">
+        <a href="learn.html" class="active" data-i="nav_science">The Science<span class="car"></span></a>
+        <div class="navdrop">
+          <a href="learn.html#ingredients" data-i="d_ingredients">Ingredients</a>
+          <a href="learn.html#how-to-use" data-i="d_howtouse">How to Use</a>
+          <a href="learn.html#articles" data-i="d_articles">Articles</a>
+          <a href="learn.html#faq" data-i="d_faq">FAQ</a>
+          <a href="learn.html#videos" data-i="d_videos">Videos</a>
+        </div>
+      </div>
+      <a href="rewards.html" data-i="nav_rewards" style="margin-right:2px">Rewards</a>
+      <span class="navsep"></span>
+      <div class="navicons">
+        <div class="lang" id="lang">
+          <button class="lang-btn" onclick="event.stopPropagation();document.getElementById('lang').classList.toggle('open')" aria-label="Language">
+            <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="1.2" fill="none"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>
+            <span class="car"></span>
+          </button>
+          <div class="langmenu">
+            <button onclick="setLang('en')" data-l="en">English</button>
+            <button onclick="setLang('zh')" data-l="zh">中文</button>
+            <button onclick="setLang('th')" data-l="th">ไทย</button>
+            <button onclick="setLang('ko')" data-l="ko">한국어</button>
+            <button onclick="setLang('ja')" data-l="ja">日本語</button>
+          </div>
+        </div>
+        <button class="icon-btn" onclick="openAcct('signin')" aria-label="Account" data-i-title="nav_account">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.6-4 5-6 7.5-6s5.9 2 7.5 6"/></svg>
+        </button>
+        <button class="icon-btn" onclick="gate('cart')" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M4 8h16l-1.4 11.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+          <span class="badge" id="cartn">0</span>
+        </button>
+        <button class="burger" onclick="document.getElementById('drawer').classList.toggle('open')" aria-label="Menu"><i></i><i></i><i></i></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="drawer" id="drawer" onclick="this.classList.remove('open')">
+  <a href="house.html" data-i="nav_house">The House</a>
+  <a href="shop.html" data-i="nav_collection">The Collection</a>
+  <a href="learn.html" data-i="nav_science">The Science</a>
+  <a href="rewards.html" data-i="nav_rewards">Rewards</a>
+</nav>
+
+<main>
+<section class="pagehero"><div class="wrap">
+  <p class="eyebrow" data-i="sci_eyebrow">The Science</p>
+  <h1 data-i="sci_h">What is in the bottle, and why.</h1>
+  <p class="lede" data-i="sci_p">Every active named. Every claim kept to what it can support. This is where we keep the detail the product pages only summarise.</p>
+</div></section>
+
+<section class="section sci-anchor" id="ingredients" style="padding-top:16px"><div class="wrap">
+  <div class="shead">
+    <p class="eyebrow" data-i="ilib_eyebrow">Ingredient library</p>
+    <h2 data-i="ilib_h">Six actives, named in full.</h2>
+  </div>
+  <div class="ilib">
+    <div class="ilibcard"><p class="kk">Renewal</p><h4>Oligopeptide 24</h4><p>A signalling peptide included to support the skin's own renewal processes.</p><p class="inci">INCI: Oligopeptide-24</p></div>
+    <div class="ilibcard"><p class="kk">Firmness</p><h4>Matrixyl</h4><p>Supports the appearance of firmness and density over time.</p><p class="inci">INCI: Palmitoyl Pentapeptide-4</p></div>
+    <div class="ilibcard"><p class="kk">Expression lines</p><h4>Argireline</h4><p>Softens the look of expression lines around the eyes and forehead.</p><p class="inci">INCI: Acetyl Hexapeptide-3</p></div>
+    <div class="ilibcard"><p class="kk">Surface plumpness</p><h4>Soluble Collagen</h4><p>Hydrolysed collagen that helps the surface hold water and look fuller.</p><p class="inci">INCI: Soluble Collagen</p></div>
+    <div class="ilibcard"><p class="kk">Hydration</p><h4>Hyaluronic Acid</h4><p>Binds many times its own weight in water at the surface of the skin.</p><p class="inci">INCI: Sodium Hyaluronate</p></div>
+    <div class="ilibcard"><p class="kk">Comfort</p><h4>Panthenol</h4><p>Pro vitamin B5, included for comfort and a calm, conditioned feel.</p><p class="inci">INCI: Panthenol</p></div>
+  </div>
+</div></section>
+
+<section class="section sci-anchor" id="how-to-use" style="padding-top:0"><div class="wrap">
+  <div class="shead">
+    <p class="eyebrow" data-i="hu_eyebrow">How to use it</p>
+    <h2 data-i="hu_h">One step, in the right order.</h2>
+  </div>
+  <ol class="steps" style="max-width:640px">
+    <li><h4 data-i="hu1_h">Cleanse</h4><p data-i="hu1_p">Start on clean, dry skin.</p></li>
+    <li><h4 data-i="hu2_h">Two pumps</h4><p data-i="hu2_p">Press twice into the palm and press into face and neck rather than rubbing.</p></li>
+    <li><h4 data-i="hu3_h">Wait a minute</h4><p data-i="hu3_p">Let it settle before anything goes on top. This is the step most people skip.</p></li>
+    <li><h4 data-i="hu4_h">Seal</h4><p data-i="hu4_p">Follow with your moisturiser. Nightly, every night, for as long as the course runs.</p></li>
+  </ol>
+</div></section>
+
+<section class="section sci-anchor" id="articles" style="padding-top:0"><div class="wrap">
+  <div class="shead">
+    <p class="eyebrow" data-i="art_eyebrow">Articles</p>
+    <h2 data-i="art_h">Written by us, not about us.</h2>
+    <p class="lede" data-i="art_p">Notes on ingredients, routines, and the reasoning behind how we formulate. New pieces added as they are written.</p>
+  </div>
+  <div class="artgrid">
+    <a class="artcard" href="#">
+      <div class="top"><span class="ph">PLACEHOLDER article image</span></div>
+      <div class="b"><p class="kk" data-i="art1_kk">Ingredients</p><h3 data-i="art1_h">What "biomimetic" actually means</h3><p data-i="art1_p">PLACEHOLDER summary. First article to be written.</p></div>
+    </a>
+    <a class="artcard" href="#">
+      <div class="top"><span class="ph">PLACEHOLDER article image</span></div>
+      <div class="b"><p class="kk" data-i="art2_kk">Routine</p><h3 data-i="art2_h">Why order matters more than quantity</h3><p data-i="art2_p">PLACEHOLDER summary.</p></div>
+    </a>
+    <a class="artcard" href="#">
+      <div class="top"><span class="ph">PLACEHOLDER article image</span></div>
+      <div class="b"><p class="kk" data-i="art3_kk">Climate</p><h3 data-i="art3_h">Formulating for humidity, not against it</h3><p data-i="art3_p">PLACEHOLDER summary.</p></div>
+    </a>
+  </div>
+  <p class="fineprint" style="margin-top:30px" data-i="art_note">Two or three published articles at launch is enough. An empty page reads worse than no page.</p>
+</div></section>
+
+<section class="section sci-anchor" id="videos" style="padding-top:0"><div class="wrap">
+  <div class="shead">
+    <p class="eyebrow" data-i="vid_eyebrow">Videos</p>
+    <h2 data-i="vid_h">Watch the ritual, not just read it.</h2>
+  </div>
+  <div class="vidgrid">
+    <div class="vidcard"><div class="frame"><div class="play"></div></div><div class="b"><h4 data-i="vid1_h">How to apply JUVE</h4></div></div>
+    <div class="vidcard"><div class="frame"><div class="play"></div></div><div class="b"><h4 data-i="vid2_h">Inside the formulation lab</h4></div></div>
+    <div class="vidcard"><div class="frame"><div class="play"></div></div><div class="b"><h4 data-i="vid3_h">Meet the actives</h4></div></div>
+  </div>
+  <p class="fineprint" style="margin-top:30px" data-i="vid_note">Placeholder slots. Real footage to be added.</p>
+</div></section>
+
+<section class="section sci-anchor" id="faq" style="padding-top:0"><div class="wrap">
+  <div class="shead">
+    <p class="eyebrow" data-i="faq_eyebrow">FAQ</p>
+    <h2 data-i="faq_h">The questions we actually get asked.</h2>
+  </div>
+  <div class="faqlist">
+    <details open>
+      <summary data-i="faq1_q">How long until I see a difference?</summary>
+      <div class="a" data-i="faq1_a">Most people notice a change within the first month of nightly use. Skin renewal runs on its own cycle, which is why we sell courses rather than single bottles.</div>
+    </details>
+    <details>
+      <summary data-i="faq2_q">Can I use JUVE with other actives, like retinol or vitamin C?</summary>
+      <div class="a" data-i="faq2_a">PLACEHOLDER answer &mdash; needs review before publishing.</div>
+    </details>
+    <details>
+      <summary data-i="faq3_q">Is JUVE suitable for sensitive skin?</summary>
+      <div class="a" data-i="faq3_a">PLACEHOLDER answer &mdash; needs review before publishing.</div>
+    </details>
+    <details>
+      <summary data-i="faq4_q">Where is JUVE made, and is it tested on animals?</summary>
+      <div class="a" data-i="faq4_a">JUVE is formulated in Singapore. PLACEHOLDER &mdash; animal testing policy to confirm before publishing.</div>
+    </details>
+    <details>
+      <summary data-i="faq5_q">What is your returns policy?</summary>
+      <div class="a" data-i="faq5_a">PLACEHOLDER &mdash; see Delivery and returns.</div>
+    </details>
+  </div>
+</div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <p class="mark" style="margin:0">ORGANICA<small>INTERNATIONAL</small></p>
+        <p style="margin-top:16px;max-width:34ch">Biomimetic skincare formulated in Singapore, sold across six markets in Asia.</p>
+      </div>
+      <div><h4 data-i="f_shop">Shop</h4><ul>
+        <li><a href="shop.html#juve">JUVE</a></li>
+        <li><a href="shop.html#mask">Bright Mask</a></li></ul></div>
+      <div><h4 data-i="nav_account">Account</h4><ul>
+        <li><a href="#" onclick="openAcct('signin');return false" data-i="a_signin">Sign in</a></li>
+        <li><a href="#" onclick="openAcct('create');return false" data-i="a_create">Create account</a></li>
+        <li><a href="rewards.html" data-i="nav_rewards">Rewards</a></li>
+        <li><a href="#" data-i="f_delivery">Delivery and returns</a></li></ul></div>
+      <div><h4 data-i="f_company">Company</h4><ul>
+        <li><a href="house.html" data-i="nav_house">The House</a></li>
+        <li><a href="learn.html" data-i="nav_learn">Learn</a></li>
+        <li>
+</li>
+        <li><a href="house.html#contact" data-i="f_contact">Contact</a></li></ul></div>
+    </div>
+    <div class="fbase">
+      <span>© 2026 Organica International</span>
+      <span data-i="f_legal">Privacy · Terms · Product information</span>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim" onclick="closeAcct()"></div>
+<aside class="acct" id="acct" role="dialog" aria-label="Account">
+  <div class="atop">
+    <p class="eyebrow" data-i="nav_account">Account</p>
+    <button onclick="closeAcct()" aria-label="Close" style="font-size:21px">×</button>
+  </div>
+  <p class="gate" id="gatemsg"></p>
+  <div class="atabs" id="atabs">
+    <button class="on" onclick="atab('signin')" data-i="a_signin">Sign in</button>
+    <button onclick="atab('create')" data-i="a_create">Create account</button>
+  </div>
+  <div class="abody">
+    <div id="v-signin">
+      <div class="field"><label data-i="a_email">Email</label><input type="email" placeholder="you@email.com"></div>
+      <div class="field"><label data-i="a_pw">Password</label><input type="password" placeholder="••••••••"></div>
+      <button class="btn btn-solid" onclick="atab('member')" data-i="a_signin">Sign in</button>
+      <p class="helper"><a href="#" data-i="a_forgot">Reset your password</a></p>
+      <div class="divider" data-i="or">or</div>
+      <p class="helper" data-i="a_guest">You can also check out as a guest. We will create an account for you on the confirmation page, with your order already in it.</p>
+    </div>
+    <div id="v-create" class="hidden">
+      <div class="field"><label data-i="a_name">Name</label><input placeholder="Full name"></div>
+      <div class="field"><label data-i="a_email">Email</label><input type="email" placeholder="you@email.com"></div>
+      <div class="field"><label data-i="a_pw">Password</label><input type="password" placeholder="At least 8 characters"></div>
+      <button class="btn btn-solid" onclick="atab('member')" data-i="a_create">Create account</button>
+      <p class="helper" data-i="a_createnote">An account saves your delivery details, tracks your course, and holds the credit earned on every order.</p>
+    </div>
+    <div id="v-member" class="hidden">
+      <p class="eyebrow" data-i="a_signedin">Signed in</p>
+      <h3 style="margin:8px 0 24px;font-size:26px">Fei</h3>
+      <div class="bals">
+        <div class="bal"><p class="k" data-i="a_credit">Store credit</p><p class="v"><span class="ph">VAL</span></p><p class="s" data-i="a_credit_s">Applied at checkout</p></div>
+        <div class="bal"><p class="k" data-i="a_referrals">Referrals</p><p class="v"><span class="ph">VAL</span></p><p class="s" data-i="a_referrals_s">Credit earned</p></div>
+      </div>
+      <p class="eyebrow" style="margin-bottom:4px" data-i="a_current">Current course</p>
+      <div class="arow"><strong>JUVE</strong><span><span class="ph">3 of 7</span></span></div>
+      <div class="arow"><strong data-i="a_next">Next delivery</strong><span><span class="ph">DATE</span></span></div>
+      <div class="arow"><strong data-i="a_orders">Order history</strong><span><span class="ph">N</span></span></div>
+      <div class="arow"><strong data-i="a_addr">Delivery address</strong><span data-i="edit">Edit</span></div>
+      <button class="btn btn-ghost" style="margin-top:24px;width:100%" onclick="atab('signin')" data-i="a_signout">Sign out</button>
+    </div>
+  </div>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>

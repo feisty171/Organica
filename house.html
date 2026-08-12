@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The House — Organica International</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="mark" href="index.html">ORGANICA<small>INTERNATIONAL</small></a>
+    <div class="navright">
+      <div class="navlink">
+        <a href="house.html" class="active" data-i="nav_house">The House<span class="car"></span></a>
+        <div class="navdrop">
+          <a href="house.html#story" data-i="d_story">Our Story</a>
+          <a href="house.html#testimonials" data-i="d_testimonials">Testimonials</a>
+          <a href="house.html#contact" data-i="d_contact">Contact</a>
+        </div>
+      </div>
+      <div class="navlink">
+        <a href="shop.html" data-i="nav_collection">The Collection<span class="car"></span></a>
+        <div class="navdrop">
+          <a href="shop.html#juve">JUVE</a>
+          <a href="shop.html#mask">Bright Mask</a>
+        </div>
+      </div>
+      <div class="navlink">
+        <a href="learn.html" data-i="nav_science">The Science<span class="car"></span></a>
+        <div class="navdrop">
+          <a href="learn.html#ingredients" data-i="d_ingredients">Ingredients</a>
+          <a href="learn.html#how-to-use" data-i="d_howtouse">How to Use</a>
+          <a href="learn.html#articles" data-i="d_articles">Articles</a>
+          <a href="learn.html#faq" data-i="d_faq">FAQ</a>
+          <a href="learn.html#videos" data-i="d_videos">Videos</a>
+        </div>
+      </div>
+      <a href="rewards.html" data-i="nav_rewards" style="margin-right:2px">Rewards</a>
+      <span class="navsep"></span>
+      <div class="navicons">
+        <div class="lang" id="lang">
+          <button class="lang-btn" onclick="event.stopPropagation();document.getElementById('lang').classList.toggle('open')" aria-label="Language">
+            <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="1.2" fill="none"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>
+            <span class="car"></span>
+          </button>
+          <div class="langmenu">
+            <button onclick="setLang('en')" data-l="en">English</button>
+            <button onclick="setLang('zh')" data-l="zh">中文</button>
+            <button onclick="setLang('th')" data-l="th">ไทย</button>
+            <button onclick="setLang('ko')" data-l="ko">한국어</button>
+            <button onclick="setLang('ja')" data-l="ja">日本語</button>
+          </div>
+        </div>
+        <button class="icon-btn" onclick="openAcct('signin')" aria-label="Account" data-i-title="nav_account">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.6-4 5-6 7.5-6s5.9 2 7.5 6"/></svg>
+        </button>
+        <button class="icon-btn" onclick="gate('cart')" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M4 8h16l-1.4 11.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+          <span class="badge" id="cartn">0</span>
+        </button>
+        <button class="burger" onclick="document.getElementById('drawer').classList.toggle('open')" aria-label="Menu"><i></i><i></i><i></i></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="drawer" id="drawer" onclick="this.classList.remove('open')">
+  <a href="house.html" data-i="nav_house">The House</a>
+  <a href="shop.html" data-i="nav_collection">The Collection</a>
+  <a href="learn.html" data-i="nav_science">The Science</a>
+  <a href="rewards.html" data-i="nav_rewards">Rewards</a>
+</nav>
+
+<main>
+<section class="pagehero"><div class="wrap">
+  <p class="eyebrow" data-i="house_eyebrow">The House</p>
+  <h1 data-i="house_h">Our story.</h1>
+  <p class="lede" data-i="house_p">Organica is the skincare arm of Mary Chia Group. We formulate our own products rather than relabelling someone else's, and we have four decades of the parent company's experience behind that decision.</p>
+</div></section>
+
+<section class="storyline sci-anchor" id="story"><div class="wrap storyline-grid">
+  <div class="storyline-sticky">
+    <p class="sl-year" id="sl-year">1982</p>
+    <div class="sl-track"><div class="sl-progress" id="sl-progress"></div></div>
+    <p class="sl-label" id="sl-label" data-i="sl0_h">Mary Chia begins</p>
+  </div>
+
+  <div class="storyline-feed">
+    <article class="sl-item" data-year="Today" data-label-key="sl0_h">
+      <p class="sl-y-mobile" data-i="today">Today</p>
+      <h3 data-i="sl0_h">Where we are now.</h3>
+      <p data-i="sl0_p">A small range, kept small enough to explain in full, product by product. Three things we hold to on every one of them:</p>
+      <div class="triptych" style="margin-top:34px">
+        <div class="t"><span class="n">01</span><h3 data-i="p1_h">Biomimetic by design</h3><p data-i="p1_p">Ingredients built to resemble molecules the skin already recognises, chosen for compatibility rather than force.</p></div>
+        <div class="t"><span class="n">02</span><h3 data-i="p2_h">Named in full</h3><p data-i="p2_p">Every active is listed with its INCI name. Nothing hides behind a trademark you cannot look up.</p></div>
+        <div class="t"><span class="n">03</span><h3 data-i="p3_h">Checked, not just claimed</h3><p data-i="w3_p">If a claim would not hold up to a dermatologist asking a direct question, it does not go on the label.</p></div>
+      </div>
+    </article>
+
+    <article class="sl-item" data-year="2024" data-label-key="sl1_h">
+      <p class="sl-y-mobile">2024</p>
+      <h3 data-i="sl1_h">JUVE launches.</h3>
+      <p data-i="sl1_p">Ten years of formulating leads to Organica's current flagship &mdash; six named actives, one nightly step, nothing hidden behind a trademark.</p>
+    </article>
+
+    <article class="sl-item" data-year="2014" data-label-key="sl2_h">
+      <p class="sl-y-mobile">2014</p>
+      <h3 data-i="sl2_h">Organica is founded.</h3>
+      <p data-i="sl2_p">The Group's dedicated skincare arm &mdash; formulating rather than reselling, for skin and climate closer to home than most imported brands bother with.</p>
+    </article>
+
+    <article class="sl-item" data-year="2009" data-label-key="sl3_h">
+      <p class="sl-y-mobile">2009</p>
+      <h3 data-i="sl3_h">Public listing.</h3>
+      <p data-i="sl3_p">Mary Chia Group lists on the Singapore Exchange &mdash; SGX Catalist. What started with one client at a time is now audited, reported, and answerable to shareholders.</p>
+    </article>
+
+    <article class="sl-item" data-year="1989" data-label-key="sl4_h">
+      <p class="sl-y-mobile">1989</p>
+      <h3 data-i="sl4_h">A real address.</h3>
+      <p data-i="sl4_p">Seven years in, the door-to-door round became a beauty and slimming centre at Goldhill Centre. Four staff, including Mary and her eldest daughter, Wendy.</p>
+    </article>
+
+    <article class="sl-item" data-year="1982" data-label-key="sl5_h">
+      <p class="sl-y-mobile">1982</p>
+      <h3 data-i="sl5_h">Where it started.</h3>
+      <p data-i="sl5_p">Mary Chia began by going door to door, offering facials to whoever would let her in. No shopfront, no backers &mdash; just a service people kept asking for again. Everything above traces back to that.</p>
+    </article>
+  </div>
+
+  <div class="storyline-media">
+    <div class="sl-media-item on" data-year="1982"><span class="yr">1982</span><span class="ph">PLACEHOLDER photo &mdash; early Mary Chia</span></div>
+    <div class="sl-media-item" data-year="1989"><span class="yr">1989</span><span class="ph">PLACEHOLDER photo &mdash; Goldhill Centre</span></div>
+    <div class="sl-media-item" data-year="2009"><span class="yr">2009</span><span class="ph">PLACEHOLDER photo &mdash; SGX listing</span></div>
+    <div class="sl-media-item" data-year="2014"><span class="yr">2014</span><span class="ph">PLACEHOLDER photo &mdash; Organica founded</span></div>
+    <div class="sl-media-item" data-year="2024"><span class="yr">2024</span><span class="ph">PLACEHOLDER photo &mdash; JUVE launch</span></div>
+    <div class="sl-media-item" data-year="Today"><span class="yr" data-i="today">Today</span><span class="ph">PLACEHOLDER photo &mdash; current formulation lab</span></div>
+  </div>
+</div></section>
+
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="shead">
+    <p class="eyebrow" data-i="where_eyebrow">Where we are</p>
+    <h2 data-i="where_h">Seven markets across Asia.</h2>
+    <p class="lede" data-i="where_p">Singapore is home. Six markets followed.</p>
+  </div>
+
+  <div class="mrow">
+    <svg class="map" viewBox="0 0 780 560" role="img" aria-label="Organica markets across Asia">
+      <defs>
+        <radialGradient id="gl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="rgba(228,203,158,.16)"/><stop offset="1" stop-color="rgba(228,203,158,0)"/></radialGradient>
+        <pattern id="dg" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="rgba(228,203,158,.1)"/></pattern>
+      </defs>
+      <circle cx="360" cy="300" r="300" fill="url(#gl)"/><rect width="780" height="560" fill="url(#dg)"/>
+      <g class="mer"><ellipse cx="360" cy="300" rx="290" ry="290"/><ellipse cx="360" cy="300" rx="196" ry="290"/><ellipse cx="360" cy="300" rx="96" ry="290"/><path d="M70 300h580"/><path d="M112 190h496"/><path d="M112 410h496"/></g>
+      <g class="halo"><circle cx="330" cy="452" r="60"/><circle cx="330" cy="452" r="112"/><circle cx="330" cy="452" r="170"/></g>
+
+      <g class="rt">
+        <path d="M330 452 Q 300 430 300 410"/>
+        <path d="M330 452 Q 288 390 272 344"/>
+        <path d="M330 452 Q 400 320 480 220"/>
+        <path d="M330 452 Q 355 300 386 152"/>
+        <path d="M330 452 Q 462 330 510 168"/>
+        <path d="M330 452 Q 540 356 626 214"/>
+      </g>
+      <g class="sig">
+        <path d="M330 452 Q 300 430 300 410"/>
+        <path d="M330 452 Q 288 390 272 344" style="animation-delay:.75s"/>
+        <path d="M330 452 Q 400 320 480 220" style="animation-delay:1.5s"/>
+        <path d="M330 452 Q 355 300 386 152" style="animation-delay:2.25s"/>
+        <path d="M330 452 Q 462 330 510 168" style="animation-delay:3s"/>
+        <path d="M330 452 Q 540 356 626 214" style="animation-delay:3.75s"/>
+      </g>
+
+      <g class="nd hi" data-m="sg"><circle class="rg" cx="330" cy="452" r="12"/><circle class="plate" cx="330" cy="452" r="17"/><circle class="core" cx="330" cy="452" r="5"/><text x="356" y="457" data-i="m_sg">Singapore</text></g>
+      <g class="nd" data-m="my"><circle class="rg" cx="300" cy="410" r="12"/><circle class="plate" cx="300" cy="410" r="17"/><circle class="core" cx="300" cy="410" r="4.5"/><text x="326" y="415" data-i="m_my">Malaysia</text></g>
+      <g class="nd" data-m="th"><circle class="rg" cx="272" cy="344" r="12"/><circle class="plate" cx="272" cy="344" r="17"/><circle class="core" cx="272" cy="344" r="4.5"/><text x="298" y="349" data-i="m_th">Thailand</text></g>
+      <g class="nd" data-m="tw"><circle class="rg" cx="480" cy="220" r="12"/><circle class="plate" cx="480" cy="220" r="17"/><circle class="core" cx="480" cy="220" r="4.5"/><text x="506" y="225" data-i="m_tw">Taiwan</text></g>
+      <g class="nd" data-m="cn"><circle class="rg" cx="386" cy="152" r="12"/><circle class="plate" cx="386" cy="152" r="17"/><circle class="core" cx="386" cy="152" r="4.5"/><text x="412" y="157" data-i="m_cn">China</text></g>
+      <g class="nd" data-m="kr"><circle class="rg" cx="510" cy="168" r="12"/><circle class="plate" cx="510" cy="168" r="17"/><circle class="core" cx="510" cy="168" r="4.5"/><text x="536" y="173" data-i="m_kr">Korea</text></g>
+      <g class="nd" data-m="jp"><circle class="rg" cx="626" cy="214" r="12"/><circle class="plate" cx="626" cy="214" r="17"/><circle class="core" cx="626" cy="214" r="4.5"/><text x="652" y="219" data-i="m_jp">Japan</text></g>
+    </svg>
+
+    <div>
+      <div class="stats">
+        <div class="st"><p class="v" data-count="7">0</p><p class="k" data-i="stat_markets">Markets across Asia</p></div>
+        <div class="st"><p class="v"><span class="ph">VALUE</span></p><p class="k" data-i="stat_members">Account holders</p></div>
+        <div class="st"><p class="v"><span class="ph">VALUE</span></p><p class="k" data-i="stat_bottles">Bottles shipped to date</p></div>
+      </div>
+      <ul class="mlist" id="mlist">
+        <li data-m="sg" data-i="m_sg">Singapore</li>
+        <li data-m="cn" data-i="m_cn">China</li>
+        <li data-m="jp" data-i="m_jp">Japan</li>
+        <li data-m="kr" data-i="m_kr">Korea</li>
+        <li data-m="my" data-i="m_my">Malaysia</li>
+        <li data-m="th" data-i="m_th">Thailand</li>
+        <li data-m="tw" data-i="m_tw">Taiwan</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="section sci-anchor" id="testimonials" style="padding-top:0"><div class="wrap">
+  <div class="shead">
+    <p class="eyebrow" data-i="tst_eyebrow">In their words</p>
+    <h2 data-i="tst_h">What people actually say.</h2>
+    <p class="lede" data-i="tst_p"><span class="ph">PLACEHOLDER: real reviews pending. Structure ready, quotes below are examples only.</span></p>
+  </div>
+  <div class="testigrid">
+    <div class="testi">
+      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="q" data-i="tst1_q">PLACEHOLDER quote &mdash; a real customer review goes here once collected.</p>
+      <div class="who"><span class="av">A</span><div><p class="nm" data-i="tst1_nm">PLACEHOLDER name</p><p class="tag" data-i="tst1_tag">JUVE &middot; Case of 3</p></div></div>
+    </div>
+    <div class="testi">
+      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="q" data-i="tst2_q">PLACEHOLDER quote &mdash; a real customer review goes here once collected.</p>
+      <div class="who"><span class="av">B</span><div><p class="nm" data-i="tst2_nm">PLACEHOLDER name</p><p class="tag" data-i="tst2_tag">JUVE &middot; Single</p></div></div>
+    </div>
+    <div class="testi">
+      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="q" data-i="tst3_q">PLACEHOLDER quote &mdash; a real customer review goes here once collected.</p>
+      <div class="who"><span class="av">C</span><div><p class="nm" data-i="tst3_nm">PLACEHOLDER name</p><p class="tag" data-i="tst3_tag">JUVE &middot; Case of 10</p></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="section sci-anchor" id="contact" style="padding-top:0"><div class="wrap">
+  <div class="shead">
+    <p class="eyebrow" data-i="ct_eyebrow">Contact</p>
+    <h2 data-i="ct_h">Two offices. Real people at both.</h2>
+  </div>
+
+  <div class="office-grid">
+    <div class="office">
+      <iframe class="map" src="https://www.google.com/maps?q=151%20Lorong%20Chuan%2C%20New%20Tech%20Park%20%2306-07A%20Lobby%20G%2C%20Singapore%20556741&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Organica International Holdings, Singapore"></iframe>
+      <div class="body">
+        <h3>Organica International Holdings Pte. Ltd.</h3>
+        <p class="reg" data-i="ct_hq">Headquarters</p>
+        <p class="addr">151 Lorong Chuan, New Tech Park<br>#06-07A Lobby G<br>Singapore 556741</p>
+        <div class="rows">
+          <div><span class="k">Tel</span><a href="tel:+6562529651">(65) 6252 9651</a></div>
+          <div><span class="k">Fax</span><span>(65) 6255 6862</span></div>
+          <div><span class="k">Email</span><a href="mailto:info@organicaintl.com">info@organicaintl.com</a></div>
+        </div>
+        <a class="dir" href="https://www.google.com/maps/search/?api=1&query=151%20Lorong%20Chuan%2C%20New%20Tech%20Park%20%2306-07A%20Lobby%20G%2C%20Singapore%20556741" target="_blank" rel="noopener"><span></span><span data-i="ct_dir">Get directions</span></a>
+      </div>
+    </div>
+
+    <div class="office">
+      <iframe class="map" src="https://www.google.com/maps?q=No.%20153%2C%20Jalan%20Kenari%2023A%2C%20Bandar%20Puchong%20Jaya%2C%2047100%20Puchong%2C%20Selangor%2C%20Malaysia&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Organica International Malaysia, Puchong"></iframe>
+      <div class="body">
+        <h3>Organica International (M) Sdn. Bhd.</h3>
+        <p class="reg">(1120288-A) &middot; (AJL 932117) &mdash; <span data-i="ct_my">Marketing &amp; Operation Support Centre</span></p>
+        <p class="addr">No. 153, Jalan Kenari 23A<br>Bandar Puchong Jaya<br>47100 Puchong, Selangor, Malaysia</p>
+        <div class="rows">
+          <div><span class="k">Tel</span><a href="tel:0380823553">03-8082 3553</a></div>
+          <div><span class="k">Fax</span><span>03-8080 2442</span></div>
+          <div><span class="k">Email</span><a href="mailto:info@organicaintl.com">info@organicaintl.com</a></div>
+        </div>
+        <a class="dir" href="https://www.google.com/maps/search/?api=1&query=No.%20153%2C%20Jalan%20Kenari%2023A%2C%20Bandar%20Puchong%20Jaya%2C%2047100%20Puchong%2C%20Selangor%2C%20Malaysia" target="_blank" rel="noopener"><span></span><span data-i="ct_dir">Get directions</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="shead" style="margin-top:64px;margin-bottom:24px">
+    <p class="eyebrow" data-i="ct_form_eyebrow">Or write to us</p>
+  </div>
+  <div class="contact-grid" style="grid-template-columns:1fr">
+    <form class="cform" style="max-width:560px" onsubmit="return false">
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Message"></textarea>
+      <button class="btn btn-solid" style="align-self:flex-start" data-i="ct_f_send">Send</button>
+    </form>
+  </div>
+</div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <p class="mark" style="margin:0">ORGANICA<small>INTERNATIONAL</small></p>
+        <p style="margin-top:16px;max-width:34ch">Biomimetic skincare formulated in Singapore, sold across six markets in Asia.</p>
+      </div>
+      <div><h4 data-i="f_shop">Shop</h4><ul>
+        <li><a href="shop.html#juve">JUVE</a></li>
+        <li><a href="shop.html#mask">Bright Mask</a></li></ul></div>
+      <div><h4 data-i="nav_account">Account</h4><ul>
+        <li><a href="#" onclick="openAcct('signin');return false" data-i="a_signin">Sign in</a></li>
+        <li><a href="#" onclick="openAcct('create');return false" data-i="a_create">Create account</a></li>
+        <li><a href="rewards.html" data-i="nav_rewards">Rewards</a></li>
+        <li><a href="#" data-i="f_delivery">Delivery and returns</a></li></ul></div>
+      <div><h4 data-i="f_company">Company</h4><ul>
+        <li><a href="house.html" data-i="nav_house">The House</a></li>
+        <li><a href="learn.html" data-i="nav_learn">Learn</a></li>
+        <li>
+</li>
+        <li><a href="house.html#contact" data-i="f_contact">Contact</a></li></ul></div>
+    </div>
+    <div class="fbase">
+      <span>© 2026 Organica International</span>
+      <span data-i="f_legal">Privacy · Terms · Product information</span>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim" onclick="closeAcct()"></div>
+<aside class="acct" id="acct" role="dialog" aria-label="Account">
+  <div class="atop">
+    <p class="eyebrow" data-i="nav_account">Account</p>
+    <button onclick="closeAcct()" aria-label="Close" style="font-size:21px">×</button>
+  </div>
+  <p class="gate" id="gatemsg"></p>
+  <div class="atabs" id="atabs">
+    <button class="on" onclick="atab('signin')" data-i="a_signin">Sign in</button>
+    <button onclick="atab('create')" data-i="a_create">Create account</button>
+  </div>
+  <div class="abody">
+    <div id="v-signin">
+      <div class="field"><label data-i="a_email">Email</label><input type="email" placeholder="you@email.com"></div>
+      <div class="field"><label data-i="a_pw">Password</label><input type="password" placeholder="••••••••"></div>
+      <button class="btn btn-solid" onclick="atab('member')" data-i="a_signin">Sign in</button>
+      <p class="helper"><a href="#" data-i="a_forgot">Reset your password</a></p>
+      <div class="divider" data-i="or">or</div>
+      <p class="helper" data-i="a_guest">You can also check out as a guest. We will create an account for you on the confirmation page, with your order already in it.</p>
+    </div>
+    <div id="v-create" class="hidden">
+      <div class="field"><label data-i="a_name">Name</label><input placeholder="Full name"></div>
+      <div class="field"><label data-i="a_email">Email</label><input type="email" placeholder="you@email.com"></div>
+      <div class="field"><label data-i="a_pw">Password</label><input type="password" placeholder="At least 8 characters"></div>
+      <button class="btn btn-solid" onclick="atab('member')" data-i="a_create">Create account</button>
+      <p class="helper" data-i="a_createnote">An account saves your delivery details, tracks your course, and holds the credit earned on every order.</p>
+    </div>
+    <div id="v-member" class="hidden">
+      <p class="eyebrow" data-i="a_signedin">Signed in</p>
+      <h3 style="margin:8px 0 24px;font-size:26px">Fei</h3>
+      <div class="bals">
+        <div class="bal"><p class="k" data-i="a_credit">Store credit</p><p class="v"><span class="ph">VAL</span></p><p class="s" data-i="a_credit_s">Applied at checkout</p></div>
+        <div class="bal"><p class="k" data-i="a_referrals">Referrals</p><p class="v"><span class="ph">VAL</span></p><p class="s" data-i="a_referrals_s">Credit earned</p></div>
+      </div>
+      <p class="eyebrow" style="margin-bottom:4px" data-i="a_current">Current course</p>
+      <div class="arow"><strong>JUVE</strong><span><span class="ph">3 of 7</span></span></div>
+      <div class="arow"><strong data-i="a_next">Next delivery</strong><span><span class="ph">DATE</span></span></div>
+      <div class="arow"><strong data-i="a_orders">Order history</strong><span><span class="ph">N</span></span></div>
+      <div class="arow"><strong data-i="a_addr">Delivery address</strong><span data-i="edit">Edit</span></div>
+      <button class="btn btn-ghost" style="margin-top:24px;width:100%" onclick="atab('signin')" data-i="a_signout">Sign out</button>
+    </div>
+  </div>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>
