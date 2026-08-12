@@ -372,6 +372,12 @@ footer li a:hover{color:var(--gold-lt)}
 .triptych p{font-size:13.5px;color:var(--txt-dim)}
 @media(max-width:1040px){.triptych{grid-template-columns:1fr;gap:30px}}
 
+.mvgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.mvgrid .mv{border:1px solid rgba(198,162,104,.24);background:rgba(255,255,255,.045);padding:40px 36px}
+.mvgrid h3{font-family:var(--display);font-size:23px;color:var(--gold-lt);margin-bottom:16px}
+.mvgrid p{font-size:15px;color:rgba(243,233,238,.84);line-height:1.85}
+@media(max-width:1040px){.mvgrid{grid-template-columns:1fr;gap:22px}}
+
 /* ================= PRODUCT PAGE (PDP) ================= */
 .crumb{display:flex;gap:8px;align-items:center;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-fade);padding:calc(var(--nav) + 34px) 0 0}
 .crumb a{color:var(--txt-fade);transition:.2s}
