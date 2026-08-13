@@ -76,35 +76,62 @@
 <section class="pdp"><div class="wrap pdp-grid">
   <div class="pdp-gallery">
     <div class="pdp-main">
-      <img class="pdp-photo" src="juve-product.jpg" alt="JUVE">
+      <button class="pdp-nav prev" type="button" aria-label="Previous image" onclick="pdpNav(-1)">&#10094;</button>
+      <img class="pdp-photo" id="pdpMainImg" src="juve-product.jpg" alt="JUVE Biomimetic Stem Cell Activator bottle">
+      <button class="pdp-nav next" type="button" aria-label="Next image" onclick="pdpNav(1)">&#10095;</button>
     </div>
-    <div class="pdp-more">
-      <span data-i="pdp_more_texture">PLACEHOLDER: texture shot</span>
-      <span data-i="pdp_more_packaging">PLACEHOLDER: packaging</span>
-      <span data-i="pdp_more_onskin">PLACEHOLDER: on skin</span>
+    <div class="pdp-thumbs" id="pdpThumbs">
+      <button class="pdp-thumb sel" type="button" onclick="pdpGo(0)" aria-label="View product bottle"><img src="juve-product.jpg" alt=""></button>
+      <button class="pdp-thumb" type="button" onclick="pdpGo(1)" aria-label="View 30-day results timeline"><img src="juve-gallery-2-regime.jpg" alt=""></button>
+      <button class="pdp-thumb" type="button" onclick="pdpGo(2)" aria-label="View daily antioxidant shield"><img src="juve-gallery-3-shield.jpg" alt=""></button>
+      <button class="pdp-thumb" type="button" onclick="pdpGo(3)" aria-label="View before and after comparison"><img src="juve-gallery-4-beforeafter.jpg" alt=""></button>
+      <button class="pdp-thumb" type="button" onclick="pdpGo(4)" aria-label="View key ingredients"><img src="juve-gallery-5-ingredients.jpg" alt=""></button>
     </div>
   </div>
 
   <div class="pdp-info">
     <p class="pkind" data-i="pdp_juve_kind">Serum &middot; The signature</p>
     <h1>JUVE</h1>
-    <p class="pdp-price pdp-total" data-fallback="$300">$300</p>
+    <p class="pdp-price"><span class="pdp-total" data-fallback="$800">$300</span></p>
     <p class="pdp-desc" data-i="pf_juve_p1">JUVE is a biomimetic serum built around six named actives, chosen to work with the skin's own processes rather than force a result. Peptides, soluble collagen, and hyaluronic acid sit alongside panthenol for comfort, in a formula meant to be checked ingredient by ingredient, not taken on faith.</p>
     <p class="pdp-desc" data-i="pf_juve_p2">Two pumps at night, before anything else. One bottle carries roughly a month at that pace, which is why the range is sold by the bottle and by the case rather than as a single fixed size.</p>
 
     <div class="pdp-buybox">
       <p class="pdp-size-label" data-i="choose_size">Choose a size</p>
       <div class="pdp-sizes">
-        <button class="pdp-size sel" data-price="300"><span class="nm">Single bottle</span><span class="pr">$300 &middot; $300 / bottle</span></button>
-        <button class="pdp-size" data-price="800"><span class="nm">Case of 3</span><span class="pr">$800 &middot; $266.67 / bottle</span></button>
-        <button class="pdp-size" data-price="2000"><span class="nm">Case of 10</span><span class="pr">$2,000 &middot; $200.00 / bottle</span></button>
+        <button class="pdp-size" data-bottles="1" data-price="300">
+          <span class="pdp-badge-slot"></span>
+          <span class="nm" data-i="size_single_nm">Single bottle</span>
+          <span class="pr-row"><span class="pr-ref"></span><span class="pr-now"></span></span>
+          <span class="pr-save"></span>
+          <span class="pr-unit"></span>
+        </button>
+        <button class="pdp-size sel" data-bottles="3" data-price="800">
+          <span class="pdp-badge-slot"><span class="pdp-badge" data-i="badge_popular">Most Popular</span></span>
+          <span class="nm" data-i="size_case3_nm">Case of 3</span>
+          <span class="pr-row"><span class="pr-ref"></span><span class="pr-now"></span></span>
+          <span class="pr-save"></span>
+          <span class="pr-unit"></span>
+        </button>
+        <button class="pdp-size" data-bottles="10" data-price="2000">
+          <span class="pdp-badge-slot"><span class="pdp-badge" data-i="badge_best_value">Best Value</span></span>
+          <span class="nm" data-i="size_case10_nm">10 Bottles</span>
+          <span class="pr-row"><span class="pr-ref"></span><span class="pr-now"></span></span>
+          <span class="pr-save"></span>
+          <span class="pr-unit"></span>
+        </button>
       </div>
 
-      <p class="pdp-size-label" data-i="quantity">Quantity</p>
+      <p class="pdp-size-label"><span data-i="qty_of_label">Number of</span> <span class="qty-tier-name"></span></p>
       <div class="pdp-qty">
         <button class="qdec" aria-label="Decrease">&minus;</button>
         <span class="qval">1</span>
         <button class="qinc" aria-label="Increase">+</button>
+      </div>
+
+      <div class="pdp-order-summary">
+        <p class="pdp-size-label" data-i="order_label">Your order</p>
+        <p class="pdp-order-detail"></p>
       </div>
 
       <div class="pdp-cta">
@@ -112,41 +139,53 @@
         <button class="btn btn-ghost" onclick="gate('buy')" data-i="buy_now">Buy now</button>
       </div>
     </div>
-
-    <div class="pdp-meta">
-      <div><strong data-i="meta_format">Format</strong><span data-i="juve_meta_format_v">50ml pump bottle</span></div>
-      <div><strong data-i="meta_use">Use</strong><span data-i="juve_meta_use_v">Two pumps, nightly, before moisturiser</span></div>
-      <div><strong data-i="meta_formulated">Formulated in</strong><span data-i="meta_singapore">Singapore</span></div>
-    </div>
-
-    <div class="pdp-accordion">
-      <details open>
-        <summary data-i="accordion_actives">The actives</summary>
-        <div class="acc-body">
-          <p><strong data-i="juve_act1_h">Oligopeptide-24</strong> &mdash; <span data-i="juve_act1_p">a signalling peptide included to support the skin's own renewal process, contributing to a smoother, more even surface over time.</span></p>
-          <p><strong data-i="juve_act2_h">Matrixyl (Palmitoyl Pentapeptide-4)</strong> &mdash; <span data-i="juve_act2_p">a well known peptide studied for how it works alongside skin's own collagen signalling, supporting the look of firmness and density with continued use.</span></p>
-          <p><strong data-i="juve_act3_h">Argireline (Acetyl Hexapeptide-3)</strong> &mdash; <span data-i="juve_act3_p">a neurocosmetic peptide designed to ease tension at the surface, softening the look of expression lines around the eyes and forehead.</span></p>
-          <p><strong data-i="juve_act4_h">Soluble Collagen</strong> &mdash; <span data-i="juve_act4_p">hydrolysed collagen sized to sit on the skin's surface, helping it hold moisture and look fuller.</span></p>
-          <p><strong data-i="juve_act5_h">Hyaluronic Acid (Sodium Hyaluronate)</strong> &mdash; <span data-i="juve_act5_p">a moisture binding molecule that draws and holds water at the skin's surface, supporting a plumper, more hydrated feel.</span></p>
-          <p><strong data-i="juve_act6_h">Panthenol</strong> &mdash; <span data-i="juve_act6_p">pro vitamin B5, included to support the skin barrier and leave a calm, conditioned feel after application.</span></p>
-          <p class="note" data-i="pf_note">Full ingredient list is printed on the pack. JUVE is a cosmetic product; individual results vary.</p>
-        </div>
-      </details>
-      <details>
-        <summary data-i="pf_usage_lbl">How to use it</summary>
-        <div class="acc-body">
-          <p data-i="juve_howto_p">Start on clean, dry skin. Press two pumps into the palm and press into face and neck rather than rubbing. Wait a minute before your moisturiser &mdash; this is the step most people skip. Nightly, every night &mdash; consistency does the work, not the size of the bottle.</p>
-        </div>
-      </details>
-      <details>
-        <summary data-i="accordion_shipping">Shipping &amp; returns</summary>
-        <div class="acc-body">
-          <p><span class="ph" data-i="accordion_shipping_placeholder">PLACEHOLDER shipping and returns policy</span></p>
-        </div>
-      </details>
-    </div>
   </div>
 </div></section>
+
+<div class="pdp-description"><div class="wrap">
+  <details class="pdp-desc-toggle" open>
+    <summary data-i="pdp_desc_h">Product description</summary>
+    <div class="pdp-desc-body">
+      <div class="pdp-meta">
+        <div><strong data-i="meta_format">Format</strong><span data-i="juve_meta_format_v">50ml pump bottle</span></div>
+        <div><strong data-i="meta_use">Use</strong><span data-i="juve_meta_use_v">Two pumps, nightly, before moisturiser</span></div>
+        <div><strong data-i="meta_formulated">Formulated in</strong><span data-i="meta_singapore">Singapore</span></div>
+      </div>
+
+      <div class="pdp-accordion">
+        <details open>
+          <summary data-i="accordion_actives">The actives</summary>
+          <div class="acc-body">
+            <p><strong data-i="juve_act1_h">Oligopeptide-24</strong> &mdash; <span data-i="juve_act1_p">a signalling peptide included to support the skin's own renewal process, contributing to a smoother, more even surface over time.</span></p>
+            <p><strong data-i="juve_act2_h">Matrixyl (Palmitoyl Pentapeptide-4)</strong> &mdash; <span data-i="juve_act2_p">a well known peptide studied for how it works alongside skin's own collagen signalling, supporting the look of firmness and density with continued use.</span></p>
+            <p><strong data-i="juve_act3_h">Argireline (Acetyl Hexapeptide-3)</strong> &mdash; <span data-i="juve_act3_p">a neurocosmetic peptide designed to ease tension at the surface, softening the look of expression lines around the eyes and forehead.</span></p>
+            <p><strong data-i="juve_act4_h">Soluble Collagen</strong> &mdash; <span data-i="juve_act4_p">hydrolysed collagen sized to sit on the skin's surface, helping it hold moisture and look fuller.</span></p>
+            <p><strong data-i="juve_act5_h">Hyaluronic Acid (Sodium Hyaluronate)</strong> &mdash; <span data-i="juve_act5_p">a moisture binding molecule that draws and holds water at the skin's surface, supporting a plumper, more hydrated feel.</span></p>
+            <p><strong data-i="juve_act6_h">Panthenol</strong> &mdash; <span data-i="juve_act6_p">pro vitamin B5, included to support the skin barrier and leave a calm, conditioned feel after application.</span></p>
+            <p class="note" data-i="pf_note">Full ingredient list is printed on the pack. JUVE is a cosmetic product; individual results vary.</p>
+          </div>
+        </details>
+        <details>
+          <summary data-i="pf_usage_lbl">How to use it</summary>
+          <div class="acc-body">
+            <p data-i="juve_howto_p">Start on clean, dry skin. Press two pumps into the palm and press into face and neck rather than rubbing. Wait a minute before your moisturiser &mdash; this is the step most people skip. Nightly, every night &mdash; consistency does the work, not the size of the bottle.</p>
+          </div>
+        </details>
+        <details>
+          <summary data-i="accordion_shipping">Shipping &amp; returns</summary>
+          <div class="acc-body">
+            <p><span class="ph" data-i="accordion_shipping_placeholder">PLACEHOLDER shipping and returns policy</span></p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </details>
+</div></div>
+
+<div class="pdp-reviews"><div class="wrap">
+  <h2 data-i="pdp_reviews_h">Reviews</h2>
+  <p class="ph" data-i="pdp_reviews_placeholder">PLACEHOLDER: customer reviews</p>
+</div></div>
 
 <div class="pdp-related"><div class="wrap">
     <h2 data-i="related_h">You may also like</h2>

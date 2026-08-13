@@ -153,6 +153,16 @@ const T={
  d_howtouse2:{zh:'使用方法',th:'วิธีใช้',ko:'사용법',ja:'使い方'},
  choose_size:{zh:'选择规格',th:'เลือกขนาด',ko:'사이즈 선택',ja:'サイズを選ぶ'},
  quantity:{zh:'数量',th:'จำนวน',ko:'수량',ja:'数量'},
+ qty_of_label:{zh:'数量',th:'จำนวน',ko:'수량',ja:'数量'},
+ size_single_nm:{zh:'单瓶',th:'ขวดเดี่ยว',ko:'단품',ja:'単品'},
+ size_case3_nm:{zh:'3瓶装',th:'แพ็ค 3 ขวด',ko:'3병 세트',ja:'3本セット'},
+ size_case10_nm:{zh:'10瓶装',th:'10 ขวด',ko:'10병',ja:'10本'},
+ badge_popular:{zh:'最受欢迎',th:'ยอดนิยม',ko:'가장 인기',ja:'一番人気'},
+ badge_best_value:{zh:'超值优选',th:'คุ้มค่าที่สุด',ko:'최고 가성비',ja:'ベストバリュー'},
+ price_save:{zh:'节省',th:'ประหยัด',ko:'절약',ja:'節約'},
+ price_each:{zh:'每瓶',th:'ต่อขวด',ko:'병당',ja:'1本あたり'},
+ price_bottles_delivered:{zh:'瓶送达',th:'ขวดที่ได้รับ',ko:'병 제공',ja:'本お届け'},
+ order_label:{zh:'您的订单',th:'คำสั่งซื้อของคุณ',ko:'나의 주문',ja:'ご注文内容'},
  add_cart:{zh:'加入购物车',th:'ใส่ตะกร้า',ko:'장바구니에 담기',ja:'カートに追加'},
  buy_now:{zh:'立即购买',th:'ซื้อเลย',ko:'바로 구매',ja:'今すぐ購入'},
  k_serum2:{zh:'精华 · 招牌',th:'เซรั่ม · ซิกเนเจอร์',ko:'세럼 · 시그니처',ja:'美容液 · シグネチャー'},
@@ -374,6 +384,9 @@ const T={
 };
 const EN={};
 document.querySelectorAll('[data-i]').forEach(el=>{if(!(el.dataset.i in EN))EN[el.dataset.i]=el.innerHTML});
+// fragment-only keys with no standalone DOM element to seed from (composed into dynamic price strings)
+Object.assign(EN,{price_save:'Save',price_each:'each',price_bottles_delivered:'bottles delivered'});
+function tr(k){ return LANG==='en' ? EN[k] : ((T[k]&&T[k][LANG])||EN[k]); }
 function setLang(l){
   LANG=l;
   document.querySelectorAll('[data-i]').forEach(el=>{
@@ -382,26 +395,81 @@ function setLang(l){
   document.getElementById('lang').classList.remove('open');
   document.querySelectorAll('.langmenu button').forEach(b=>b.setAttribute('aria-current',b.dataset.l===l));
   document.documentElement.lang=l;
+  document.dispatchEvent(new Event('langchange'));
 }
 setLang('en');
 
 /* ---------- buybox: size + qty + total (scoped, supports multiple per page) ---------- */
 (function(){
+  const fmt0=n=>'$'+Math.round(n).toLocaleString();
+  const fmt2=n=>'$'+n.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+
   document.querySelectorAll('.pdp-buybox').forEach(box=>{
     const sizes=[...box.querySelectorAll('.pdp-size')];
     if(!sizes.length) return;
     const qtyEl=box.querySelector('.qval');
-    const totalEl=box.closest('.pdp-info,.edit-panel')?.querySelector('.pdp-total') || box.querySelector('.pdp-total');
+    const info=box.closest('.pdp-info,.edit-panel') || box;
+    const totalEl=info.querySelector('.pdp-total') || box.querySelector('.pdp-total');
+    const qtyTierNameEl=box.querySelector('.qty-tier-name');
+    const orderDetailEl=box.querySelector('.pdp-order-detail');
     let qty=1;
-    function selectedPrice(){
-      const sel=box.querySelector('.pdp-size.sel');
-      return sel ? +sel.dataset.price : 0;
+
+    // tier-discount model is opt-in per page: only kicks in when size buttons carry data-bottles.
+    // pages without it (e.g. Bright Mask's single placeholder tier) fall back to the plain price*qty behaviour untouched.
+    const hasTiers=sizes.every(s=>s.dataset.bottles);
+    const baseTier=hasTiers ? sizes.find(s=>+s.dataset.bottles===1) : null;
+    const basePerBottle=baseTier ? (+baseTier.dataset.price)/(+baseTier.dataset.bottles) : null;
+
+    function selected(){ return box.querySelector('.pdp-size.sel') || sizes[0]; }
+
+    // static, per-tier reference/savings/unit figures shown on each card — independent of quantity,
+    // computed from data-price/data-bottles so they self-correct if pricing changes.
+    function paintCards(){
+      if(!hasTiers || basePerBottle==null) return;
+      let prevUnit=Infinity, orderOk=true;
+      sizes.forEach(s=>{
+        const bottles=+s.dataset.bottles, price=+s.dataset.price;
+        const unit=price/bottles;
+        if(bottles>1 && unit>prevUnit+1e-6) orderOk=false;
+        if(bottles>1) prevUnit=Math.min(prevUnit,unit);
+        const refPrice=basePerBottle*bottles;
+        const savings=refPrice-price;
+        const nowEl=s.querySelector('.pr-now'), refElCard=s.querySelector('.pr-ref');
+        const saveElCard=s.querySelector('.pr-save'), unitElCard=s.querySelector('.pr-unit');
+        if(nowEl) nowEl.textContent=fmt0(price);
+        const showDiscount=bottles>1 && savings>0.004;
+        if(refElCard) refElCard.textContent = showDiscount ? fmt0(refPrice) : '';
+        if(saveElCard){
+          if(showDiscount){
+            const pct=Math.round(savings/refPrice*100);
+            saveElCard.textContent=tr('price_save')+' '+fmt0(savings)+' ('+pct+'%)';
+          } else saveElCard.textContent='';
+        }
+        if(unitElCard) unitElCard.textContent = showDiscount ? fmt2(unit)+' '+tr('price_each') : '';
+      });
+      if(!orderOk) console.warn('[JUVE pricing] per-bottle price does not decrease as bottle count increases across tiers — check data-price/data-bottles on .pdp-size buttons.');
     }
+
+    // title-area price: the selected tier's own base price only — never multiplied by quantity.
+    // the only place quantity × tier appears is the order summary near checkout, below.
     function paint(){
-      const t=selectedPrice()*qty;
-      if(totalEl) totalEl.textContent = isNaN(t)||t===0 ? (totalEl.dataset.fallback||'—') : '$'+t.toLocaleString();
+      const sel=selected();
+      const price=sel ? +sel.dataset.price : 0;
+      const bottles=(sel && hasTiers) ? +sel.dataset.bottles : 1;
+      if(totalEl) totalEl.textContent = isNaN(price)||price===0 ? (totalEl.dataset.fallback||'—') : fmt0(price);
       if(qtyEl) qtyEl.textContent=qty;
+
+      const nm=sel ? sel.querySelector('.nm') : null;
+      const tierName=nm ? nm.textContent : '';
+      if(qtyTierNameEl) qtyTierNameEl.textContent=tierName;
+
+      if(orderDetailEl && sel){
+        const totalBottles=bottles*qty;
+        const total=price*qty;
+        orderDetailEl.textContent = qty+' × '+tierName+' — '+totalBottles+' '+tr('price_bottles_delivered')+' — '+fmt2(total);
+      }
     }
+
     sizes.forEach(s=>s.addEventListener('click',()=>{
       sizes.forEach(x=>x.classList.remove('sel'));
       s.classList.add('sel');
@@ -410,6 +478,8 @@ setLang('en');
     const dec=box.querySelector('.qdec'), inc=box.querySelector('.qinc');
     if(dec) dec.addEventListener('click',()=>{qty=Math.max(1,qty-1);paint();});
     if(inc) inc.addEventListener('click',()=>{qty=Math.min(20,qty+1);paint();});
+    document.addEventListener('langchange',()=>{paintCards();paint();});
+    paintCards();
     paint();
   });
 })();
@@ -484,4 +554,20 @@ setLang('en');
       step.setAttribute('aria-expanded',open);
     });
   });
+})();
+
+/* ---------- pdp gallery (main image + thumbs + prev/next) ---------- */
+(function(){
+  const mainImg=document.getElementById('pdpMainImg');
+  const thumbs=[...document.querySelectorAll('#pdpThumbs .pdp-thumb')];
+  if(!mainImg||!thumbs.length) return;
+  const srcs=thumbs.map(t=>t.querySelector('img').getAttribute('src'));
+  let idx=0;
+  function render(){
+    mainImg.src=srcs[idx];
+    mainImg.classList.toggle('fit-contain', idx!==0);
+    thumbs.forEach((t,i)=>t.classList.toggle('sel', i===idx));
+  }
+  window.pdpGo=n=>{idx=n;render()};
+  window.pdpNav=d=>{idx=(idx+d+srcs.length)%srcs.length;render()};
 })();
