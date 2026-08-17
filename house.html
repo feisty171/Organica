@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The House — Organica International</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
 <header id="hdr">
@@ -15,7 +15,6 @@
         <a href="index.html" class="active" data-i="nav_house">The House<span class="car"></span></a>
         <div class="navdrop">
           <a href="house.html#story" data-i="d_story">Our Story</a>
-          <a href="house.html#testimonials" data-i="d_testimonials">Testimonials</a>
           <a href="house.html#contact" data-i="d_contact">Contact</a>
         </div>
       </div>
@@ -24,6 +23,7 @@
         <div class="navdrop">
           <a href="product-juve.html">JUVE</a>
           <a href="product-mask.html">Bright Mask</a>
+          <a href="product-prepe.html">ProBio Prepé</a>
         </div>
       </div>
       <div class="navlink">
@@ -34,7 +34,6 @@
           <a href="learn.html#videos" data-i="d_videos">Videos</a>
         </div>
       </div>
-      <a href="the-model.html" data-i="nav_model" style="margin-right:2px">The Model</a>
       <span class="navsep"></span>
       <div class="navicons">
         <div class="lang" id="lang">
@@ -66,8 +65,10 @@
 <nav class="drawer" id="drawer" onclick="this.classList.remove('open')">
   <a href="index.html" data-i="nav_house">The House</a>
   <a href="shop.html" data-i="nav_collection">The Collection</a>
+  <a class="drawer-sub" href="product-juve.html">JUVE</a>
+  <a class="drawer-sub" href="product-mask.html">Bright Mask</a>
+  <a class="drawer-sub" href="product-prepe.html">ProBio Prepé</a>
   <a href="learn.html" data-i="nav_science">The Science</a>
-  <a href="the-model.html" data-i="nav_model">The Model</a>
 </nav>
 
 <main>
@@ -136,8 +137,8 @@
       <img class="mi" src="juve-daily-essence-2014.jpg" alt="JUVE Daily Essence packaging">
       <span class="yr">2014</span>
     </div>
-    <div class="sl-media-item" data-year="2024"><span class="yr">2024</span><span class="ph">PLACEHOLDER photo &mdash; JUVE launch</span></div>
-    <div class="sl-media-item" data-year="Today"><span class="yr" data-i="today">Today</span><span class="ph">PLACEHOLDER photo &mdash; current formulation lab</span></div>
+    <div class="sl-media-item sl-media-photo" data-year="2024"><span class="yr">2024</span><img class="mi" src="hero-juve-ageless-3.jpg" alt="JUVE Biomimetic Stem Cell Activator launch campaign"></div>
+    <div class="sl-media-item sl-media-photo" data-year="Today"><span class="yr" data-i="today">Today</span><img class="mi" src="organica-formulation-lab.jpg" alt="Current Organica formulation laboratory"></div>
   </div>
 </div></section>
 
@@ -204,8 +205,8 @@
     <div>
       <div class="stats">
         <div class="st"><p class="v" data-count="7">0</p><p class="k" data-i="stat_markets">Markets across Asia</p></div>
-        <div class="st"><p class="v"><span class="ph">VALUE</span></p><p class="k" data-i="stat_members">Account holders</p></div>
-        <div class="st"><p class="v"><span class="ph">VALUE</span></p><p class="k" data-i="stat_bottles">Bottles shipped to date</p></div>
+        <div class="st"><p class="v"><span data-count="3192">0</span></p><p class="k" data-i="stat_members">Members</p></div>
+        <div class="st"><p class="v"><span id="bottlesShipped" data-live-value>&mdash;</span></p><p class="k">Bottles shipped (live)</p></div>
       </div>
       <ul class="mlist" id="mlist">
         <li data-m="sg" data-i="m_sg">Singapore</li>
@@ -220,28 +221,16 @@
   </div>
 </div></section>
 
-<section class="section sci-anchor" id="testimonials" style="padding-top:0"><div class="wrap">
-  <div class="shead">
-    <p class="eyebrow" data-i="tst_eyebrow">In their words</p>
-    <h2 data-i="tst_h">What people actually say.</h2>
-    <p class="lede" data-i="tst_p"><span class="ph">PLACEHOLDER: real reviews pending. Structure ready, quotes below are examples only.</span></p>
+<section class="section trust-section"><div class="wrap">
+  <div class="shead trust-head">
+    <p class="eyebrow">Why people choose Organica</p>
+    <h2>Thoughtful by design.</h2>
+    <p>Our approach is built around clarity, focus and formulas developed close to home.</p>
   </div>
-  <div class="testigrid">
-    <div class="testi">
-      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-      <p class="q" data-i="tst1_q">PLACEHOLDER quote &mdash; a real customer review goes here once collected.</p>
-      <div class="who"><span class="av">A</span><div><p class="nm" data-i="tst1_nm">PLACEHOLDER name</p><p class="tag" data-i="tst1_tag">JUVE &middot; Case of 3</p></div></div>
-    </div>
-    <div class="testi">
-      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-      <p class="q" data-i="tst2_q">PLACEHOLDER quote &mdash; a real customer review goes here once collected.</p>
-      <div class="who"><span class="av">B</span><div><p class="nm" data-i="tst2_nm">PLACEHOLDER name</p><p class="tag" data-i="tst2_tag">JUVE &middot; Single</p></div></div>
-    </div>
-    <div class="testi">
-      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-      <p class="q" data-i="tst3_q">PLACEHOLDER quote &mdash; a real customer review goes here once collected.</p>
-      <div class="who"><span class="av">C</span><div><p class="nm" data-i="tst3_nm">PLACEHOLDER name</p><p class="tag" data-i="tst3_tag">JUVE &middot; Case of 10</p></div></div>
-    </div>
+  <div class="trust-grid">
+    <article class="trust-card"><span class="trust-no">01</span><h3>Formulated in Singapore</h3><p>Developed for Asian skin and climate by a beauty group with four decades of formulation experience.</p></article>
+    <article class="trust-card"><span class="trust-no">02</span><h3>Every active is named</h3><p>Key technologies and their purpose are explained, so you can understand what belongs in your routine.</p></article>
+    <article class="trust-card"><span class="trust-no">03</span><h3>A focused collection</h3><p>Three complementary products with straightforward formats, usage guidance and clearly defined roles.</p></article>
   </div>
 </div></section>
 
@@ -305,7 +294,8 @@
       </div>
       <div><h4 data-i="f_shop">Shop</h4><ul>
         <li><a href="product-juve.html">JUVE</a></li>
-        <li><a href="product-mask.html">Bright Mask</a></li></ul></div>
+        <li><a href="product-mask.html">Bright Mask</a></li>
+        <li><a href="product-prepe.html">ProBio Prepé</a></li></ul></div>
       <div><h4 data-i="nav_account">Account</h4><ul>
         <li><a href="#" onclick="openAcct('signin');return false" data-i="a_signin">Sign in</a></li>
         <li><a href="#" onclick="openAcct('create');return false" data-i="a_create">Create account</a></li>
@@ -313,7 +303,7 @@
       <div><h4 data-i="f_company">Company</h4><ul>
         <li><a href="house.html" data-i="nav_house">The House</a></li>
         <li><a href="learn.html" data-i="nav_learn">Learn</a></li>
-        <li><a href="the-model.html" data-i="nav_model">The Model</a></li>
+        <li></li>
         <li><a href="house.html#contact" data-i="f_contact">Contact</a></li></ul></div>
     </div>
     <div class="fbase">
@@ -354,19 +344,19 @@
       <p class="eyebrow" data-i="a_signedin">Signed in</p>
       <h3 style="margin:8px 0 24px;font-size:26px">Fei</h3>
       <div class="bals">
-        <div class="bal"><p class="k" data-i="a_credit">Store credit</p><p class="v"><span class="ph">VAL</span></p><p class="s" data-i="a_credit_s">Applied at checkout</p></div>
-        <div class="bal"><p class="k" data-i="a_referrals">Referrals</p><p class="v"><span class="ph">VAL</span></p><p class="s" data-i="a_referrals_s">Credit earned</p></div>
+        <div class="bal"><p class="k" data-i="a_credit">Store credit</p><p class="v">&mdash;</p><p class="s" data-i="a_credit_s">Applied at checkout</p></div>
+        <div class="bal"><p class="k" data-i="a_referrals">Referrals</p><p class="v">&mdash;</p><p class="s" data-i="a_referrals_s">Credit earned</p></div>
       </div>
       <p class="eyebrow" style="margin-bottom:4px" data-i="a_current">Current course</p>
-      <div class="arow"><strong>JUVE</strong><span><span class="ph">3 of 7</span></span></div>
-      <div class="arow"><strong data-i="a_next">Next delivery</strong><span><span class="ph">DATE</span></span></div>
-      <div class="arow"><strong data-i="a_orders">Order history</strong><span><span class="ph">N</span></span></div>
+      <div class="arow"><strong>JUVE</strong><span>&mdash;</span></div>
+      <div class="arow"><strong data-i="a_next">Next delivery</strong><span>Not scheduled</span></div>
+      <div class="arow"><strong data-i="a_orders">Order history</strong><span>&mdash;</span></div>
       <div class="arow"><strong data-i="a_addr">Delivery address</strong><span data-i="edit">Edit</span></div>
       <button class="btn btn-ghost" style="margin-top:24px;width:100%" onclick="atab('signin')" data-i="a_signout">Sign out</button>
     </div>
   </div>
 </aside>
 
-<script src="app.js"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

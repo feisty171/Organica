@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bright Mask — Organica International</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=9">
 </head>
-<body>
+<body class="mask-page">
 <header id="hdr">
   <div class="wrap nav">
     <a class="mark" href="index.html"><img src="logo.png" alt="Organica International"></a>
@@ -15,7 +15,6 @@
         <a href="index.html" data-i="nav_house">The House<span class="car"></span></a>
         <div class="navdrop">
           <a href="house.html#story" data-i="d_story">Our Story</a>
-          <a href="house.html#testimonials" data-i="d_testimonials">Testimonials</a>
           <a href="house.html#contact" data-i="d_contact">Contact</a>
         </div>
       </div>
@@ -24,6 +23,7 @@
         <div class="navdrop">
           <a href="product-juve.html">JUVE</a>
           <a href="product-mask.html">Bright Mask</a>
+          <a href="product-prepe.html">ProBio Prepé</a>
         </div>
       </div>
       <div class="navlink">
@@ -34,7 +34,6 @@
           <a href="learn.html#videos" data-i="d_videos">Videos</a>
         </div>
       </div>
-      <a href="the-model.html" data-i="nav_model" style="margin-right:2px">The Model</a>
       <span class="navsep"></span>
       <div class="navicons">
         <div class="lang" id="lang">
@@ -66,8 +65,10 @@
 <nav class="drawer" id="drawer" onclick="this.classList.remove('open')">
   <a href="index.html" data-i="nav_house">The House</a>
   <a href="shop.html" data-i="nav_collection">The Collection</a>
+  <a class="drawer-sub" href="product-juve.html">JUVE</a>
+  <a class="drawer-sub" href="product-mask.html">Bright Mask</a>
+  <a class="drawer-sub" href="product-prepe.html">ProBio Prepé</a>
   <a href="learn.html" data-i="nav_science">The Science</a>
-  <a href="the-model.html" data-i="nav_model">The Model</a>
 </nav>
 
 <main>
@@ -91,15 +92,15 @@
 
   <div class="pdp-info">
     <p class="pkind" data-i="pdp_mask_kind">Mask &middot; Weekly</p>
-    <h1>Bright Mask</h1>
+    <h1>Bright+ Fibre Silk Mask</h1>
     <p class="pdp-price pdp-total" data-fallback="&mdash;">&mdash;</p>
-    <p class="pdp-desc" data-i="mask_p1">Bright+ is a fibre silk sheet mask built around alpha-arbutin and an antioxidant complex, designed to help brighten the look of skin and leave it feeling smoother and more hydrated after each use.</p>
-    <p class="pdp-desc" data-i="mask_p2">The sheet itself is spun from natural silk protein rather than a synthetic fibre, chosen for how closely it sits against the skin for the 15 to 20 minutes it's left on.</p>
+    <p class="pdp-desc">The Bright+ Fibre Silk Mask is a luxurious treatment mask infused with C60 LumiFullerene Complex, Alpha-Arbutin, Niacinamide, Panthenol and Sodium Hyaluronate.</p>
+    <p class="pdp-desc">Designed to illuminate, hydrate and rejuvenate, it delivers exceptional antioxidant power for radiant, youthful-looking skin.</p>
 
     <div class="pdp-buybox">
       <p class="pdp-size-label" data-i="choose_size">Choose a size</p>
       <div class="pdp-sizes">
-        <button class="pdp-size sel" data-price="0"><span class="nm" data-i="mask_size_placeholder_nm">Pack size &mdash; PLACEHOLDER</span><span class="pr" data-i="mask_size_placeholder_pr">Price &mdash; PLACEHOLDER</span></button>
+        <button class="pdp-size sel" data-price="0"><span class="nm">Box of 5 masks</span><span class="pr">Price on request</span></button>
       </div>
 
       <p class="pdp-size-label" data-i="quantity">Quantity</p>
@@ -123,7 +124,7 @@
     <summary data-i="pdp_desc_h">Product description</summary>
     <div class="pdp-desc-body">
     <div class="pdp-meta">
-      <div><strong data-i="meta_format">Format</strong><span data-i="mask_meta_format_v">PLACEHOLDER &mdash; pack size</span></div>
+      <div><strong data-i="meta_format">Format</strong><span>Box of 5 fibre silk masks</span></div>
       <div><strong data-i="meta_use">Use</strong><span data-i="mask_meta_use_v">15 to 20 minutes, 2 to 3 times a week</span></div>
       <div><strong data-i="meta_formulated">Formulated in</strong><span data-i="meta_singapore">Singapore</span></div>
     </div>
@@ -132,23 +133,17 @@
       <details open>
         <summary data-i="accordion_actives">The actives</summary>
         <div class="acc-body">
-          <p><strong data-i="mask_act1_h">Alpha-Arbutin</strong> &mdash; <span data-i="mask_act1_p">works by limiting the enzyme responsible for excess pigment production, helping even out the look of skin tone with regular use.</span></p>
-          <p><strong data-i="mask_act2_h">Niacinamide</strong> &mdash; <span data-i="mask_act2_p">vitamin B3, included to help even out the look of skin tone, support the skin barrier, and keep pores looking refined.</span></p>
-          <p><strong data-i="mask_act3_h">LumiFullerene Complex</strong> &mdash; <span data-i="mask_act3_p">a carbon based antioxidant complex included to help defend skin against everyday environmental stress.</span></p>
-          <p><strong data-i="mask_act4_h">Silk Fibre</strong> &mdash; <span data-i="mask_act4_p">a natural fibre chosen for how closely it follows the contours of the face, helping the essence stay in contact with skin for the full application.</span></p>
+          <p><strong>C60 LumiFullerene Complex</strong> &mdash; provides antioxidant support against environmental stress.</p>
+          <p><strong>Alpha-Arbutin and Niacinamide</strong> &mdash; help brighten the look of skin, refine pores and promote a more even-looking tone.</p>
+          <p><strong>Panthenol and Sodium Hyaluronate</strong> &mdash; soothe, moisturise and help strengthen the skin's moisture barrier.</p>
+          <p><strong>Silk Fibre</strong> &mdash; conforms closely to the face for effective absorption and comfortable wear.</p>
           <p class="note" data-i="mask_note">Full ingredient list is printed on the pack. Bright Mask is a cosmetic product; individual results vary.</p>
         </div>
       </details>
       <details>
         <summary data-i="pf_usage_lbl">How to use it</summary>
         <div class="acc-body">
-          <p data-i="mask_howto_p">Start on clean, dry skin. Unfold and apply, aligning with your eyes, nose and mouth. Rest for 15 to 20 minutes while the essence settles in. Remove and pat any remaining essence in &mdash; no rinsing needed. Use 2 to 3 times a week, followed by your regular moisturiser.</p>
-        </div>
-      </details>
-      <details>
-        <summary data-i="accordion_shipping">Shipping &amp; returns</summary>
-        <div class="acc-body">
-          <p><span class="ph" data-i="accordion_shipping_placeholder">PLACEHOLDER shipping and returns policy</span></p>
+          <p>Gently remove the fibre silk mask from its packaging and unfold it. Place it onto the face, aligning with the eyes, nose and mouth. Leave on for 15 to 20 minutes, remove, and gently massage any remaining essence into the skin. Follow with your regular skincare routine.</p>
         </div>
       </details>
     </div>
@@ -156,17 +151,12 @@
   </details>
 </div></div>
 
-<div class="pdp-reviews"><div class="wrap">
-  <h2 data-i="pdp_reviews_h">Reviews</h2>
-  <p class="ph" data-i="pdp_reviews_placeholder">PLACEHOLDER: customer reviews</p>
-</div></div>
-
 <div class="pdp-related"><div class="wrap">
     <h2 data-i="related_h">You may also like</h2>
     <div class="pdp-related-grid">
       <a class="pcard" href="product-juve.html">
         <div class="art" style="min-height:180px"><img class="card-photo" src="juve-product.jpg" alt="JUVE"></div>
-        <div class="pbody"><p class="pkind" data-i="pdp_juve_kind_short">Serum</p><h3>JUVE</h3></div>
+        <div class="pbody"><p class="pkind">Mist</p><h3>JUVE</h3></div>
       </a>
     </div>
   </div></div>
@@ -180,7 +170,8 @@
       </div>
       <div><h4 data-i="f_shop">Shop</h4><ul>
         <li><a href="product-juve.html">JUVE</a></li>
-        <li><a href="product-mask.html">Bright Mask</a></li></ul></div>
+        <li><a href="product-mask.html">Bright Mask</a></li>
+        <li><a href="product-prepe.html">ProBio Prepé</a></li></ul></div>
       <div><h4 data-i="nav_account">Account</h4><ul>
         <li><a href="#" onclick="openAcct('signin');return false" data-i="a_signin">Sign in</a></li>
         <li><a href="#" onclick="openAcct('create');return false" data-i="a_create">Create account</a></li>
@@ -188,7 +179,7 @@
       <div><h4 data-i="f_company">Company</h4><ul>
         <li><a href="house.html" data-i="nav_house">The House</a></li>
         <li><a href="learn.html" data-i="nav_learn">Learn</a></li>
-        <li><a href="the-model.html" data-i="nav_model">The Model</a></li>
+        <li></li>
         <li><a href="house.html#contact" data-i="f_contact">Contact</a></li></ul></div>
     </div>
     <div class="fbase">
@@ -229,19 +220,19 @@
       <p class="eyebrow" data-i="a_signedin">Signed in</p>
       <h3 style="margin:8px 0 24px;font-size:26px">Fei</h3>
       <div class="bals">
-        <div class="bal"><p class="k" data-i="a_credit">Store credit</p><p class="v"><span class="ph">VAL</span></p><p class="s" data-i="a_credit_s">Applied at checkout</p></div>
-        <div class="bal"><p class="k" data-i="a_referrals">Referrals</p><p class="v"><span class="ph">VAL</span></p><p class="s" data-i="a_referrals_s">Credit earned</p></div>
+        <div class="bal"><p class="k" data-i="a_credit">Store credit</p><p class="v">&mdash;</p><p class="s" data-i="a_credit_s">Applied at checkout</p></div>
+        <div class="bal"><p class="k" data-i="a_referrals">Referrals</p><p class="v">&mdash;</p><p class="s" data-i="a_referrals_s">Credit earned</p></div>
       </div>
       <p class="eyebrow" style="margin-bottom:4px" data-i="a_current">Current course</p>
-      <div class="arow"><strong>JUVE</strong><span><span class="ph">3 of 7</span></span></div>
-      <div class="arow"><strong data-i="a_next">Next delivery</strong><span><span class="ph">DATE</span></span></div>
-      <div class="arow"><strong data-i="a_orders">Order history</strong><span><span class="ph">N</span></span></div>
+      <div class="arow"><strong>JUVE</strong><span>&mdash;</span></div>
+      <div class="arow"><strong data-i="a_next">Next delivery</strong><span>Not scheduled</span></div>
+      <div class="arow"><strong data-i="a_orders">Order history</strong><span>&mdash;</span></div>
       <div class="arow"><strong data-i="a_addr">Delivery address</strong><span data-i="edit">Edit</span></div>
       <button class="btn btn-ghost" style="margin-top:24px;width:100%" onclick="atab('signin')" data-i="a_signout">Sign out</button>
     </div>
   </div>
 </aside>
 
-<script src="app.js"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

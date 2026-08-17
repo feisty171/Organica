@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProBio Prepé — Organica International</title>
+<link rel="stylesheet" href="style.css?v=9">
+</head>
+<body class="prepe-page">
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="mark" href="index.html"><img src="logo.png" alt="Organica International"></a>
+    <div class="navright">
+      <div class="navlink">
+        <a href="index.html" data-i="nav_house">The House<span class="car"></span></a>
+        <div class="navdrop">
+          <a href="house.html#story" data-i="d_story">Our Story</a>
+          <a href="house.html#contact" data-i="d_contact">Contact</a>
+        </div>
+      </div>
+      <div class="navlink">
+        <a href="shop.html" class="active" data-i="nav_collection">The Collection<span class="car"></span></a>
+        <div class="navdrop">
+          <a href="product-juve.html">JUVE</a>
+          <a href="product-mask.html">Bright Mask</a>
+          <a href="product-prepe.html">ProBio Prepé</a>
+        </div>
+      </div>
+      <div class="navlink">
+        <a href="learn.html" data-i="nav_science">The Science<span class="car"></span></a>
+        <div class="navdrop">
+          <a href="learn.html#blog" data-i="d_blog">Blog Posts</a>
+          <a href="learn.html#faq" data-i="d_faq">FAQ</a>
+          <a href="learn.html#videos" data-i="d_videos">Videos</a>
+        </div>
+      </div>
+      <span class="navsep"></span>
+      <div class="navicons">
+        <div class="lang" id="lang">
+          <button class="lang-btn" onclick="event.stopPropagation();document.getElementById('lang').classList.toggle('open')" aria-label="Language">
+            <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="1.2" fill="none"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>
+            <span class="car"></span>
+          </button>
+          <div class="langmenu">
+            <button onclick="setLang('en')" data-l="en">English</button>
+            <button onclick="setLang('zh')" data-l="zh">中文</button>
+            <button onclick="setLang('th')" data-l="th">ไทย</button>
+            <button onclick="setLang('ko')" data-l="ko">한국어</button>
+            <button onclick="setLang('ja')" data-l="ja">日本語</button>
+          </div>
+        </div>
+        <button class="icon-btn" onclick="openAcct('signin')" aria-label="Account" data-i-title="nav_account">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.6-4 5-6 7.5-6s5.9 2 7.5 6"/></svg>
+        </button>
+        <button class="icon-btn" onclick="gate('cart')" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M4 8h16l-1.4 11.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+          <span class="badge" id="cartn">0</span>
+        </button>
+        <button class="burger" onclick="document.getElementById('drawer').classList.toggle('open')" aria-label="Menu"><i></i><i></i><i></i></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="drawer" id="drawer" onclick="this.classList.remove('open')">
+  <a href="index.html" data-i="nav_house">The House</a>
+  <a href="shop.html" data-i="nav_collection">The Collection</a>
+  <a class="drawer-sub" href="product-juve.html">JUVE</a>
+  <a class="drawer-sub" href="product-mask.html">Bright Mask</a>
+  <a class="drawer-sub" href="product-prepe.html">ProBio Prepé</a>
+  <a href="learn.html" data-i="nav_science">The Science</a>
+</nav>
+
+<main>
+<nav class="crumb wrap"><a href="index.html" data-i="crumb_home">Home</a><span>/</span><a href="shop.html" data-i="crumb_collection">Collection</a><span>/</span>ProBio Prepé</nav>
+
+<section class="pdp"><div class="wrap pdp-grid">
+  <div class="pdp-gallery">
+    <div class="pdp-main">
+      <button class="pdp-nav prev" type="button" aria-label="Previous image" onclick="pdpNav(-1)">&#10094;</button>
+      <img class="pdp-photo" id="pdpMainImg" src="prepe-gallery-1.jpg" alt="ProBio Prepé cleanser bottle">
+      <button class="pdp-nav next" type="button" aria-label="Next image" onclick="pdpNav(1)">&#10095;</button>
+    </div>
+    <div class="pdp-thumbs" id="pdpThumbs">
+      <button class="pdp-thumb sel" type="button" onclick="pdpGo(0)" aria-label="View ProBio Prepé product artwork"><img src="prepe-gallery-1.jpg" alt=""></button>
+      <button class="pdp-thumb" type="button" onclick="pdpGo(1)" aria-label="View ProBio Prepé benefits"><img src="prepe-gallery-2.jpg" alt=""></button>
+      <button class="pdp-thumb" type="button" onclick="pdpGo(2)" aria-label="View ProBio Prepé results"><img src="prepe-gallery-3.jpg" alt=""></button>
+      <button class="pdp-thumb" type="button" onclick="pdpGo(3)" aria-label="View ProBio Prepé key ingredients"><img src="prepe-gallery-4.jpg" alt=""></button>
+    </div>
+  </div>
+
+  <div class="pdp-info">
+    <p class="pkind">Cleanser &middot; Daily</p>
+    <h1>ProBio Prepé</h1>
+    <p class="pdp-price pdp-total" data-fallback="&mdash;">&mdash;</p>
+    <p class="pdp-desc">Prepé is a microbiome-focused mousse face cleanser designed to remove makeup and daily buildup while supporting the skin barrier. Its light foam is suitable for all skin types.</p>
+    <p class="pdp-desc">The formula pairs Bacillus coagulans and DEFENSIL®-PURE ECO with lactic acid and botanical extracts to cleanse and refine texture while leaving skin feeling fresh rather than stripped.</p>
+
+    <div class="pdp-buybox">
+      <p class="pdp-size-label" data-i="choose_size">Choose a size</p>
+      <div class="pdp-sizes">
+        <button class="pdp-size sel" data-price="0"><span class="nm">Single bottle</span><span class="pr">Price on request</span></button>
+      </div>
+
+      <p class="pdp-size-label" data-i="quantity">Quantity</p>
+      <div class="pdp-qty">
+        <button class="qdec" aria-label="Decrease">&minus;</button>
+        <span class="qval">1</span>
+        <button class="qinc" aria-label="Increase">+</button>
+      </div>
+
+      <div class="pdp-cta">
+        <button class="btn btn-solid" onclick="gate('add')" data-i="add_cart">Add to cart</button>
+        <button class="btn btn-ghost" onclick="gate('buy')" data-i="buy_now">Buy now</button>
+      </div>
+    </div>
+
+  </div>
+</div></section>
+
+<div class="pdp-description"><div class="wrap">
+  <details class="pdp-desc-toggle" open>
+    <summary data-i="pdp_desc_h">Product description</summary>
+    <div class="pdp-desc-body">
+    <div class="pdp-meta">
+      <div><strong data-i="meta_format">Format</strong><span>Mousse face cleanser</span></div>
+      <div><strong data-i="meta_use">Use</strong><span>Morning and evening</span></div>
+      <div><strong data-i="meta_formulated">Formulated in</strong><span data-i="meta_singapore">Singapore</span></div>
+    </div>
+
+    <div class="pdp-accordion">
+      <details open>
+        <summary data-i="accordion_actives">The actives</summary>
+        <div class="acc-body">
+          <p><strong>Bacillus Coagulans</strong> &mdash; supports the skin's microbial balance and natural barrier.</p>
+          <p><strong>DEFENSIL®-PURE ECO</strong> &mdash; included to soothe the feel of irritated skin and support a balanced microbiota.</p>
+          <p><strong>Lactic Acid (AHA)</strong> &mdash; gently refines texture and helps skin look smoother, brighter and more even.</p>
+          <p><strong>Comfrey, Witch Hazel and Licorice Root Extracts</strong> &mdash; a botanical blend chosen to soothe, refine the look of pores and support a more even-looking tone.</p>
+          <p class="note">Full ingredient list is printed on the pack. Prepé is a cosmetic product; individual results vary.</p>
+        </div>
+      </details>
+      <details>
+        <summary data-i="pf_usage_lbl">How to use it</summary>
+        <div class="acc-body">
+          <p>Dispense onto damp palms and work into a light lather. Massage gently over the face for 30 to 60 seconds, avoiding the eye area, then rinse thoroughly. Use morning and evening.</p>
+        </div>
+      </details>
+    </div>
+    </div>
+  </details>
+</div></div>
+
+<div class="pdp-related"><div class="wrap">
+    <h2 data-i="related_h">You may also like</h2>
+    <div class="pdp-related-grid">
+      <a class="pcard" href="product-juve.html">
+        <div class="art" style="min-height:180px"><img class="card-photo" src="juve-product.jpg" alt="JUVE"></div>
+        <div class="pbody"><p class="pkind">Mist</p><h3>JUVE</h3></div>
+      </a>
+    </div>
+  </div></div>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <p class="mark" style="margin:0">ORGANICA<small>INTERNATIONAL</small></p>
+        <p style="margin-top:16px;max-width:34ch">Biomimetic skincare formulated in Singapore, sold across six markets in Asia.</p>
+      </div>
+      <div><h4 data-i="f_shop">Shop</h4><ul>
+        <li><a href="product-juve.html">JUVE</a></li>
+        <li><a href="product-mask.html">Bright Mask</a></li>
+        <li><a href="product-prepe.html">ProBio Prepé</a></li></ul></div>
+      <div><h4 data-i="nav_account">Account</h4><ul>
+        <li><a href="#" onclick="openAcct('signin');return false" data-i="a_signin">Sign in</a></li>
+        <li><a href="#" onclick="openAcct('create');return false" data-i="a_create">Create account</a></li>
+        <li><a href="#" data-i="f_delivery">Delivery and returns</a></li></ul></div>
+      <div><h4 data-i="f_company">Company</h4><ul>
+        <li><a href="house.html" data-i="nav_house">The House</a></li>
+        <li><a href="learn.html" data-i="nav_learn">Learn</a></li>
+        <li></li>
+        <li><a href="house.html#contact" data-i="f_contact">Contact</a></li></ul></div>
+    </div>
+    <div class="fbase">
+      <span>© 2026 Organica International</span>
+      <span data-i="f_legal">Privacy · Terms · Product information</span>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim" onclick="closeAcct()"></div>
+<aside class="acct" id="acct" role="dialog" aria-label="Account">
+  <div class="atop">
+    <p class="eyebrow" data-i="nav_account">Account</p>
+    <button onclick="closeAcct()" aria-label="Close" style="font-size:21px">×</button>
+  </div>
+  <p class="gate" id="gatemsg"></p>
+  <div class="atabs" id="atabs">
+    <button class="on" onclick="atab('signin')" data-i="a_signin">Sign in</button>
+    <button onclick="atab('create')" data-i="a_create">Create account</button>
+  </div>
+  <div class="abody">
+    <div id="v-signin">
+      <div class="field"><label data-i="a_email">Email</label><input type="email" placeholder="you@email.com"></div>
+      <div class="field"><label data-i="a_pw">Password</label><input type="password" placeholder="••••••••"></div>
+      <button class="btn btn-solid" onclick="atab('member')" data-i="a_signin">Sign in</button>
+      <p class="helper"><a href="#" data-i="a_forgot">Reset your password</a></p>
+      <div class="divider" data-i="or">or</div>
+      <p class="helper" data-i="a_guest">You can also check out as a guest. We will create an account for you on the confirmation page, with your order already in it.</p>
+    </div>
+    <div id="v-create" class="hidden">
+      <div class="field"><label data-i="a_name">Name</label><input placeholder="Full name"></div>
+      <div class="field"><label data-i="a_email">Email</label><input type="email" placeholder="you@email.com"></div>
+      <div class="field"><label data-i="a_pw">Password</label><input type="password" placeholder="At least 8 characters"></div>
+      <button class="btn btn-solid" onclick="atab('member')" data-i="a_create">Create account</button>
+      <p class="helper" data-i="a_createnote">An account saves your delivery details, tracks your course, and holds the credit earned on every order.</p>
+    </div>
+    <div id="v-member" class="hidden">
+      <p class="eyebrow" data-i="a_signedin">Signed in</p>
+      <h3 style="margin:8px 0 24px;font-size:26px">Fei</h3>
+      <div class="bals">
+        <div class="bal"><p class="k" data-i="a_credit">Store credit</p><p class="v">&mdash;</p><p class="s" data-i="a_credit_s">Applied at checkout</p></div>
+        <div class="bal"><p class="k" data-i="a_referrals">Referrals</p><p class="v">&mdash;</p><p class="s" data-i="a_referrals_s">Credit earned</p></div>
+      </div>
+      <p class="eyebrow" style="margin-bottom:4px" data-i="a_current">Current course</p>
+      <div class="arow"><strong>JUVE</strong><span>&mdash;</span></div>
+      <div class="arow"><strong data-i="a_next">Next delivery</strong><span>Not scheduled</span></div>
+      <div class="arow"><strong data-i="a_orders">Order history</strong><span>&mdash;</span></div>
+      <div class="arow"><strong data-i="a_addr">Delivery address</strong><span data-i="edit">Edit</span></div>
+      <button class="btn btn-ghost" style="margin-top:24px;width:100%" onclick="atab('signin')" data-i="a_signout">Sign out</button>
+    </div>
+  </div>
+</aside>
+
+<script src="app.js?v=9"></script>
+<script>
+(() => {
+  const main = document.getElementById('pdpMainImg');
+  const thumbs = [...document.querySelectorAll('#pdpThumbs .pdp-thumb')];
+  if (!main || !thumbs.length || typeof window.pdpGo === 'function') return;
+  const sources = thumbs.map(thumb => thumb.querySelector('img').getAttribute('src'));
+  let current = 0;
+  const show = index => {
+    current = (index + sources.length) % sources.length;
+    main.src = sources[current];
+    main.classList.toggle('fit-contain', current !== 0);
+    thumbs.forEach((thumb, i) => thumb.classList.toggle('sel', i === current));
+  };
+  window.pdpGo = show;
+  window.pdpNav = direction => show(current + direction);
+})();
+</script>
+</body>
+</html>

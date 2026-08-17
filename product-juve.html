@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JUVE — Organica International</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=9">
 </head>
-<body>
+<body class="juve-page">
 <header id="hdr">
   <div class="wrap nav">
     <a class="mark" href="index.html"><img src="logo.png" alt="Organica International"></a>
@@ -15,7 +15,6 @@
         <a href="index.html" data-i="nav_house">The House<span class="car"></span></a>
         <div class="navdrop">
           <a href="house.html#story" data-i="d_story">Our Story</a>
-          <a href="house.html#testimonials" data-i="d_testimonials">Testimonials</a>
           <a href="house.html#contact" data-i="d_contact">Contact</a>
         </div>
       </div>
@@ -24,6 +23,7 @@
         <div class="navdrop">
           <a href="product-juve.html">JUVE</a>
           <a href="product-mask.html">Bright Mask</a>
+          <a href="product-prepe.html">ProBio Prepé</a>
         </div>
       </div>
       <div class="navlink">
@@ -34,7 +34,6 @@
           <a href="learn.html#videos" data-i="d_videos">Videos</a>
         </div>
       </div>
-      <a href="the-model.html" data-i="nav_model" style="margin-right:2px">The Model</a>
       <span class="navsep"></span>
       <div class="navicons">
         <div class="lang" id="lang">
@@ -66,8 +65,10 @@
 <nav class="drawer" id="drawer" onclick="this.classList.remove('open')">
   <a href="index.html" data-i="nav_house">The House</a>
   <a href="shop.html" data-i="nav_collection">The Collection</a>
+  <a class="drawer-sub" href="product-juve.html">JUVE</a>
+  <a class="drawer-sub" href="product-mask.html">Bright Mask</a>
+  <a class="drawer-sub" href="product-prepe.html">ProBio Prepé</a>
   <a href="learn.html" data-i="nav_science">The Science</a>
-  <a href="the-model.html" data-i="nav_model">The Model</a>
 </nav>
 
 <main>
@@ -90,11 +91,11 @@
   </div>
 
   <div class="pdp-info">
-    <p class="pkind" data-i="pdp_juve_kind">Serum &middot; The signature</p>
+    <p class="pkind">Mist &middot; The signature</p>
     <h1>JUVE</h1>
     <p class="pdp-price"><span class="pdp-total" data-fallback="$800">$300</span></p>
-    <p class="pdp-desc" data-i="pf_juve_p1">JUVE is a biomimetic serum built around six named actives, chosen to work with the skin's own processes rather than force a result. Peptides, soluble collagen, and hyaluronic acid sit alongside panthenol for comfort, in a formula meant to be checked ingredient by ingredient, not taken on faith.</p>
-    <p class="pdp-desc" data-i="pf_juve_p2">Two pumps at night, before anything else. One bottle carries roughly a month at that pace, which is why the range is sold by the bottle and by the case rather than as a single fixed size.</p>
+    <p class="pdp-desc">JUVE Biomimetic Stem Cell Activator is a high-performance facial mist powered by six complementary actives. One intelligent approach targets multiple visible signs of ageing in one effortless daily ritual.</p>
+    <p class="pdp-desc"><strong>The JUVE effect:</strong> smooth, lift, plump, hydrate, renew and protect.</p>
 
     <div class="pdp-buybox">
       <p class="pdp-size-label" data-i="choose_size">Choose a size</p>
@@ -156,35 +157,24 @@
         <details open>
           <summary data-i="accordion_actives">The actives</summary>
           <div class="acc-body">
-            <p><strong data-i="juve_act1_h">Oligopeptide-24</strong> &mdash; <span data-i="juve_act1_p">a signalling peptide included to support the skin's own renewal process, contributing to a smoother, more even surface over time.</span></p>
-            <p><strong data-i="juve_act2_h">Matrixyl (Palmitoyl Pentapeptide-4)</strong> &mdash; <span data-i="juve_act2_p">a well known peptide studied for how it works alongside skin's own collagen signalling, supporting the look of firmness and density with continued use.</span></p>
-            <p><strong data-i="juve_act3_h">Argireline (Acetyl Hexapeptide-3)</strong> &mdash; <span data-i="juve_act3_p">a neurocosmetic peptide designed to ease tension at the surface, softening the look of expression lines around the eyes and forehead.</span></p>
-            <p><strong data-i="juve_act4_h">Soluble Collagen</strong> &mdash; <span data-i="juve_act4_p">hydrolysed collagen sized to sit on the skin's surface, helping it hold moisture and look fuller.</span></p>
-            <p><strong data-i="juve_act5_h">Hyaluronic Acid (Sodium Hyaluronate)</strong> &mdash; <span data-i="juve_act5_p">a moisture binding molecule that draws and holds water at the skin's surface, supporting a plumper, more hydrated feel.</span></p>
-            <p><strong data-i="juve_act6_h">Panthenol</strong> &mdash; <span data-i="juve_act6_p">pro vitamin B5, included to support the skin barrier and leave a calm, conditioned feel after application.</span></p>
+            <p><strong>Oligopeptide-24 - The Renewal Signal</strong> &mdash; a bioactive signalling peptide that supports the skin's natural renewal process, helping refine texture and promote a smoother, healthier-looking complexion.</p>
+            <p><strong>Matrixyl® (Palmitoyl Pentapeptide-4) - The Firming Architect</strong> &mdash; supports collagen-related pathways, helping improve the appearance of firmness, elasticity and skin density for a more youthful-looking structure.</p>
+            <p><strong>Argireline® (Acetyl Hexapeptide-8) - The Expression-Line Softener</strong> &mdash; helps soften the appearance of expression lines caused by repetitive facial movement, particularly around the forehead and eye area.</p>
+            <p><strong>Soluble Collagen - The Plumping Veil</strong> &mdash; a moisture-supporting collagen ingredient that conditions the skin's surface, helping it appear smoother, softer and visibly fuller.</p>
+            <p><strong>Hyaluronic Acid - The Moisture Magnet</strong> &mdash; attracts and retains moisture, delivering an immediate plumping effect while keeping skin supple and comfortably hydrated.</p>
+            <p><strong>Panthenol - The Barrier Guardian</strong> &mdash; Pro-Vitamin B5 helps comfort and condition the skin while supporting its moisture barrier, leaving it feeling calmer, softer and more resilient.</p>
             <p class="note" data-i="pf_note">Full ingredient list is printed on the pack. JUVE is a cosmetic product; individual results vary.</p>
           </div>
         </details>
         <details>
           <summary data-i="pf_usage_lbl">How to use it</summary>
           <div class="acc-body">
-            <p data-i="juve_howto_p">Start on clean, dry skin. Press two pumps into the palm and press into face and neck rather than rubbing. Wait a minute before your moisturiser &mdash; this is the step most people skip. Nightly, every night &mdash; consistency does the work, not the size of the bottle.</p>
-          </div>
-        </details>
-        <details>
-          <summary data-i="accordion_shipping">Shipping &amp; returns</summary>
-          <div class="acc-body">
-            <p><span class="ph" data-i="accordion_shipping_placeholder">PLACEHOLDER shipping and returns policy</span></p>
+            <p>Apply JUVE Biomimetic Stem Cell Activator after cleansing. Spray evenly onto the face, followed by your forehead, maintaining a distance of approximately 20cm from the skin. Spray under or over makeup for a brighter, lifted finish.</p>
           </div>
         </details>
       </div>
     </div>
   </details>
-</div></div>
-
-<div class="pdp-reviews"><div class="wrap">
-  <h2 data-i="pdp_reviews_h">Reviews</h2>
-  <p class="ph" data-i="pdp_reviews_placeholder">PLACEHOLDER: customer reviews</p>
 </div></div>
 
 <div class="pdp-related"><div class="wrap">
@@ -206,7 +196,8 @@
       </div>
       <div><h4 data-i="f_shop">Shop</h4><ul>
         <li><a href="product-juve.html">JUVE</a></li>
-        <li><a href="product-mask.html">Bright Mask</a></li></ul></div>
+        <li><a href="product-mask.html">Bright Mask</a></li>
+        <li><a href="product-prepe.html">ProBio Prepé</a></li></ul></div>
       <div><h4 data-i="nav_account">Account</h4><ul>
         <li><a href="#" onclick="openAcct('signin');return false" data-i="a_signin">Sign in</a></li>
         <li><a href="#" onclick="openAcct('create');return false" data-i="a_create">Create account</a></li>
@@ -214,7 +205,7 @@
       <div><h4 data-i="f_company">Company</h4><ul>
         <li><a href="house.html" data-i="nav_house">The House</a></li>
         <li><a href="learn.html" data-i="nav_learn">Learn</a></li>
-        <li><a href="the-model.html" data-i="nav_model">The Model</a></li>
+        <li></li>
         <li><a href="house.html#contact" data-i="f_contact">Contact</a></li></ul></div>
     </div>
     <div class="fbase">
@@ -255,19 +246,19 @@
       <p class="eyebrow" data-i="a_signedin">Signed in</p>
       <h3 style="margin:8px 0 24px;font-size:26px">Fei</h3>
       <div class="bals">
-        <div class="bal"><p class="k" data-i="a_credit">Store credit</p><p class="v"><span class="ph">VAL</span></p><p class="s" data-i="a_credit_s">Applied at checkout</p></div>
-        <div class="bal"><p class="k" data-i="a_referrals">Referrals</p><p class="v"><span class="ph">VAL</span></p><p class="s" data-i="a_referrals_s">Credit earned</p></div>
+        <div class="bal"><p class="k" data-i="a_credit">Store credit</p><p class="v">&mdash;</p><p class="s" data-i="a_credit_s">Applied at checkout</p></div>
+        <div class="bal"><p class="k" data-i="a_referrals">Referrals</p><p class="v">&mdash;</p><p class="s" data-i="a_referrals_s">Credit earned</p></div>
       </div>
       <p class="eyebrow" style="margin-bottom:4px" data-i="a_current">Current course</p>
-      <div class="arow"><strong>JUVE</strong><span><span class="ph">3 of 7</span></span></div>
-      <div class="arow"><strong data-i="a_next">Next delivery</strong><span><span class="ph">DATE</span></span></div>
-      <div class="arow"><strong data-i="a_orders">Order history</strong><span><span class="ph">N</span></span></div>
+      <div class="arow"><strong>JUVE</strong><span>&mdash;</span></div>
+      <div class="arow"><strong data-i="a_next">Next delivery</strong><span>Not scheduled</span></div>
+      <div class="arow"><strong data-i="a_orders">Order history</strong><span>&mdash;</span></div>
       <div class="arow"><strong data-i="a_addr">Delivery address</strong><span data-i="edit">Edit</span></div>
       <button class="btn btn-ghost" style="margin-top:24px;width:100%" onclick="atab('signin')" data-i="a_signout">Sign out</button>
     </div>
   </div>
 </aside>
 
-<script src="app.js"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

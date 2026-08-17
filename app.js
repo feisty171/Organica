@@ -115,7 +115,6 @@ document.querySelectorAll('.nd,.mlist li').forEach(el=>{
   el.addEventListener('mouseenter',()=>hi(el.dataset.m,true));
   el.addEventListener('mouseleave',()=>hi(el.dataset.m,el.dataset.m==='sg'));
 });
-document.querySelectorAll('.hexch,.crs').forEach(()=>{}); // noop guard placeholder
 document.querySelectorAll('[data-count]').forEach(countEl=>{
   new IntersectionObserver((es,o)=>es.forEach(e=>{
     if(!e.isIntersecting)return;o.unobserve(e.target);
@@ -165,12 +164,11 @@ const T={
  order_label:{zh:'您的订单',th:'คำสั่งซื้อของคุณ',ko:'나의 주문',ja:'ご注文内容'},
  add_cart:{zh:'加入购物车',th:'ใส่ตะกร้า',ko:'장바구니에 담기',ja:'カートに追加'},
  buy_now:{zh:'立即购买',th:'ซื้อเลย',ko:'바로 구매',ja:'今すぐ購入'},
- k_serum2:{zh:'精华 · 招牌',th:'เซรั่ม · ซิกเนเจอร์',ko:'세럼 · 시그니처',ja:'美容液 · シグネチャー'},
+ k_serum2:{zh:'喷雾 · 招牌',th:'มิสต์ · ซิกเนเจอร์',ko:'미스트 · 시그니처',ja:'ミスト · シグネチャー'},
  k_weekly2:{zh:'面膜 · 每周',th:'มาสก์ · รายสัปดาห์',ko:'마스크 · 주간',ja:'マスク · 週1回'},
 
  nav_science:{zh:'成分科学',th:'วิทยาศาสตร์',ko:'과학',ja:'サイエンス'},
  d_story:{zh:'品牌故事',th:'เรื่องราวของเรา',ko:'브랜드 스토리',ja:'ブランドストーリー'},
- d_testimonials:{zh:'顾客评价',th:'รีวิวจากลูกค้า',ko:'고객 후기',ja:'お客様の声'},
  d_contact:{zh:'联系我们',th:'ติดต่อเรา',ko:'문의하기',ja:'お問い合わせ'},
  d_blog:{zh:'博客',th:'บล็อก',ko:'블로그',ja:'ブログ'},
  d_faq:{zh:'常见问题',th:'คำถามที่พบบ่อย',ko:'자주 묻는 질문',ja:'よくある質問'},
@@ -262,7 +260,7 @@ const T={
  coll_eyebrow:{zh:'系列',th:'คอลเลกชัน',ko:'컬렉션',ja:'コレクション'},
  coll_h:{zh:'四件产品。就是全部。',th:'สี่ผลิตภัณฑ์ นั่นคือทั้งหมด',ko:'네 가지 제품. 그게 전부입니다.',ja:'四つの製品。それがすべてです。'},
  coll_p:{zh:'点开任一产品，即可查看配方、使用方式与方案选项。',th:'แต่ละผลิตภัณฑ์เปิดเป็นมุมมองเต็ม พร้อมสูตร วิธีใช้ และตัวเลือกคอร์ส',ko:'각 제품은 포뮬러, 사용법, 코스 옵션이 담긴 전체 화면으로 열립니다.',ja:'各製品は処方、使い方、コース選択を含む全画面で開きます。'},
- k_serum:{zh:'精华 · 招牌',th:'เซรั่ม · ซิกเนเจอร์',ko:'세럼 · 시그니처',ja:'美容液 · シグネチャー'},
+ k_serum:{zh:'喷雾 · 招牌',th:'มิสต์ · ซิกเนเจอร์',ko:'미스트 · 시그니처',ja:'ミスト · シグネチャー'},
  k_weekly:{zh:'面膜 · 每周',th:'มาสก์ · รายสัปดาห์',ko:'마스크 · 주간',ja:'マスク · 週1回'},
  c_juve:{zh:'六种活性成分，每晚一步骤。整个系列围绕它构建。',th:'หกสารสำคัญในขั้นตอนเดียวทุกคืน สินค้าที่ทุกอย่างสร้างขึ้นรอบตัวมัน',ko:'매일 밤 한 단계에 담은 여섯 가지 성분. 모든 것이 이 제품을 중심으로 구성됩니다.',ja:'毎晩ひと工程に六つの成分。すべてがこの製品を中心に組み立てられています。'},
  c_mask:{zh:'仍在最终定稿中。配方一旦确定，产品页即可随时呈现。',th:'ยังอยู่ระหว่างสรุปสูตร หน้าสินค้าพร้อมรองรับทันทีที่สูตรเสร็จสมบูรณ์',ko:'아직 최종 마무리 중입니다. 포뮬러가 완성되는 대로 제품 페이지가 준비됩니다.',ja:'まだ最終調整中です。処方が完成し次第、製品ページも整います。'},
@@ -343,17 +341,13 @@ const T={
  crumb_collection:{zh:'系列',th:'คอลเลกชัน',ko:'컬렉션',ja:'コレクション'},
  accordion_actives:{zh:'活性成分',th:'สารสำคัญ',ko:'액티브 성분',ja:'アクティブ成分'},
  accordion_shipping:{zh:'配送与退换',th:'การจัดส่งและการคืนสินค้า',ko:'배송 및 반품',ja:'配送と返品'},
- accordion_shipping_placeholder:{zh:'占位内容——配送与退换政策待发布前确认。',th:'ข้อมูลชั่วคราว — นโยบายการจัดส่งและการคืนสินค้าต้องยืนยันก่อนเผยแพร่',ko:'임시 내용 — 배송 및 반품 정책은 게시 전 확인이 필요합니다.',ja:'仮の内容——配送と返品ポリシーは公開前に要確認です。'},
  meta_format:{zh:'规格',th:'รูปแบบ',ko:'포맷',ja:'フォーマット'},
  meta_use:{zh:'用法',th:'วิธีใช้',ko:'사용법',ja:'使い方'},
  meta_formulated:{zh:'配方产地',th:'ผลิตที่',ko:'제조국',ja:'製造国'},
  meta_singapore:{zh:'新加坡',th:'สิงคโปร์',ko:'싱가포르',ja:'シンガポール'},
- pdp_juve_kind:{zh:'精华 · 招牌之作',th:'เซรั่ม · ซิกเนเจอร์',ko:'세럼 · 시그니처',ja:'美容液 · シグネチャー'},
- pdp_juve_kind_short:{zh:'精华',th:'เซรั่ม',ko:'세럼',ja:'美容液'},
+ pdp_juve_kind:{zh:'喷雾 · 招牌之作',th:'มิสต์ · ซิกเนเจอร์',ko:'미스트 · 시그니처',ja:'ミスト · シグネチャー'},
+ pdp_juve_kind_short:{zh:'喷雾',th:'มิสต์',ko:'미스트',ja:'ミスト'},
  pdp_mask_kind:{zh:'面膜 · 每周护理',th:'มาสก์ · รายสัปดาห์',ko:'마스크 · 주간',ja:'マスク · 週1回'},
- pdp_more_texture:{zh:'占位：质地特写',th:'ข้อมูลชั่วคราว: ภาพเนื้อสัมผัส',ko:'임시: 텍스처 사진',ja:'仮：テクスチャー写真'},
- pdp_more_packaging:{zh:'占位：包装图',th:'ข้อมูลชั่วคราว: ภาพบรรจุภัณฑ์',ko:'임시: 패키지 사진',ja:'仮：パッケージ写真'},
- pdp_more_onskin:{zh:'占位：上妆效果',th:'ข้อมูลชั่วคราว: ภาพบนผิว',ko:'임시: 사용 사진',ja:'仮：使用時の写真'},
  related_h:{zh:'您可能也会喜欢',th:'คุณอาจชอบสิ่งนี้ด้วย',ko:'이런 제품도 좋아하실 거예요',ja:'こちらもおすすめです'},
  juve_meta_format_v:{zh:'50毫升泵头瓶',th:'ขวดปั๊ม 50 มล.',ko:'50ml 펌프 보틀',ja:'50mlポンプボトル'},
  juve_meta_use_v:{zh:'每晚两泵，保湿霜之前使用',th:'สองปั๊มทุกคืน ก่อนมอยส์เจอไรเซอร์',ko:'매일 밤 두 번, 보습제 전에 사용',ja:'毎晩2プッシュ、保湿の前に'},
@@ -372,9 +366,6 @@ const T={
  juve_act6_p:{zh:'维生素B5原，有助支持肌肤屏障，使用后带来舒缓、稳定的肌肤触感。',th:'โปรวิตามินบี5 ช่วยสนับสนุนเกราะป้องกันผิว ให้สัมผัสผิวที่สงบและรู้สึกสบายหลังการใช้',ko:'프로비타민 B5로, 피부 장벽을 지원하고 사용 후 차분하고 컨디셔닝된 느낌을 남깁니다.',ja:'プロビタミンB5が肌のバリア機能をサポートし、使用後は落ち着いた整った肌触りに。'},
  mask_p1:{zh:'Bright+ 是一款以熊果苷与抗氧化复合成分为核心的蚕丝面膜，旨在帮助提亮肌肤外观，并在每次使用后让肌肤感觉更细腻、更水润。',th:'Bright+ คือแผ่นมาสก์ใยไหมที่พัฒนาจากอัลฟา-อาร์บูตินและสารต้านอนุมูลอิสระเชิงซ้อน ออกแบบมาเพื่อช่วยให้ผิวดูกระจ่างใสขึ้น และรู้สึกเนียนนุ่มชุ่มชื้นขึ้นหลังการใช้แต่ละครั้ง',ko:'Bright+는 알파-알부틴과 항산화 복합 성분을 중심으로 만든 실크 시트 마스크로, 피부 톤을 밝게 하고 매번 사용 후 더 매끄럽고 촉촉한 느낌을 남기도록 설계되었습니다.',ja:'Bright+はアルファアルブチンと抗酸化複合成分を核としたシルクシートマスクで、肌のトーンを明るく見せ、毎回の使用後により滑らかでうるおいのある肌へと導くよう設計されています。'},
  mask_p2:{zh:'面膜本身以天然蚕丝蛋白纺织而成，而非合成纤维，正是看中它在敷用的15至20分钟内能与肌肤紧密贴合。',th:'ตัวแผ่นมาสก์ทอจากโปรตีนไหมธรรมชาติแทนที่จะเป็นใยสังเคราะห์ เลือกใช้เพราะแนบสนิทกับผิวตลอด 15 ถึง 20 นาทีที่แปะไว้',ko:'시트 자체는 합성 섬유가 아닌 천연 실크 단백질로 짜여 있으며, 15~20분간 부착하는 동안 피부에 밀착되는 정도를 고려해 선택했습니다.',ja:'シート自体は合成繊維ではなく天然シルクタンパク質で織られており、15〜20分間肌に密着する感触の良さから選ばれています。'},
- mask_size_placeholder_nm:{zh:'包装规格——占位',th:'ขนาดบรรจุ — ข้อมูลชั่วคราว',ko:'패키지 크기 — 임시',ja:'パッケージサイズ——仮'},
- mask_size_placeholder_pr:{zh:'价格——占位',th:'ราคา — ข้อมูลชั่วคราว',ko:'가격 — 임시',ja:'価格——仮'},
- mask_meta_format_v:{zh:'占位——包装规格',th:'ข้อมูลชั่วคราว — ขนาดบรรจุ',ko:'임시 — 패키지 크기',ja:'仮——パッケージサイズ'},
  mask_meta_use_v:{zh:'每次15至20分钟，每周2至3次',th:'15 ถึง 20 นาทีต่อครั้ง สัปดาห์ละ 2 ถึง 3 ครั้ง',ko:'회당 15~20분, 주 2~3회',ja:'1回15〜20分、週2〜3回'},
  mask_act1_h:{zh:'熊果苷',th:'อัลฟา-อาร์บูติน',ko:'알파-알부틴',ja:'アルファアルブチン'},
  mask_act1_p:{zh:'通过抑制导致色素过度生成的酶来发挥作用，长期使用有助均匀肤色外观。',th:'ทำงานโดยยับยั้งเอนไซม์ที่ทำให้เกิดเม็ดสีส่วนเกิน ช่วยให้สีผิวดูสม่ำเสมอขึ้นเมื่อใช้เป็นประจำ',ko:'과도한 색소 생성을 담당하는 효소를 억제하여 작용하며, 꾸준히 사용하면 균일한 피부 톤을 돕습니다.',ja:'過剰な色素生成を担う酵素の働きを抑えることで作用し、継続使用で均一な肌トーンをサポートします。'},
@@ -420,7 +411,7 @@ setLang('en');
     let qty=1;
 
     // tier-discount model is opt-in per page: only kicks in when size buttons carry data-bottles.
-    // pages without it (e.g. Bright Mask's single placeholder tier) fall back to the plain price*qty behaviour untouched.
+    // Pages without tier pricing fall back to the standard price-by-quantity behaviour.
     const hasTiers=sizes.every(s=>s.dataset.bottles);
     const baseTier=hasTiers ? sizes.find(s=>+s.dataset.bottles===1) : null;
     const basePerBottle=baseTier ? (+baseTier.dataset.price)/(+baseTier.dataset.bottles) : null;
@@ -499,10 +490,13 @@ setLang('en');
   let active=0;
 
   function paint(){
-    cards.forEach(c=>{
+    cards.forEach((c,i)=>{
       const isActive = c.dataset.p===order[active];
+      const offset=(i-active+order.length)%order.length;
       c.classList.toggle('focus', isActive);
       c.classList.toggle('side', !isActive);
+      c.classList.toggle('side-next', offset===1);
+      c.classList.toggle('side-far', offset>1);
     });
   }
   function step(dir){ active=(active+dir+order.length)%order.length; paint(); }
@@ -548,16 +542,6 @@ setLang('en');
       if(full) main.src = full;
       thumbs.forEach(x=>x.classList.toggle('sel', x===t));
     }));
-  });
-})();
-
-/* ---------- the model: 3-step approach cards (click to pin open, hover to peek) ---------- */
-(function(){
-  document.querySelectorAll('.mstep').forEach(step=>{
-    step.addEventListener('click',()=>{
-      const open=step.classList.toggle('open');
-      step.setAttribute('aria-expanded',open);
-    });
   });
 })();
 
