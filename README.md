@@ -2,6 +2,27 @@
 
 Static storefront prepared for backend integration.
 
+## Repository structure
+
+```text
+.
+├── index.html, house.html, shop.html, learn.html
+├── product-juve.html, product-mask.html, product-prepe.html
+├── assets/
+│   ├── css/                 # Site styles
+│   ├── js/                  # Frontend behaviour
+│   ├── images/
+│   │   ├── brand/           # Logo
+│   │   ├── house/           # Brand history and laboratory imagery
+│   │   ├── products/        # Collection and product galleries
+│   │   ├── science/         # Optimized Science-card imagery
+│   │   └── video/           # Video thumbnails
+│   └── source-artwork/      # Original supplied artwork, not served directly
+└── README.md
+```
+
+Keep new production images in the relevant `assets/images` category. Preserve editable or original campaign files in `assets/source-artwork` and generate web-optimized derivatives for the site.
+
 ## Pages
 
 - `index.html` — landing page
