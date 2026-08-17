@@ -76,12 +76,16 @@
 <section class="pdp"><div class="wrap pdp-grid">
   <div class="pdp-gallery">
     <div class="pdp-main">
-      <img class="pdp-photo" src="bright-mask-product.jpg" alt="Bright Mask">
+      <button class="pdp-nav prev" type="button" aria-label="Previous image" onclick="pdpNav(-1)">&#10094;</button>
+      <img class="pdp-photo" id="pdpMainImg" src="bright-mask-product.jpg" alt="Bright Mask product pack">
+      <button class="pdp-nav next" type="button" aria-label="Next image" onclick="pdpNav(1)">&#10095;</button>
     </div>
-    <div class="pdp-more">
-      <span data-i="pdp_more_texture">PLACEHOLDER: texture shot</span>
-      <span data-i="pdp_more_packaging">PLACEHOLDER: packaging</span>
-      <span data-i="pdp_more_onskin">PLACEHOLDER: on skin</span>
+    <div class="pdp-thumbs" id="pdpThumbs">
+      <button class="pdp-thumb sel" type="button" onclick="pdpGo(0)" aria-label="View Bright Mask product pack"><img src="bright-mask-product.jpg" alt=""></button>
+      <button class="pdp-thumb" type="button" onclick="pdpGo(1)" aria-label="View Bright Mask nightly ritual"><img src="bright-gallery-2.jpg" alt=""></button>
+      <button class="pdp-thumb" type="button" onclick="pdpGo(2)" aria-label="View LumiFullerene technology"><img src="bright-gallery-3.jpg" alt=""></button>
+      <button class="pdp-thumb" type="button" onclick="pdpGo(3)" aria-label="View Bright Mask transformation timeline"><img src="bright-gallery-4.jpg" alt=""></button>
+      <button class="pdp-thumb" type="button" onclick="pdpGo(4)" aria-label="View Bright Mask key ingredients"><img src="bright-gallery-5.jpg" alt=""></button>
     </div>
   </div>
 
@@ -111,6 +115,13 @@
       </div>
     </div>
 
+  </div>
+</div></section>
+
+<div class="pdp-description"><div class="wrap">
+  <details class="pdp-desc-toggle" open>
+    <summary data-i="pdp_desc_h">Product description</summary>
+    <div class="pdp-desc-body">
     <div class="pdp-meta">
       <div><strong data-i="meta_format">Format</strong><span data-i="mask_meta_format_v">PLACEHOLDER &mdash; pack size</span></div>
       <div><strong data-i="meta_use">Use</strong><span data-i="mask_meta_use_v">15 to 20 minutes, 2 to 3 times a week</span></div>
@@ -141,8 +152,14 @@
         </div>
       </details>
     </div>
-  </div>
-</div></section>
+    </div>
+  </details>
+</div></div>
+
+<div class="pdp-reviews"><div class="wrap">
+  <h2 data-i="pdp_reviews_h">Reviews</h2>
+  <p class="ph" data-i="pdp_reviews_placeholder">PLACEHOLDER: customer reviews</p>
+</div></div>
 
 <div class="pdp-related"><div class="wrap">
     <h2 data-i="related_h">You may also like</h2>
