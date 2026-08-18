@@ -92,28 +92,8 @@
   <div class="pdp-info">
     <p class="pkind" data-i="prepe_kind">Cleanser &middot; Daily</p>
     <h1>ProBio Prepé</h1>
-    <p class="pdp-price pdp-total" data-fallback="&mdash;">&mdash;</p>
     <p class="pdp-desc" data-i="prepe_intro1">Prepé is a microbiome-focused mousse face cleanser designed to remove makeup and daily buildup while supporting the skin barrier. Its light foam is suitable for all skin types.</p>
     <p class="pdp-desc" data-i="prepe_intro2">The formula pairs Bacillus coagulans and DEFENSIL®-PURE ECO with lactic acid and botanical extracts to cleanse and refine texture while leaving skin feeling fresh rather than stripped.</p>
-
-    <div class="pdp-buybox">
-      <p class="pdp-size-label" data-i="choose_size">Choose a size</p>
-      <div class="pdp-sizes">
-        <button class="pdp-size sel" data-price="0"><span class="nm" data-i="size_single_nm">Single bottle</span><span class="pr" data-i="price_request">Price on request</span></button>
-      </div>
-
-      <p class="pdp-size-label" data-i="quantity">Quantity</p>
-      <div class="pdp-qty">
-        <button class="qdec" aria-label="Decrease">&minus;</button>
-        <span class="qval">1</span>
-        <button class="qinc" aria-label="Increase">+</button>
-      </div>
-
-      <div class="pdp-cta">
-        <button class="btn btn-solid" onclick="gate('add')" data-i="add_cart">Add to cart</button>
-        <button class="btn btn-ghost" onclick="gate('buy')" data-i="buy_now">Buy now</button>
-      </div>
-    </div>
 
   </div>
 </div></section>
@@ -123,9 +103,10 @@
     <summary data-i="pdp_desc_h">Product description</summary>
     <div class="pdp-desc-body">
     <div class="pdp-meta">
-      <div><strong data-i="meta_format">Format</strong><span data-i="prepe_format">Mousse face cleanser</span></div>
-      <div><strong data-i="meta_use">Use</strong><span data-i="prepe_use">Morning and evening</span></div>
-      <div><strong data-i="meta_formulated">Formulated in</strong><span data-i="meta_singapore">Singapore</span></div>
+      <div><strong data-i="meta_net_weight">Net Weight</strong><span data-i="prepe_meta_weight_v">120ml</span></div>
+      <div><strong data-i="meta_recommend_usage">Recommend Usage</strong><span data-i="prepe_meta_recommend_v">Use daily. Day and night</span></div>
+      <div><strong data-i="meta_formulated">Formulated in</strong><span data-i="meta_germany">Germany</span></div>
+      <div><strong data-i="meta_made">Made in</strong><span data-i="meta_singapore">Singapore</span></div>
     </div>
 
     <div class="pdp-accordion">
@@ -157,6 +138,10 @@
         <div class="art" style="min-height:180px"><img class="card-photo" src="assets/images/products/juve/juve-product.jpg" alt="JUVE"></div>
         <div class="pbody"><p class="pkind" data-i="pdp_juve_kind_short">Mist</p><h3>JUVE</h3></div>
       </a>
+      <a class="pcard" href="product-mask.html">
+        <div class="art" style="min-height:180px"><img class="card-photo" src="assets/images/products/bright/bright-mask-product.jpg" alt="Bright Mask"></div>
+        <div class="pbody"><p class="pkind" data-i="pdp_mask_kind">Mask</p><h3>Bright Mask</h3></div>
+      </a>
     </div>
   </div></div>
 </main>
@@ -167,7 +152,7 @@
         <a class="mark footer-mark" href="index.html"><img src="assets/images/brand/logo.png" alt="Organica International"></a>
         <p style="margin-top:16px;max-width:34ch" data-i="footer_desc">Biomimetic skincare formulated in Singapore, sold across six markets in Asia.</p>
       </div>
-      <div><h4 data-i="f_shop">Shop</h4><ul>
+      <div><h4 data-i="f_shop">Discover</h4><ul>
         <li><a href="product-juve.html">JUVE</a></li>
         <li><a href="product-mask.html">Bright Mask</a></li>
         <li><a href="product-prepe.html">ProBio Prepé</a></li></ul></div>
@@ -231,7 +216,7 @@
   </div>
 </aside>
 
-<script src="assets/js/app.js?v=13"></script>
+<script src="assets/js/app.js?v=15"></script>
 <script>
 (() => {
   const main = document.getElementById('pdpMainImg');

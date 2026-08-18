@@ -925,7 +925,13 @@ strong,b{color:var(--gold-lt);font-weight:600}
   .scta .btn{width:100%}
   .smeta{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;margin-top:25px;font-size:9px;letter-spacing:.12em;line-height:1.5}
   .slide-media,.slide-banner{padding-top:0;align-items:center;justify-content:center;background:#1a081c}
-  .slide-banner .simg{width:100%;height:auto;max-height:calc(100svh - var(--nav) - 60px);object-fit:contain}
+  /* The supplied artwork is an ultra-wide three-banner sheet. On phones, enlarge
+     and centre it so the three campaigns read as a tall editorial composition
+     instead of a small strip floating inside the carousel. */
+  .slide-banner .simg{
+    position:absolute;left:50%;width:270%;max-width:none;height:auto;max-height:none;
+    transform:translateX(-50%);object-fit:initial
+  }
   .dots{bottom:17px;gap:8px}
   .dots button{width:28px;height:3px}
   .arrows{display:none}
