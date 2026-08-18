@@ -92,6 +92,8 @@ header.solid::before{opacity:0}
 .slot{width:100%;aspect-ratio:4/3;border:1px dashed rgba(198,162,104,.5);display:grid;place-items:center;gap:10px;text-align:center;padding:30px;background:rgba(198,162,104,.05)}
 .slide-media{overflow:hidden;align-items:flex-start;padding-top:142px}
 .slide-media .simg{width:100%;height:auto;display:block;animation:pulse 6s ease-in-out infinite}
+.slide-banner{align-items:center;padding-top:68px;background:#1a081c}
+.slide-banner .simg{width:100%;height:auto;max-height:calc(100vh - 68px);object-fit:contain;animation:none}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
 .dots{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:4}
 .dots button{width:34px;height:2px;background:rgba(243,233,238,.24);transition:.3s;position:relative}
@@ -218,6 +220,8 @@ header.solid::before{opacity:0}
 
 /* ================== FOOTER ================== */
 footer{padding:70px 0 38px;font-size:13px;color:var(--txt-dim);border-top:1px solid rgba(198,162,104,.16)}
+.footer-mark{display:inline-block}
+.footer-mark img{height:38px;width:auto;display:block}
 .fgrid{display:grid;grid-template-columns:1.7fr repeat(3,1fr);gap:40px;padding-bottom:42px;border-bottom:1px solid rgba(198,162,104,.14)}
 footer h4{font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:400}
 footer li{list-style:none;margin-bottom:9px}

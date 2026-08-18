@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ProBio Prepé — Organica International</title>
-<link rel="stylesheet" href="assets/css/style.css?v=9">
+<link rel="stylesheet" href="assets/css/style.css?v=16">
 </head>
 <body class="prepe-page">
 <header id="hdr">
@@ -90,16 +90,16 @@
   </div>
 
   <div class="pdp-info">
-    <p class="pkind">Cleanser &middot; Daily</p>
+    <p class="pkind" data-i="prepe_kind">Cleanser &middot; Daily</p>
     <h1>ProBio Prepé</h1>
     <p class="pdp-price pdp-total" data-fallback="&mdash;">&mdash;</p>
-    <p class="pdp-desc">Prepé is a microbiome-focused mousse face cleanser designed to remove makeup and daily buildup while supporting the skin barrier. Its light foam is suitable for all skin types.</p>
-    <p class="pdp-desc">The formula pairs Bacillus coagulans and DEFENSIL®-PURE ECO with lactic acid and botanical extracts to cleanse and refine texture while leaving skin feeling fresh rather than stripped.</p>
+    <p class="pdp-desc" data-i="prepe_intro1">Prepé is a microbiome-focused mousse face cleanser designed to remove makeup and daily buildup while supporting the skin barrier. Its light foam is suitable for all skin types.</p>
+    <p class="pdp-desc" data-i="prepe_intro2">The formula pairs Bacillus coagulans and DEFENSIL®-PURE ECO with lactic acid and botanical extracts to cleanse and refine texture while leaving skin feeling fresh rather than stripped.</p>
 
     <div class="pdp-buybox">
       <p class="pdp-size-label" data-i="choose_size">Choose a size</p>
       <div class="pdp-sizes">
-        <button class="pdp-size sel" data-price="0"><span class="nm">Single bottle</span><span class="pr">Price on request</span></button>
+        <button class="pdp-size sel" data-price="0"><span class="nm" data-i="size_single_nm">Single bottle</span><span class="pr" data-i="price_request">Price on request</span></button>
       </div>
 
       <p class="pdp-size-label" data-i="quantity">Quantity</p>
@@ -123,8 +123,8 @@
     <summary data-i="pdp_desc_h">Product description</summary>
     <div class="pdp-desc-body">
     <div class="pdp-meta">
-      <div><strong data-i="meta_format">Format</strong><span>Mousse face cleanser</span></div>
-      <div><strong data-i="meta_use">Use</strong><span>Morning and evening</span></div>
+      <div><strong data-i="meta_format">Format</strong><span data-i="prepe_format">Mousse face cleanser</span></div>
+      <div><strong data-i="meta_use">Use</strong><span data-i="prepe_use">Morning and evening</span></div>
       <div><strong data-i="meta_formulated">Formulated in</strong><span data-i="meta_singapore">Singapore</span></div>
     </div>
 
@@ -132,17 +132,17 @@
       <details open>
         <summary data-i="accordion_actives">The actives</summary>
         <div class="acc-body">
-          <p><strong>Bacillus Coagulans</strong> &mdash; supports the skin's microbial balance and natural barrier.</p>
-          <p><strong>DEFENSIL®-PURE ECO</strong> &mdash; included to soothe the feel of irritated skin and support a balanced microbiota.</p>
-          <p><strong>Lactic Acid (AHA)</strong> &mdash; gently refines texture and helps skin look smoother, brighter and more even.</p>
-          <p><strong>Comfrey, Witch Hazel and Licorice Root Extracts</strong> &mdash; a botanical blend chosen to soothe, refine the look of pores and support a more even-looking tone.</p>
-          <p class="note">Full ingredient list is printed on the pack. Prepé is a cosmetic product; individual results vary.</p>
+          <p data-i="prepe_active1"><strong>Bacillus Coagulans</strong> &mdash; supports the skin's microbial balance and natural barrier.</p>
+          <p data-i="prepe_active2"><strong>DEFENSIL®-PURE ECO</strong> &mdash; included to soothe the feel of irritated skin and support a balanced microbiota.</p>
+          <p data-i="prepe_active3"><strong>Lactic Acid (AHA)</strong> &mdash; gently refines texture and helps skin look smoother, brighter and more even.</p>
+          <p data-i="prepe_active4"><strong>Comfrey, Witch Hazel and Licorice Root Extracts</strong> &mdash; a botanical blend chosen to soothe, refine the look of pores and support a more even-looking tone.</p>
+          <p class="note" data-i="prepe_note">Full ingredient list is printed on the pack. Prepé is a cosmetic product; individual results vary.</p>
         </div>
       </details>
       <details>
         <summary data-i="pf_usage_lbl">How to use it</summary>
         <div class="acc-body">
-          <p>Dispense onto damp palms and work into a light lather. Massage gently over the face for 30 to 60 seconds, avoiding the eye area, then rinse thoroughly. Use morning and evening.</p>
+          <p data-i="prepe_usage">Dispense onto damp palms and work into a light lather. Massage gently over the face for 30 to 60 seconds, avoiding the eye area, then rinse thoroughly. Use morning and evening.</p>
         </div>
       </details>
     </div>
@@ -155,7 +155,7 @@
     <div class="pdp-related-grid">
       <a class="pcard" href="product-juve.html">
         <div class="art" style="min-height:180px"><img class="card-photo" src="assets/images/products/juve/juve-product.jpg" alt="JUVE"></div>
-        <div class="pbody"><p class="pkind">Mist</p><h3>JUVE</h3></div>
+        <div class="pbody"><p class="pkind" data-i="pdp_juve_kind_short">Mist</p><h3>JUVE</h3></div>
       </a>
     </div>
   </div></div>
@@ -164,8 +164,8 @@
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <p class="mark" style="margin:0">ORGANICA<small>INTERNATIONAL</small></p>
-        <p style="margin-top:16px;max-width:34ch">Biomimetic skincare formulated in Singapore, sold across six markets in Asia.</p>
+        <a class="mark footer-mark" href="index.html"><img src="assets/images/brand/logo.png" alt="Organica International"></a>
+        <p style="margin-top:16px;max-width:34ch" data-i="footer_desc">Biomimetic skincare formulated in Singapore, sold across six markets in Asia.</p>
       </div>
       <div><h4 data-i="f_shop">Shop</h4><ul>
         <li><a href="product-juve.html">JUVE</a></li>
@@ -182,7 +182,7 @@
         <li><a href="house.html#contact" data-i="f_contact">Contact</a></li></ul></div>
     </div>
     <div class="fbase">
-      <span>© 2026 Organica International</span>
+      <span data-i="footer_copyright">© 2026 Organica International</span>
       <span data-i="f_legal">Privacy · Terms · Product information</span>
     </div>
   </div>
@@ -224,7 +224,7 @@
       </div>
       <p class="eyebrow" style="margin-bottom:4px" data-i="a_current">Current course</p>
       <div class="arow"><strong>JUVE</strong><span>&mdash;</span></div>
-      <div class="arow"><strong data-i="a_next">Next delivery</strong><span>Not scheduled</span></div>
+      <div class="arow"><strong data-i="a_next">Next delivery</strong><span data-i="not_scheduled">Not scheduled</span></div>
       <div class="arow"><strong data-i="a_orders">Order history</strong><span>&mdash;</span></div>
       <div class="arow"><strong data-i="a_addr">Delivery address</strong><span data-i="edit">Edit</span></div>
       <button class="btn btn-ghost" style="margin-top:24px;width:100%" onclick="atab('signin')" data-i="a_signout">Sign out</button>
@@ -232,7 +232,7 @@
   </div>
 </aside>
 
-<script src="assets/js/app.js?v=9"></script>
+<script src="assets/js/app.js?v=13"></script>
 <script>
 (() => {
   const main = document.getElementById('pdpMainImg');
