@@ -397,6 +397,7 @@ footer li a:hover{color:var(--gold-lt)}
 
 .pdp{padding:26px 0 100px}
 .pdp-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.pdp-grid>*{min-width:0}
 
 .pdp-gallery{align-self:start}
 .pdp-main{height:min(62vh,560px);border:1px solid rgba(198,162,104,.22);background:var(--glass);
@@ -877,6 +878,169 @@ strong,b{color:var(--gold-lt);font-weight:600}
   .ing-grid{grid-template-columns:1fr}
   .usage-grid{grid-template-columns:1fr 1fr}
   .pf-buy-card{padding:26px 20px 22px}
+}
+
+/* ================= MOBILE COMPOSITION =================
+   A deliberate phone layout: preserve the desktop art direction while
+   changing hierarchy, density and interaction for touch screens. */
+@media(max-width:700px){
+  :root{--nav:62px}
+  html{scroll-padding-top:var(--nav)}
+  body{font-size:15px;line-height:1.6}
+  .wrap{padding-left:18px;padding-right:18px}
+  h2{font-size:clamp(30px,10vw,42px)}
+  .section{padding:68px 0}
+  .shead{margin-bottom:32px}
+  .shead h2{margin:10px 0 13px}
+  .eyebrow{font-size:9.5px;letter-spacing:.24em}
+  .lede{font-size:14.5px;line-height:1.7}
+  .btn{min-height:48px;padding:14px 20px;display:inline-flex;align-items:center;justify-content:center}
+
+  /* navigation */
+  .nav{height:var(--nav)}
+  .mark img{height:30px;max-width:148px}
+  .navright{gap:13px;margin-left:12px}
+  .navright>.navlink{display:none}
+  .navicons{gap:12px}
+  .navsep{display:none}
+  .icon-btn{width:30px;height:36px}
+  .icon-btn svg{width:18px;height:18px}
+  .langmenu{position:fixed;top:var(--nav);left:12px;right:12px;min-width:0;padding:8px;border-radius:3px}
+  .langmenu button{padding:12px 14px;min-height:44px}
+  .drawer{padding:6px 18px 20px;max-height:calc(100svh - var(--nav));overflow-y:auto}
+  .drawer a{padding:13px 0;font-size:10.5px}
+  .drawer a.drawer-sub{padding:9px 0 9px 16px}
+
+  /* landing carousel */
+  .hero{min-height:760px;padding-top:var(--nav)}
+  .slides{min-height:698px}
+  .slide{align-items:flex-start}
+  .sgrid{display:flex;flex-direction:column;width:100%;padding-top:10px}
+  .stage{order:0;width:100%;height:285px;padding:8px 0 0}
+  .stage::before{width:230px}
+  .hbottle{height:275px;max-width:70vw;object-fit:contain}
+  .scopy{order:1;padding:8px 0 76px;text-align:left}
+  .slide h1{font-size:clamp(34px,10.5vw,45px);line-height:1.05;margin:12px 0 18px}
+  .scta{display:grid;grid-template-columns:1fr;gap:10px;margin-top:24px}
+  .scta .btn{width:100%}
+  .smeta{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;margin-top:25px;font-size:9px;letter-spacing:.12em;line-height:1.5}
+  .slide-media,.slide-banner{padding-top:0;align-items:center;justify-content:center;background:#1a081c}
+  .slide-banner .simg{width:100%;height:auto;max-height:calc(100svh - var(--nav) - 60px);object-fit:contain}
+  .dots{bottom:17px;gap:8px}
+  .dots button{width:28px;height:3px}
+  .arrows{display:none}
+
+  /* landing sections */
+  .tagline{padding:62px 0 38px;text-align:left}
+  .tagline h2{margin:0;font-size:clamp(31px,9vw,40px);line-height:1.18}
+  .tagline .tag-p{font-size:14px!important;line-height:1.7!important;margin-top:20px!important;max-width:none!important}
+  .explore{gap:12px;background:transparent}
+  .expcard{aspect-ratio:4/5;border:1px solid rgba(198,162,104,.22)}
+  .expcard .body{width:calc(100% - 20px);margin:10px;padding:18px 16px 16px;transform:none}
+  .expcard h3{font-size:23px}
+  .expcard p{font-size:13px;margin-bottom:14px}
+  .expcard .go2{opacity:1;transform:none}
+  .home-video .shead{text-align:left!important}
+  .vidgrid,.vidgrid-2,.artgrid{grid-template-columns:1fr;gap:16px;max-width:none}
+  .vidcard .play{width:46px;height:46px}
+  .artcard .b{padding:19px 18px 22px}
+  .trust-grid{gap:12px}
+  .trust-card{padding:25px 21px;min-height:0}
+  .trust-no{margin-bottom:18px}
+  .trust-card h3{font-size:21px;margin-bottom:9px}
+  .trust-cta{justify-content:stretch;margin-top:24px}
+  .trust-cta .btn{width:100%}
+
+  /* page heroes and long-form pages */
+  .pagehero{padding-top:calc(var(--nav) + 45px)!important;padding-bottom:54px!important}
+  .pagehero h1{font-size:clamp(38px,11vw,50px)!important;line-height:1.05}
+  .crumb{padding:calc(var(--nav) + 20px) 18px 0;overflow-x:auto;white-space:nowrap;scrollbar-width:none;font-size:9px}
+  .crumb::-webkit-scrollbar{display:none}
+  .pillars,.teasers,.triptych,.mvgrid,.office-grid{grid-template-columns:1fr!important}
+  .pil{padding:27px 22px}
+  .storyline{padding:48px 0 20px}
+  .storyline-feed{gap:44px}
+  .sl-item{max-width:none}
+  .sl-item h3{font-size:25px}
+  .ct-divider{margin:46px 0 30px;gap:12px}
+  .office .body{padding:22px 20px 25px}
+  .office .map{height:190px}
+  .faqlist summary{padding:18px 2px;font-size:13px;line-height:1.45;gap:16px}
+  .faqlist .a{padding:0 2px 20px;font-size:13.5px;line-height:1.7}
+
+  /* collection deck */
+  .edit-stage{min-height:calc(100svh - var(--nav));padding:calc(var(--nav) + 20px) 0 26px}
+  .edit-top{margin-bottom:10px}
+  .edit-title{font-size:clamp(38px,11vw,50px);margin-bottom:10px}
+  .edit-cards{height:410px;overflow:hidden;margin-left:0;margin-right:0;width:100%}
+  .ecard{width:68vw;max-width:280px}
+  .ecard.focus{transform:translateX(-10%) rotate(-2deg) scale(.98)}
+  .ecard.side-next{transform:translateX(42%) rotate(4deg) scale(.74)}
+  .ecard.side-far{transform:translateX(78%) rotate(7deg) scale(.58);opacity:.26}
+  .echip{top:10px;left:10px;padding:5px 10px;font-size:8px}
+  .etitle{font-size:20px;bottom:4px}
+  .edit-nav{margin-top:10px}
+  .edit-nav button{width:46px;height:46px}
+
+  /* PDP: gallery first, buying second, detail last */
+  .pdp{padding:18px 0 62px}
+  .pdp-grid{gap:30px}
+  .pdp-main{height:auto;aspect-ratio:1/1.04;margin-bottom:10px}
+  .pdp-main .pdp-photo,.pdp-main .pdp-photo.fit-contain{height:100%;width:100%;object-fit:cover}
+  .pdp-nav{width:40px;height:40px}
+  .pdp-nav.prev{left:8px}.pdp-nav.next{right:8px}
+  .pdp-thumbs{display:flex;gap:7px;overflow-x:auto;padding:1px 1px 6px;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .pdp-thumbs::-webkit-scrollbar{display:none}
+  .pdp-thumb{width:66px;min-width:66px;scroll-snap-align:start}
+  .pdp-info h1{font-size:38px;margin-bottom:10px}
+  .pdp-price{margin-bottom:16px}
+  .pdp-desc{font-size:14px;line-height:1.7;margin-bottom:18px;max-width:none}
+  .pdp-sizes{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:22px}
+  .pdp-size{width:100%;min-width:0;padding:14px 15px}
+  .pdp-badge-slot{min-height:0;margin-bottom:6px}
+  .pdp-qty button{width:44px;height:44px}
+  .pdp-cta{display:grid;grid-template-columns:1fr;gap:9px;margin-bottom:24px}
+  .pdp-cta .btn{width:100%;min-width:0}
+  .pdp-description,.pdp-related{margin-top:48px;padding-top:30px}
+  .pdp-desc-toggle summary{font-size:22px}
+  .pdp-desc-body{padding-top:22px}
+  .pdp-meta{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:26px}
+  .pdp-meta div{justify-content:space-between;padding-bottom:10px;border-bottom:1px solid rgba(198,162,104,.14)}
+  .pdp-accordion summary{padding:18px 2px;line-height:1.45}
+  .pdp-accordion .acc-body{font-size:13.5px;line-height:1.72}
+  .pdp-related-grid .pcard .art{min-height:210px}
+
+  /* footer */
+  footer{padding:52px 0 28px}
+  .fgrid{grid-template-columns:1fr;gap:0;padding-bottom:28px}
+  .fgrid>div{padding:20px 0;border-bottom:1px solid rgba(198,162,104,.12)}
+  .fgrid>div:first-child{padding-top:0}
+  .fgrid>div:last-child{border-bottom:0}
+  footer h4{margin-bottom:12px}
+  footer li{margin-bottom:7px}
+  .fbase{padding-top:20px;font-size:10.5px}
+  .footer-mark img{height:34px;max-width:170px}
+
+  /* dormant account panel remains usable if re-enabled */
+  .atop{padding:18px}
+  .abody{padding:25px 18px 38px}
+  .gate{padding:14px 18px}
+  .bals{grid-template-columns:1fr}
+}
+
+@media(max-width:380px){
+  .wrap{padding-left:15px;padding-right:15px}
+  .mark img{height:27px;max-width:130px}
+  .navright,.navicons{gap:9px}
+  .hero{min-height:735px}
+  .slides{min-height:673px}
+  .stage{height:260px}
+  .hbottle{height:250px}
+  .slide h1{font-size:33px}
+  .smeta{grid-template-columns:1fr}
+  .edit-cards{height:375px}
+  .ecard{width:72vw}
+  .usage-grid{grid-template-columns:1fr}
 }
 
 /* ---- product gallery: swappable main image + thumbnail strip ---- */
