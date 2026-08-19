@@ -2472,6 +2472,13 @@ img,video,iframe{max-width:100%}
   .pagehero h1{font-size:clamp(36px,10.5vw,46px)!important}
 }
 
+/* Landing discovery artwork: keep each supplied subject legible at phone crops. */
+@media(max-width:700px){
+  .home-page .expcard:nth-child(1) .ph-bg img{object-position:52% 46%}
+  .home-page .expcard:nth-child(2) .ph-bg img{object-position:50% 50%}
+  .home-page .expcard:nth-child(3) .ph-bg img{object-position:54% 50%}
+}
+
 @media(max-width:360px){
   :root{--nav:70px}
   .mark img{height:26px;max-width:40vw}
