@@ -35,6 +35,8 @@ let LANG='en';
 
 function storedLanguage(){
   try{
+    const requested=new URLSearchParams(location.search).get('lang');
+    if(SUPPORTED_LANGS.includes(requested))return requested;
     const saved=localStorage.getItem(LANGUAGE_STORAGE_KEY);
     return SUPPORTED_LANGS.includes(saved)?saved:'en';
   }catch(_){
@@ -95,6 +97,12 @@ addEventListener('keydown',e=>{if(e.key==='Escape'){closeAcct();document.getElem
       pg.style.height = ((idx+1)/items.length*100)+'%';
       Object.values(media).forEach(m=>m.classList.remove('on'));
       if(media[year]) media[year].classList.add('on');
+      if(storyline){
+        const eras=['origin','growth','legacy','future'];
+        const eraIndex=Math.min(eras.length-1,Math.floor(idx/(items.length/eras.length)));
+        storyline.dataset.era=eras[eraIndex];
+        storyline.style.setProperty('--timeline-step',idx);
+      }
       currentYear=year;
       activeStartY=window.scrollY;
     }
@@ -604,8 +612,44 @@ const T={
  prepe_note:{zh:'完整成分列表印于包装上。Prepé 为化妆品，个人效果因人而异。',th:'รายการส่วนผสมทั้งหมดอยู่บนบรรจุภัณฑ์ Prepé เป็นผลิตภัณฑ์เครื่องสำอาง ผลลัพธ์แตกต่างกันไป',ko:'전체 성분 목록은 패키지에 인쇄되어 있습니다. Prepé는 화장품이며 개인별 결과는 다를 수 있습니다.',ja:'全成分はパッケージに記載。Prepéは化粧品であり、効果には個人差があります。'},
  prepe_usage:{zh:'在湿润掌心按压取用并揉出轻盈泡沫。避开眼周，轻柔按摩面部30至60秒后彻底冲洗。早晚使用。',th:'กดลงบนฝ่ามือเปียกและตีให้เป็นฟองบาง นวดทั่วใบหน้า 30–60 วินาที หลีกเลี่ยงรอบดวงตา แล้วล้างออก ใช้เช้าและเย็น',ko:'젖은 손바닥에 덜어 가볍게 거품을 냅니다. 눈가를 피해 얼굴을 30~60초 마사지하고 충분히 헹구세요. 아침저녁으로 사용합니다.',ja:'濡れた手に取り軽く泡立てます。目元を避けて顔を30〜60秒やさしくマッサージし、十分にすすぎます。朝晩使用します。'}
 };
+Object.assign(T,{
+ collection_title:{zh:'产品系列',th:'คอลเลกชัน',ko:'컬렉션',ja:'コレクション'},
+ collection_intro:{zh:'轻触任一产品，了解其配方、功效及在护肤步骤中的位置。',th:'แตะผลิตภัณฑ์เพื่อดูสูตร ประโยชน์ และบทบาทในขั้นตอนดูแลผิว',ko:'제품을 탭해 포뮬러, 효능과 스킨케어 루틴에서의 역할을 알아보세요.',ja:'製品をタップして、処方、特長、スキンケアルーティンでの役割をご覧ください。'},
+ collection_mist:{zh:'喷雾',th:'มิสต์',ko:'미스트',ja:'ミスト'}, collection_mask:{zh:'面膜',th:'มาสก์',ko:'마스크',ja:'マスク'}, collection_cleanser:{zh:'洁面',th:'คลีนเซอร์',ko:'클렌저',ja:'洗顔料'},
+ collection_juve_p:{zh:'仿生面部喷雾，帮助提拉、平滑并焕活疲惫肌肤。',th:'สเปรย์บำรุงผิวแบบไบโอมิเมติก ช่วยให้ผิวดูกระชับ เรียบเนียน และสดใส',ko:'지친 피부를 탄탄하고 매끄럽고 생기 있어 보이게 하는 바이오미메틱 페이셜 미스트.',ja:'疲れた肌印象を引き締め、なめらかに整え、いきいきと見せるバイオミメティックミスト。'},
+ collection_mask_p:{zh:'由C60科技驱动的亮泽蚕丝护理，焕活暗沉肌肤并恢复光采。',th:'ทรีตเมนต์ใยไหมที่ขับเคลื่อนด้วยเทคโนโลยี C60 เพื่อฟื้นผิวหมองคล้ำและคืนความกระจ่างใส',ko:'C60 기술로 칙칙한 피부를 리프레시하고 광채를 되찾는 파이버 실크 트리트먼트.',ja:'C60技術でくすんだ肌を整え、輝きを取り戻すファイバーシルクトリートメント。'},
+ collection_prepe_p:{zh:'专注微生态的慕斯洁面，在清新洁净的同时支持舒适平衡的肌肤屏障。',th:'มูสคลีนเซอร์ที่ดูแลไมโครไบโอม ช่วยให้ผิวสะอาดสดชื่นพร้อมสนับสนุนเกราะผิว',ko:'산뜻하게 세정하면서 편안하고 균형 잡힌 피부 장벽을 지원하는 마이크로바이옴 무스 클렌저.',ja:'すっきり洗いながら、健やかで心地よい肌バリアを支えるマイクロバイオーム発想のムース洗顔料。'},
+ collection_discover_juve:{zh:'探索 JUVE',th:'ค้นพบ JUVE',ko:'JUVE 알아보기',ja:'JUVEを見る'}, collection_discover_mask:{zh:'探索 Bright+',th:'ค้นพบ Bright+',ko:'Bright+ 알아보기',ja:'Bright+を見る'}, collection_discover_prepe:{zh:'探索 Prepé',th:'ค้นพบ Prepé',ko:'Prepé 알아보기',ja:'Prepéを見る'},
+ collection_hint:{zh:'滚动或使用箭头探索',th:'เลื่อนหรือใช้ลูกศรเพื่อสำรวจ',ko:'스크롤하거나 화살표로 둘러보세요',ja:'スクロールまたは矢印でご覧ください'},
+ discover_organica:{zh:'探索 Organica',th:'ค้นพบ Organica',ko:'Organica 알아보기',ja:'Organicaを知る'}, see_guided_rituals:{zh:'查看护理指南',th:'ชมขั้นตอนการดูแล',ko:'가이드 리추얼 보기',ja:'ガイドリチュアルを見る'},
+ heritage_h:{zh:'我们的传承',th:'มรดกของเรา',ko:'우리의 헤리티지',ja:'私たちの歩み'},
+ heritage_p:{zh:'Organica 是 Mary Chia Group 的护肤部门，承载四十余年的美容与健康专业经验。从新加坡创始人主导的事业到不断壮大的区域社群，每个篇章都加深了我们对肌肤的理解，并引导今日有明确目的的配方。继续向下探索塑造 Organica 的里程碑、人物与抱负。',th:'Organica คือธุรกิจสกินแคร์ของ Mary Chia Group ที่สั่งสมความเชี่ยวชาญด้านความงามและสุขภาพมากว่าสี่ทศวรรษ จากธุรกิจที่ผู้ก่อตั้งเริ่มต้นในสิงคโปร์สู่ชุมชนระดับภูมิภาค ทุกบทช่วยให้เราเข้าใจผิวลึกซึ้งขึ้น เลื่อนลงเพื่อสำรวจเหตุการณ์ ผู้คน และความมุ่งมั่นที่สร้าง Organica',ko:'Organica는 40년 이상의 뷰티·웰니스 전문성을 지닌 Mary Chia Group의 스킨케어 부문입니다. 싱가포르 창업 기업에서 성장하는 지역 커뮤니티에 이르기까지 매 순간 피부에 대한 이해와 오늘의 목적 있는 포뮬러를 만들었습니다. 아래에서 Organica를 형성한 이정표와 사람, 비전을 만나보세요.',ja:'Organicaは、40年以上の美容とウェルネスの専門性を培ったMary Chia Groupのスキンケア部門です。シンガポールの創業者主導の事業から広がる地域コミュニティへ。一つひとつの歩みが肌への理解と現在の目的ある処方を育みました。スクロールしてOrganicaを形づくった節目、人々、志をご覧ください。'},
+ heritage_years:{zh:'美容与健康岁月',th:'ปีแห่งความงาม<br>และสุขภาพ',ko:'뷰티와 웰니스의<br>시간',ja:'美容とウェルネスの<br>歳月'}, heritage_explore:{zh:'探索我们的历史',th:'สำรวจประวัติของเรา',ko:'우리의 역사 보기',ja:'歴史をたどる'}, heritage_range:{zh:'1982 — 至今',th:'1982 — ปัจจุบัน',ko:'1982 — 현재',ja:'1982 — 現在'},
+ vm_eyebrow:{zh:'我们的动力',th:'สิ่งที่ขับเคลื่อนเรา',ko:'우리를 움직이는 가치',ja:'私たちを動かすもの'}, vm_h:{zh:'愿景与使命',th:'วิสัยทัศน์และพันธกิจ',ko:'비전과 미션',ja:'ビジョンとミッション'}, vm_subtitle:{zh:'塑造我们如何配制、成长以及与谁同行的原则。',th:'หลักการที่กำหนดวิธีพัฒนาสูตร การเติบโต และผู้ที่เราเติบโตไปด้วยกัน',ko:'우리가 무엇을 만들고 어떻게, 누구와 성장하는지를 이끄는 원칙.',ja:'何を処方し、どう成長し、誰と歩むかを形づくる原則。'},
+ mission_kk:{zh:'使命',th:'พันธกิจ',ko:'미션',ja:'ミッション'}, vision_kk:{zh:'愿景',th:'วิสัยทัศน์',ko:'비전',ja:'ビジョン'},
+ mission_p:{zh:'Organica 相信，美丽不是需要赢得的，而是每个人本已拥有的。我们以真实科学和仿生科技打造可靠产品，并让合作伙伴、创作者与社群把这份信念转化为独立与机会。诚实的美、有效的产品、真实的机会——这是我们共同建设的未来。',th:'Organica เชื่อว่าความงามไม่ใช่สิ่งที่ต้องแลกมา แต่เป็นสิ่งที่ทุกคนมีอยู่แล้ว เราพัฒนาผลิตภัณฑ์ด้วยวิทยาศาสตร์จริงและเทคโนโลยีไบโอมิเมติก พร้อมสร้างโอกาสให้พาร์ตเนอร์ ครีเอเตอร์ และชุมชนเติบโตอย่างอิสระไปด้วยกัน',ko:'Organica는 아름다움이 얻어야 하는 것이 아니라 이미 지닌 것이라 믿습니다. 실제 과학과 바이오미메틱 기술로 신뢰할 수 있는 제품을 만들고, 파트너와 크리에이터, 커뮤니티가 함께 성장할 기회를 만듭니다.',ja:'Organicaは、美しさは獲得するものではなく、誰もがすでに持つものだと考えます。確かな科学とバイオミメティック技術で信頼できる製品を作り、パートナー、クリエイター、コミュニティが共に自立し成長できる機会を育みます。'},
+ vision_p:{zh:'我们希望 Organica 成为亚太地区最受信赖的现代护肤品牌之一，以安静而始终如一的兑现赢得信任。我们憧憬一个美丽、自信与财务自由可以同行的未来，让信赖产品的社群也能与品牌一同成长。',th:'เรามองเห็น Organica เป็นหนึ่งในชื่อสกินแคร์สมัยใหม่ที่ได้รับความไว้วางใจมากที่สุดในเอเชียแปซิฟิก ด้วยการส่งมอบสิ่งที่สัญญาอย่างสม่ำเสมอ และสร้างอนาคตที่ความงาม ความมั่นใจ และอิสรภาพทางการเงินเติบโตไปด้วยกัน',ko:'Organica는 약속을 조용하고 꾸준히 지키며 아시아 태평양에서 가장 신뢰받는 현대 스킨케어 브랜드 중 하나가 되고자 합니다. 아름다움, 자신감과 경제적 자유가 커뮤니티의 성장과 함께하는 미래를 그립니다.',ja:'Organicaは、約束を静かに着実に果たし、アジア太平洋で最も信頼されるモダンスキンケアブランドの一つを目指します。美しさ、自信、経済的な自由がコミュニティの成長と共にある未来を描きます。'},
+ vm_next:{zh:'看看我们的足迹',th:'ดูว่าเส้นทางพาเราไปถึงไหน',ko:'우리의 여정이 닿은 곳 보기',ja:'歩みが広がった場所を見る'}, stat_bottles:{zh:'已发货瓶数（实时）',th:'จำนวนขวดที่จัดส่ง (สด)',ko:'배송된 병 수(실시간)',ja:'出荷本数（ライブ）'},
+ ct_eyebrow:{zh:'联系我们',th:'ติดต่อเรา',ko:'문의',ja:'お問い合わせ'}, ct_hq:{zh:'总部',th:'สำนักงานใหญ่',ko:'본사',ja:'本社'}, ct_dir:{zh:'获取路线',th:'ดูเส้นทาง',ko:'길찾기',ja:'アクセス'}, ct_my:{zh:'市场与运营支持中心',th:'ศูนย์สนับสนุนการตลาดและการดำเนินงาน',ko:'마케팅 및 운영 지원 센터',ja:'マーケティング・運営サポートセンター'}, ct_form_eyebrow:{zh:'给我们留言',th:'เขียนถึงเรา',ko:'메시지 보내기',ja:'メッセージを送る'}, ct_f_send:{zh:'发送',th:'ส่ง',ko:'보내기',ja:'送信'}
+ ,ct_name:{zh:'姓名',th:'ชื่อ',ko:'이름',ja:'お名前'}, ct_email:{zh:'电邮',th:'อีเมล',ko:'이메일',ja:'メール'}, ct_message:{zh:'留言',th:'ข้อความ',ko:'메시지',ja:'メッセージ'}
+});
+Object.assign(T,{
+ tl_1982_h:{zh:'起点',th:'จุดเริ่มต้น',ko:'시작',ja:'はじまり'}, tl_1982_p:{zh:'Mary Chia 女士怀着让专业美容护理更贴近个人、更易获得的愿景，以定制上门护理建立客户信任，奠定品牌基础。',th:'มาดาม Mary Chia เริ่มต้นด้วยวิสัยทัศน์ให้งานดูแลความงามระดับมืออาชีพเข้าถึงง่ายและเป็นส่วนตัว ผ่านบริการถึงบ้านที่สร้างความไว้วางใจกับลูกค้า',ko:'Mary Chia 여사는 전문 뷰티 케어를 더 개인적이고 쉽게 접할 수 있게 하겠다는 비전으로 맞춤 방문 서비스를 시작하며 브랜드의 토대를 세웠습니다.',ja:'Mary Chiaは、プロの美容ケアをより身近で個人的なものにするという思いから訪問サービスを始め、顧客との信頼を築きました。'},
+ tl_1989_h:{zh:'首家美容与瘦身中心',th:'ศูนย์ความงามและกระชับสัดส่วนแห่งแรก',ko:'첫 뷰티·슬리밍 센터',ja:'初のビューティー＆スリミングセンター'}, tl_1989_p:{zh:'首家实体中心在新加坡开业，品牌由居家创业迈向专业美容事业，为顾客提供专属空间与个性化护理。',th:'ศูนย์แห่งแรกเปิดในสิงคโปร์ เปลี่ยนธุรกิจจากบริการที่บ้านสู่ธุรกิจความงามมืออาชีพพร้อมพื้นที่สำหรับการดูแลเฉพาะบุคคล',ko:'싱가포르에 첫 센터를 열며 홈 비즈니스에서 전문 뷰티 기업으로 도약했고, 맞춤 관리를 위한 전용 공간을 마련했습니다.',ja:'シンガポールに初の店舗を開き、ホームビジネスから専門的な美容事業へ。個別ケアを提供する専用空間が生まれました。'},
+ tl_1994_h:{zh:'正式注册成立',th:'จดทะเบียนบริษัทอย่างเป็นทางการ',ko:'공식 법인 설립',ja:'正式な法人化'}, tl_1994_p:{zh:'公司在新加坡正式注册，为专业管理、业务发展与下一阶段成长建立更坚实的企业基础。',th:'บริษัทจดทะเบียนอย่างเป็นทางการในสิงคโปร์ วางรากฐานองค์กรที่แข็งแกร่งสำหรับการบริหารและการเติบโต',ko:'싱가포르에서 공식 법인화하며 전문 경영과 다음 성장 단계를 위한 탄탄한 기업 기반을 마련했습니다.',ja:'シンガポールで正式に法人化し、専門的な経営と次の成長段階に向けた強固な基盤を築きました。'},
+ tl_2001_h:{zh:'拓展品牌影响力',th:'ขยายการเข้าถึงของแบรนด์',ko:'브랜드 영향력 확대',ja:'ブランドの広がり'}, tl_2001_p:{zh:'品牌启用首位名人代言人 Ivy Lee，创立男性健康品牌 Urban Homme，并获新加坡超级品牌奖，影响力进一步扩大。',th:'แบรนด์แต่งตั้ง Ivy Lee เป็นพรีเซนเตอร์คนแรก เปิดตัว Urban Homme สำหรับผู้ชาย และได้รับรางวัล Singapore Superbrands',ko:'첫 셀러브리티 앰배서더 Ivy Lee를 발탁하고 남성 웰니스 브랜드 Urban Homme를 론칭했으며 Singapore Superbrands에 선정됐습니다.',ja:'初の著名アンバサダーIvy Leeを起用し、男性向けUrban Hommeを開始。Singapore Superbrandsにも選ばれました。'},
+ tl_2007_h:{zh:'品牌卓越获肯定',th:'การยอมรับด้านความเป็นเลิศของแบรนด์',ko:'브랜드 우수성 인정',ja:'ブランド力への評価'}, tl_2007_p:{zh:'Mary Chia 获新加坡卓越品牌奖，肯定其品牌发展、业务成长及顾客信心。',th:'Mary Chia ได้รับ Singapore Prestige Brand Award ยกย่องการพัฒนาแบรนด์ การเติบโต และความเชื่อมั่นของลูกค้า',ko:'브랜드 개발, 사업 성장과 고객 신뢰를 인정받아 Singapore Prestige Brand Award를 수상했습니다.',ja:'ブランド開発、事業成長、顧客からの信頼が評価され、Singapore Prestige Brand Awardを受賞しました。'},
+ tl_2009_h:{zh:'新加坡交易所上市',th:'จดทะเบียนในตลาดหลักทรัพย์สิงคโปร์',ko:'싱가포르 거래소 상장',ja:'シンガポール取引所に上場'}, tl_2009_p:{zh:'Mary Chia Holdings Limited 成功上市，进入企业成熟新阶段，并为长期增长与品牌拓展建立更强平台。',th:'Mary Chia Holdings Limited เข้าจดทะเบียนสำเร็จ เปิดบทใหม่ขององค์กรและสร้างแพลตฟอร์มเพื่อการเติบโตระยะยาว',ko:'Mary Chia Holdings Limited가 성공적으로 상장하며 기업 성숙의 새 단계와 장기 성장을 위한 플랫폼을 마련했습니다.',ja:'Mary Chia Holdings Limitedが上場し、企業としての新たな段階と長期成長の基盤を築きました。'},
+ tl_2010_h:{zh:'区域知名度提升',th:'การยอมรับในภูมิภาคเติบโต',ko:'지역 인지도 성장',ja:'地域での認知拡大'}, tl_2010_p:{zh:'国际知名演员赵薇担任品牌代言人；随后举办大型美容活动并创下吉尼斯世界纪录，展现社群力量与行业领导力。',th:'แต่งตั้ง Vicki Zhao Wei เป็นพรีเซนเตอร์ระดับนานาชาติ และจัดกิจกรรมความงามครั้งสำคัญที่สร้างสถิติโลกกินเนสส์',ko:'세계적인 배우 Vicki Zhao Wei를 앰배서더로 발탁하고 대규모 뷰티 행사로 기네스 세계 기록을 달성했습니다.',ja:'国際的俳優Vicki Zhao Weiをアンバサダーに迎え、大規模美容イベントでギネス世界記録を達成しました。'},
+ tl_2013_h:{zh:'服务与领导力卓越',th:'ความเป็นเลิศด้านบริการและความเป็นผู้นำ',ko:'서비스와 리더십의 우수성',ja:'サービスとリーダーシップ'}, tl_2013_p:{zh:'集团通过慈善与策略合作扩大社会影响，并获新加坡服务等级认证及东盟杰出企业奖等肯定。',th:'กลุ่มขยายผลกระทบต่อชุมชนผ่านงานการกุศลและพันธมิตร พร้อมได้รับการรับรอง Singapore Service Class และ ASEAN Outstanding Business Award',ko:'자선 활동과 전략적 파트너십으로 지역사회 기여를 확대하고 Singapore Service Class와 ASEAN Outstanding Business Award를 받았습니다.',ja:'慈善活動と戦略的提携で社会への貢献を広げ、Singapore Service ClassやASEAN Outstanding Business Awardを受賞しました。'},
+ tl_2018_h:{zh:'新加坡传承品牌',th:'แบรนด์มรดกแห่งสิงคโปร์',ko:'싱가포르 헤리티지 브랜드',ja:'シンガポールのヘリテージブランド'}, tl_2018_p:{zh:'品牌取得国际质量与服务标准，并获评新加坡传承品牌及新加坡创业奖，表彰创始历程与长期贡献。',th:'แบรนด์ได้รับมาตรฐานคุณภาพและบริการระดับสากล พร้อมการยอมรับเป็น Singapore Heritage Brand และ Singapore Entrepreneurship Award',ko:'국제 품질·서비스 기준을 획득하고 Singapore Heritage Brand 및 Singapore Entrepreneurship Award로 오랜 유산을 인정받았습니다.',ja:'国際的な品質・サービス基準を取得し、Singapore Heritage BrandとSingapore Entrepreneurship Awardで長年の歩みが評価されました。'},
+ tl_2020_h:{zh:'迈向新世代',th:'พัฒนาเพื่อคนรุ่นใหม่',ko:'새로운 세대를 위한 진화',ja:'新しい世代への進化'}, tl_2020_p:{zh:'集团以焕新的 Mary Chia 形象与更现代的顾客体验开启转型，并通过专业教育及零售、电商伙伴扩大产品可及性。',th:'กลุ่มปรับโฉม Mary Chia และยกระดับประสบการณ์ลูกค้า เสริมความสามารถด้านการศึกษาและขยายการเข้าถึงผ่านค้าปลีกและอีคอมเมิร์ซ',ko:'새로운 Mary Chia 아이덴티티와 현대적인 고객 경험으로 전환하고 교육 역량과 리테일·이커머스 파트너십을 강화했습니다.',ja:'Mary Chiaの刷新と現代的な顧客体験で変革を進め、教育力と小売・EC提携を通じて製品へのアクセスを広げました。'},
+ tl_2024_h:{zh:'Organica International 强势崛起',th:'Organica International ก้าวขึ้นอย่างแข็งแกร่ง',ko:'Organica International의 도약',ja:'Organica Internationalの飛躍'}, tl_2024_p:{zh:'Organica International 在新加坡重新启航，承接集团数十年专业经验，打造创新护肤、社群发展与创业平台，并拓展至亚洲主要市场。',th:'Organica International กลับมาเปิดตัวในสิงคโปร์ โดยต่อยอดประสบการณ์หลายทศวรรษสู่แพลตฟอร์มสกินแคร์นวัตกรรม การพัฒนาชุมชน และผู้ประกอบการ ก่อนขยายสู่ตลาดหลักในเอเชีย',ko:'Organica International은 싱가포르에서 새롭게 출발해 그룹의 수십 년 전문성을 혁신 스킨케어, 커뮤니티와 기업가 정신의 플랫폼으로 확장하고 아시아 주요 시장으로 진출했습니다.',ja:'Organica Internationalはシンガポールで再始動し、グループの長年の専門性を革新的なスキンケア、コミュニティ、起業支援の基盤へ発展させ、アジア主要市場へ広がりました。'}
+});
 const EN={};
 document.querySelectorAll('[data-i]').forEach(el=>{if(!(el.dataset.i in EN))EN[el.dataset.i]=el.innerHTML});
+document.querySelectorAll('[data-title-i]').forEach(el=>{EN[el.dataset.titleI]=el.querySelector('h3')?.innerHTML||'';EN[el.dataset.copyI]=el.querySelector(':scope > p:last-child')?.innerHTML||''});
+document.querySelectorAll('[data-i-placeholder]').forEach(el=>{EN[el.dataset.iPlaceholder]=el.placeholder});
 // fragment-only keys with no standalone DOM element to seed from (composed into dynamic price strings)
 Object.assign(EN,{price_save:'Save',price_each:'each',price_bottles_delivered:'bottles delivered'});
 function tr(k){ return LANG==='en' ? EN[k] : ((T[k]&&T[k][LANG])||EN[k]); }
@@ -618,6 +662,21 @@ function setLang(l,persist=true){
   document.querySelectorAll('[data-i]').forEach(el=>{
     const k=el.dataset.i;el.innerHTML = l==='en'?EN[k]:((T[k]&&T[k][l])||EN[k]);
   });
+  document.querySelectorAll('[data-title-i]').forEach(el=>{
+    const title=el.dataset.titleI,copy=el.dataset.copyI;
+    const h=el.querySelector('h3'),p=el.querySelector(':scope > p:last-child');
+    if(h)h.innerHTML=l==='en'?EN[title]:((T[title]&&T[title][l])||EN[title]);
+    if(p)p.innerHTML=l==='en'?EN[copy]:((T[copy]&&T[copy][l])||EN[copy]);
+  });
+  document.querySelectorAll('[data-i-placeholder]').forEach(el=>{const k=el.dataset.iPlaceholder;el.placeholder=l==='en'?EN[k]:((T[k]&&T[k][l])||EN[k])});
+  const activeStory=document.querySelector('.sl-item.on')||document.querySelector('.sl-item');
+  const stickyStoryLabel=document.getElementById('sl-label');
+  if(activeStory&&stickyStoryLabel)stickyStoryLabel.textContent=activeStory.querySelector('h3')?.textContent||'';
+  document.querySelectorAll('a[href]').forEach(a=>{
+    const raw=a.getAttribute('href'); if(!raw||raw.startsWith('#')||/^(mailto:|tel:|javascript:)/i.test(raw))return;
+    try{const u=new URL(raw,location.href);if(u.protocol!==location.protocol||(u.protocol!=='file:'&&u.origin!==location.origin))return;if(l==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',l);a.href=u.href}catch(_){}
+  });
+  try{const u=new URL(location.href);if(l==='en')u.searchParams.delete('lang');else u.searchParams.set('lang',l);history.replaceState(null,'',u.href)}catch(_){}
   document.getElementById('lang').classList.remove('open');
   document.querySelectorAll('.langmenu button').forEach(b=>b.setAttribute('aria-current',b.dataset.l===l));
   document.documentElement.lang=l;

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Collection — Organica International</title>
-<link rel="stylesheet" href="assets/css/style.css?v=43">
+<link rel="stylesheet" href="assets/css/style.css?v=44">
 </head>
 <body class="collection-page">
 <header id="hdr">
@@ -70,8 +70,8 @@
 <section class="collection-showcase" aria-labelledby="collectionTitle">
   <div class="wrap collection-intro">
     <p class="collection-kicker">Organica International</p>
-    <h1 id="collectionTitle">The Collection</h1>
-    <p>Tap any product to discover its formula, benefits, and place in your skincare ritual.</p>
+    <h1 id="collectionTitle" data-i="collection_title">The Collection</h1>
+    <p data-i="collection_intro">Tap any product to discover its formula, benefits, and place in your skincare ritual.</p>
   </div>
 
   <div class="collection-runway" id="collectionRunway" tabindex="0" aria-roledescription="carousel" aria-label="Organica product collection">
@@ -80,30 +80,30 @@
     <article class="collection-product is-active" data-index="0" data-product="juve" data-href="product-juve.html" aria-hidden="false">
       <div class="collection-product-visual visual-juve"><img src="assets/images/products/juve/juve-product-normalized.png" alt="JUVE Biomimetic Stem Cell Activator"></div>
       <div class="collection-product-copy">
-        <span class="collection-number">01 / 03</span><span class="collection-type">Mist</span>
+        <span class="collection-number">01 / 03</span><span class="collection-type" data-i="collection_mist">Mist</span>
         <h2>JUVE</h2>
-        <p>A biomimetic facial mist created to visibly lift, smooth and revive the look of tired skin.</p>
-        <a href="product-juve.html" class="collection-cta">Discover JUVE <span>↗</span></a>
+        <p data-i="collection_juve_p">A biomimetic facial mist created to visibly lift, smooth and revive the look of tired skin.</p>
+        <a href="product-juve.html" class="collection-cta"><span data-i="collection_discover_juve">Discover JUVE</span> <span>↗</span></a>
       </div>
     </article>
 
     <article class="collection-product" data-index="1" data-product="mask" data-href="product-mask.html" aria-hidden="true">
       <div class="collection-product-visual visual-mask"><img src="assets/images/products/bright/bright-mask-normalized.png" alt="Bright+ C60 Fibre Silk Mask"></div>
       <div class="collection-product-copy">
-        <span class="collection-number">02 / 03</span><span class="collection-type">Mask</span>
+        <span class="collection-number">02 / 03</span><span class="collection-type" data-i="collection_mask">Mask</span>
         <h2>Bright+</h2>
-        <p>A luminous fibre-silk treatment powered by C60 technology to refresh dull-looking skin and restore radiance.</p>
-        <a href="product-mask.html" class="collection-cta">Discover Bright+ <span>↗</span></a>
+        <p data-i="collection_mask_p">A luminous fibre-silk treatment powered by C60 technology to refresh dull-looking skin and restore radiance.</p>
+        <a href="product-mask.html" class="collection-cta"><span data-i="collection_discover_mask">Discover Bright+</span> <span>↗</span></a>
       </div>
     </article>
 
     <article class="collection-product" data-index="2" data-product="prepe" data-href="product-prepe.html" aria-hidden="true">
       <div class="collection-product-visual visual-prepe"><img src="assets/images/products/prepe/prepe-product-normalized.png" alt="ProBio Prepé Mousse Cleanser"></div>
       <div class="collection-product-copy">
-        <span class="collection-number">03 / 03</span><span class="collection-type">Cleanser</span>
+        <span class="collection-number">03 / 03</span><span class="collection-type" data-i="collection_cleanser">Cleanser</span>
         <h2>ProBio Prepé</h2>
-        <p>A microbiome-focused mousse cleanser that refreshes while supporting a balanced, comfortable skin barrier.</p>
-        <a href="product-prepe.html" class="collection-cta">Discover Prepé <span>↗</span></a>
+        <p data-i="collection_prepe_p">A microbiome-focused mousse cleanser that refreshes while supporting a balanced, comfortable skin barrier.</p>
+        <a href="product-prepe.html" class="collection-cta"><span data-i="collection_discover_prepe">Discover Prepé</span> <span>↗</span></a>
       </div>
     </article>
 
@@ -112,7 +112,7 @@
       <div class="collection-dots" aria-hidden="true"><i class="is-active"></i><i></i><i></i></div>
       <button class="collection-arrow collection-next" type="button" aria-label="Next product">›</button>
     </div>
-    <p class="collection-hint">Scroll or use the arrows to explore</p>
+    <p class="collection-hint" data-i="collection_hint">Scroll or use the arrows to explore</p>
   </div>
 </section>
 
@@ -220,6 +220,6 @@
   </div>
 </aside>
 
-<script src="assets/js/app.js?v=25"></script>
+<script src="assets/js/app.js?v=27"></script>
 </body>
 </html>
