@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Home — Organica International</title>
-<link rel="stylesheet" href="assets/css/style.css?v=32">
+<link rel="stylesheet" href="assets/css/style.css?v=35">
 </head>
 <body class="home-page">
 <header id="hdr">
@@ -14,8 +14,8 @@
       <div class="navlink">
         <a href="index.html" data-i="nav_house">The House<span class="car"></span></a>
         <div class="navdrop">
-          <a href="house.html#story" data-i="d_story">Our Story</a>
-          <a href="house.html#contact" data-i="d_contact">Contact</a>
+          <a href="house.html#story" data-i="d_story">About Us</a>
+          <a href="house.html#contact" data-i="d_contact">Contact Us</a>
         </div>
       </div>
       <div class="navlink">
@@ -66,6 +66,8 @@
   <a href="learn.html" data-i="nav_science">The Science</a>
 </nav>
 
+<!-- Landing-only scroll viewport. All snap and motion rules are scoped to this wrapper. -->
+<div id="landing-page-wrapper">
 <main>
 <section class="hero" id="top">
   <div class="slides" id="slides">
@@ -97,61 +99,70 @@
   <div class="arrows"><button onclick="go(-1)" aria-label="Previous">‹</button><button onclick="go(1)" aria-label="Next">›</button></div>
 </section>
 
-<section class="tagline"><div class="wrap">
+<section class="tagline discovery-chapter"><div class="wrap discovery-heading">
+  <p class="eyebrow">Discover Organica</p>
   <h2 data-i="tag_h">Formulated close to home. Explained all the way through.</h2>
   <p class="tag-p" data-i="tag_p">Organica International is the skincare arm of a Singapore beauty group with forty years behind it — built for Asian skin and climate rather than adapted from somewhere else, with every active named so nothing has to be taken on faith.</p>
-</div></section>
-
-<section class="section" style="padding-top:20px"><div class="wrap">
+</div>
+<div class="wrap discovery-destinations">
   <div class="explore">
     <a class="expcard" href="house.html">
-      <div class="ph-bg"><img src="assets/images/house/organica-formulation-lab.jpg" alt="Organica skincare formulation laboratory"></div>
+      <div class="ph-bg"><img src="assets/images/landing/landing-house-white.png" alt="Archival formulation notebook and botanical laboratory still life"></div>
       <div class="body">
         <span class="n">01</span>
         <h3 data-i="e1_h">The House</h3>
-        <p data-i="e1_p">Forty years of formulating, starting with one client at a time.</p>
+        <p data-i="e1_p">Discover the heritage, expertise and milestones that shaped Organica’s approach to purposeful skincare.</p>
         <span class="go2"><span></span><em style="font-style:normal" data-i="t_go">Enter</em></span>
       </div>
     </a>
     <a class="expcard" href="shop.html">
-      <div class="ph-bg"><img src="assets/images/products/organica-product-flatlay.jpg" alt="Organica JUVE, Bright+ and ProBio Prepé collection"></div>
+      <div class="ph-bg"><img src="assets/images/landing/landing-collection-white.png" alt="Curated biomimetic skincare formats on a clean white studio background"></div>
       <div class="body">
         <span class="n">02</span>
         <h3 data-i="e2_h">The Collection</h3>
-        <p data-i="e2_p">Three focused products. Open any one for its formula, actives and usage.</p>
+        <p data-i="e2_p">Explore biomimetic skincare created around purposeful actives, complementary rituals and clearly explained formulations.</p>
         <span class="go2"><span></span><em style="font-style:normal" data-i="t_go">Enter</em></span>
       </div>
     </a>
     <a class="expcard" href="learn.html">
-      <div class="ph-bg"><img src="assets/images/science/organica-ingredient-macro.jpg" alt="Skincare actives represented through luminous laboratory textures"></div>
+      <div class="ph-bg"><img src="assets/images/landing/landing-science-white.png" alt="Skincare formulation science with a dropper, petri dish and molecular model"></div>
       <div class="body">
         <span class="n">03</span>
         <h3 data-i="e3_h">The Science</h3>
-        <p data-i="e3_p">Notes on how we formulate, videos, and the questions we actually get asked.</p>
+        <p data-i="e3_p">Discover the ingredients, formulation technologies and guided rituals behind visible, effective skincare results.</p>
         <span class="go2"><span></span><em style="font-style:normal" data-i="t_go">Enter</em></span>
       </div>
     </a>
   </div>
+  <a class="discovery-next" href="#guided-rituals"><span>See Guided Rituals</span><i aria-hidden="true">&#8595;</i></a>
 </div></section>
 
-<section class="section home-video"><div class="wrap">
+<section class="section home-video" id="guided-rituals"><div class="wrap">
   <div class="shead" style="text-align:center;max-width:none">
-    <p class="eyebrow" data-i="home_vid_eyebrow">Press play</p>
-    <h2 data-i="home_vid_h">See it before you try it.</h2>
+    <p class="eyebrow" data-i="home_vid_eyebrow">Guided Rituals</p>
+    <h2 data-i="home_vid_h">Discover the Rituals Behind Radiant Skin</h2>
+    <p class="ritual-intro" data-i="home_vid_p">A curated video guide to using each Organica ritual with clarity and confidence.</p>
   </div>
-  <div class="vidgrid">
-    <a class="vidcard" href="https://youtu.be/va2E1YOjwcc" target="_blank" rel="noopener">
-      <div class="frame"><img src="assets/images/video/video-thumb-juve.jpg" alt="JUVE video"><div class="play"></div></div>
-      <div class="b"><h4 data-i="home_vid_juve_h">Rediscover the Beauty of Youthful-Looking Skin | JUVE Biomimetic Stem Cell Activator</h4></div>
-    </a>
-    <a class="vidcard" href="https://youtu.be/pMdF0AbaLTM" target="_blank" rel="noopener">
-      <div class="frame"><img src="assets/images/video/video-thumb-brightmask.jpg" alt="Bright+ video"><div class="play"></div></div>
-      <div class="b"><h4 data-i="home_vid_mask_h">90 Days to Brighter, Smoother &amp; Radiant-Looking Skin | Discover Bright+ Fullerene Fibre Silk Mask</h4></div>
-    </a>
-    <a class="vidcard" href="https://youtu.be/SM0hr0c4k_A?si=zeN3kI72yrWNc-8s" target="_blank" rel="noopener">
-      <div class="frame"><img src="assets/images/video/video-thumb-prepe.jpg" alt="ProBio Prepé video"><div class="play"></div></div>
-      <div class="b"><h4 data-i="home_vid_prepe_h">Not Your Average Cleanser, ProBio Prepé | 6-in-1 Probiotic Skincare Innovation</h4></div>
-    </a>
+  <div class="ritual-carousel" id="ritualCarousel" tabindex="0" aria-label="Organica ritual videos">
+    <button class="ritual-arrow ritual-prev" type="button" aria-label="Previous video">‹</button>
+    <div class="ritual-viewport">
+      <div class="ritual-track">
+        <a class="vidcard ritual-slide" href="https://youtu.be/va2E1YOjwcc" target="_blank" rel="noopener">
+          <div class="frame"><img src="assets/images/video/video-thumb-juve.jpg" alt="JUVE video"><div class="play"></div></div>
+          <div class="b"><h4 data-i="home_vid_juve_h">Rediscover the Beauty of Youthful-Looking Skin | JUVE Biomimetic Stem Cell Activator</h4></div>
+        </a>
+        <a class="vidcard ritual-slide" href="https://youtu.be/pMdF0AbaLTM" target="_blank" rel="noopener">
+          <div class="frame"><img src="assets/images/video/video-thumb-brightmask.jpg" alt="Bright+ video"><div class="play"></div></div>
+          <div class="b"><h4 data-i="home_vid_mask_h">90 Days to Brighter, Smoother &amp; Radiant-Looking Skin | Discover Bright+ Fullerene Fibre Silk Mask</h4></div>
+        </a>
+        <a class="vidcard ritual-slide" href="https://youtu.be/SM0hr0c4k_A?si=zeN3kI72yrWNc-8s" target="_blank" rel="noopener">
+          <div class="frame"><img src="assets/images/video/video-thumb-prepe.jpg" alt="ProBio Prepé video"><div class="play"></div></div>
+          <div class="b"><h4 data-i="home_vid_prepe_h">Not Your Average Cleanser, ProBio Prepé | 6-in-1 Probiotic Skincare Innovation</h4></div>
+        </a>
+      </div>
+    </div>
+    <button class="ritual-arrow ritual-next" type="button" aria-label="Next video">›</button>
+    <div class="ritual-dots" aria-label="Choose a video"></div>
   </div>
 </div></section>
 
@@ -178,6 +189,7 @@
     </div>
   </div>
 </footer>
+</div>
 
 <div class="scrim" id="scrim" onclick="closeAcct()"></div>
 <aside class="acct" id="acct" role="dialog" aria-label="Account">
@@ -223,6 +235,6 @@
   </div>
 </aside>
 
-<script src="assets/js/app.js?v=19"></script>
+<script src="assets/js/app.js?v=22"></script>
 </body>
 </html>

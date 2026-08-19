@@ -60,6 +60,8 @@ addEventListener('keydown',e=>{if(e.key==='Escape'){closeAcct();document.getElem
   const items=[...document.querySelectorAll('.sl-item')];
   if(!items.length) return;
   const yr=document.getElementById('sl-year'), lb=document.getElementById('sl-label'), pg=document.getElementById('sl-progress');
+  const storyline=document.querySelector('.storyline');
+  const visionMission=document.getElementById('vision-mission');
   const media={};
   document.querySelectorAll('.sl-media-item').forEach(m=>media[m.dataset.year]=m);
 
@@ -117,7 +119,131 @@ addEventListener('keydown',e=>{if(e.key==='Escape'){closeAcct();document.getElem
   window.addEventListener('scroll',()=>{
     if(!ticking){ticking=true;setTimeout(onScroll,16);}
   },{passive:true});
+
+  /* Fade the sticky final chapter before the following section takes focus. */
+  if(storyline&&visionMission&&'IntersectionObserver' in window){
+    const exitObserver=new IntersectionObserver(([entry])=>{
+      storyline.classList.toggle('timeline-exiting',entry.isIntersecting);
+    },{threshold:0,rootMargin:'0px 0px -18% 0px'});
+    exitObserver.observe(visionMission);
+  }
   onScroll();
+})();
+
+/* ---------- landing page: one-at-a-time ritual video carousel ---------- */
+(function ritualVideoCarousel(){
+  const carousel=document.getElementById('ritualCarousel');
+  if(!carousel) return;
+
+  const track=carousel.querySelector('.ritual-track');
+  const slides=[...carousel.querySelectorAll('.ritual-slide')];
+  const previous=carousel.querySelector('.ritual-prev');
+  const next=carousel.querySelector('.ritual-next');
+  const dots=carousel.querySelector('.ritual-dots');
+  if(!track||slides.length<2||!previous||!next||!dots) return;
+
+  let active=0;
+  const controls=slides.map((_,index)=>{
+    const button=document.createElement('button');
+    button.type='button';
+    button.setAttribute('aria-label',`Show video ${index+1}`);
+    button.addEventListener('click',()=>show(index));
+    dots.appendChild(button);
+    return button;
+  });
+
+  function show(index){
+    active=(index+slides.length)%slides.length;
+    track.style.transform=`translate3d(${-active*100}%,0,0)`;
+    slides.forEach((slide,i)=>{
+      const current=i===active;
+      slide.setAttribute('aria-hidden',String(!current));
+      slide.tabIndex=current?0:-1;
+    });
+    controls.forEach((button,i)=>{
+      const current=i===active;
+      button.classList.toggle('on',current);
+      button.setAttribute('aria-current',current?'true':'false');
+    });
+  }
+
+  previous.addEventListener('click',()=>show(active-1));
+  next.addEventListener('click',()=>show(active+1));
+  carousel.addEventListener('keydown',event=>{
+    if(event.key!=='ArrowLeft'&&event.key!=='ArrowRight') return;
+    event.preventDefault();
+    show(active+(event.key==='ArrowRight'?1:-1));
+  });
+  let touchStartX=null;
+  carousel.addEventListener('touchstart',event=>{
+    touchStartX=event.touches[0]?.clientX??null;
+  },{passive:true});
+  carousel.addEventListener('touchend',event=>{
+    if(touchStartX===null) return;
+    const endX=event.changedTouches[0]?.clientX??touchStartX;
+    const distance=endX-touchStartX;
+    touchStartX=null;
+    if(Math.abs(distance)>45) show(active+(distance<0?1:-1));
+  },{passive:true});
+  show(0);
+})();
+
+/* =====================================================
+   LANDING PAGE — SNAP CHAPTERS + CONNECTED MOTION
+   Runs only when #landing-page-wrapper exists. No product, house or science
+   page receives these observers or scroll listeners.
+   ===================================================== */
+(function landingSnapExperience(){
+  const wrapper=document.getElementById('landing-page-wrapper');
+  if(!wrapper) return;
+
+  const chapters=[...wrapper.querySelectorAll('main > section, footer')];
+  if(!chapters.length) return;
+
+  const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  chapters.forEach((chapter,index)=>{
+    chapter.classList.add('landing-snap-section');
+    if(index===0) chapter.classList.add('is-snap-active');
+  });
+
+  /* The chapter nearest the viewport centre becomes the visual focus. */
+  if('IntersectionObserver' in window){
+    const focusObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        entry.target.classList.toggle('is-snap-active',entry.isIntersecting);
+      });
+    },{
+      root:wrapper,
+      threshold:.18,
+      rootMargin:'-16% 0px -16% 0px'
+    });
+    chapters.forEach(chapter=>focusObserver.observe(chapter));
+  }else{
+    chapters.forEach(chapter=>chapter.classList.add('is-snap-active'));
+  }
+
+  /* A restrained scroll-linked offset visually draws one section into the next.
+     requestAnimationFrame keeps updates aligned with browser painting. */
+  if(reduceMotion) return;
+  let frame=0;
+  const paint=()=>{
+    frame=0;
+    const viewportCentre=wrapper.clientHeight/2;
+    chapters.forEach(chapter=>{
+      const rect=chapter.getBoundingClientRect();
+      const chapterCentre=rect.top+rect.height/2;
+      const distance=(chapterCentre-viewportCentre)/Math.max(wrapper.clientHeight,1);
+      const progress=Math.max(-1,Math.min(1,distance));
+      chapter.style.setProperty('--snap-progress',progress.toFixed(3));
+    });
+  };
+  const queuePaint=()=>{
+    if(frame) return;
+    frame=requestAnimationFrame(paint);
+  };
+  wrapper.addEventListener('scroll',queuePaint,{passive:true});
+  addEventListener('resize',queuePaint,{passive:true});
+  paint();
 })();
 
 /* ---------- markets ---------- */
@@ -179,7 +305,7 @@ const T={
  k_weekly2:{zh:'面膜 · 每周',th:'มาสก์ · รายสัปดาห์',ko:'마스크 · 주간',ja:'マスク · 週1回'},
 
  nav_science:{zh:'成分科学',th:'วิทยาศาสตร์',ko:'과학',ja:'サイエンス'},
- d_story:{zh:'品牌故事',th:'เรื่องราวของเรา',ko:'브랜드 스토리',ja:'ブランドストーリー'},
+ d_story:{zh:'关于我们',th:'เกี่ยวกับเรา',ko:'회사 소개',ja:'私たちについて'},
  d_contact:{zh:'联系我们',th:'ติดต่อเรา',ko:'문의하기',ja:'お問い合わせ'},
  d_blog:{zh:'博客',th:'บล็อก',ko:'블로그',ja:'ブログ'},
  d_faq:{zh:'常见问题',th:'คำถามที่พบบ่อย',ko:'자주 묻는 질문',ja:'よくある質問'},
@@ -204,15 +330,16 @@ const T={
  home_eyebrow:{zh:'从这里开始',th:'เริ่มจากที่นี่',ko:'여기서 시작',ja:'ここから'},
  tag_h:{zh:'在本地研发，从头到尾清楚说明。',th:'พัฒนาสูตรใกล้บ้าน อธิบายอย่างชัดเจนทุกขั้นตอน',ko:'가까운 곳에서 개발하고, 처음부터 끝까지 설명합니다.',ja:'身近な場所で処方し、最初から最後まで説明します。'},
  tag_p:{zh:'Organica International 隶属于一家拥有四十年经验的新加坡美容集团。产品专为亚洲肌肤与气候打造，而非改编自其他地区的配方；每一种活性成分都清楚标示，无需盲目信任。',th:'Organica International คือธุรกิจสกินแคร์ของกลุ่มความงามจากสิงคโปร์ที่มีประสบการณ์สี่สิบปี พัฒนาขึ้นเพื่อผิวและสภาพอากาศแบบเอเชีย ไม่ใช่การดัดแปลงสูตรจากที่อื่น พร้อมระบุสารสำคัญทุกชนิดอย่างชัดเจน',ko:'Organica International은 40년 역사의 싱가포르 뷰티 그룹이 운영하는 스킨케어 브랜드입니다. 다른 지역의 처방을 변형한 것이 아니라 아시아 피부와 기후를 위해 만들었으며, 모든 활성 성분을 명확히 공개합니다.',ja:'Organica Internationalは、40年の歴史を持つシンガポールのビューティーグループによるスキンケアブランドです。他地域の処方を転用するのではなく、アジアの肌と気候のために設計し、すべての有効成分を明記しています。'},
- home_vid_eyebrow:{zh:'观看',th:'รับชม',ko:'시청',ja:'視聴'},
- home_vid_h:{zh:'仪式，动态呈现。',th:'พิธีกรรม ในรูปแบบวิดีโอ',ko:'리추얼을 영상으로.',ja:'リチュアルを、映像で。'},
+ home_vid_eyebrow:{zh:'专业护肤指导',th:'คำแนะนำการดูแลผิว',ko:'가이드 리추얼',ja:'ガイド付きリチュアル'},
+ home_vid_h:{zh:'探索焕亮肌肤背后的护肤仪式',th:'ค้นพบขั้นตอนการดูแลผิวเบื้องหลังผิวเปล่งประกาย',ko:'빛나는 피부를 위한 리추얼을 만나보세요',ja:'輝く肌を支えるリチュアルを発見'},
+ home_vid_p:{zh:'精选视频指南，帮助您清晰、自信地掌握每一套 Organica 护肤仪式。',th:'วิดีโอแนะนำที่คัดสรรมาเพื่อช่วยให้คุณใช้ทุกขั้นตอนการดูแลผิวของ Organica ได้อย่างชัดเจนและมั่นใจ',ko:'각 Organica 리추얼을 명확하고 자신 있게 사용할 수 있도록 엄선한 영상 가이드입니다.',ja:'Organicaの各リチュアルを、分かりやすく自信を持って取り入れるための厳選ビデオガイドです。'},
  home_vid_juve_h:{zh:'JUVE——不老肌密码',th:'JUVE — เคล็ดลับผิวไร้วัย',ko:'JUVE — 에이지리스 스킨의 비밀',ja:'JUVE——エイジレス肌の秘密'},
  home_vid_mask_h:{zh:'Bright+——90天迎来透亮肌',th:'Bright+ — 90 วันสู่ผิวเปล่งประกาย',ko:'Bright+ — 빛나는 피부를 위한 90일',ja:'Bright+——90日で輝く肌へ'},
  home_vid_prepe_h:{zh:'不只是洁面：ProBio Prepé｜六合一益生菌护肤创新',th:'ไม่ใช่แค่คลีนเซอร์: ProBio Prepé | นวัตกรรมโปรไบโอติกสกินแคร์ 6-in-1',ko:'평범한 클렌저가 아닌 ProBio Prepé | 6-in-1 프로바이오틱 스킨케어 혁신',ja:'ただの洗顔料ではないProBio Prepé｜6-in-1プロバイオティクスキンケア革新'},
  e1_h:{zh:'品牌',th:'เกี่ยวกับเรา',ko:'브랜드',ja:'ブランド'},
- e1_p:{zh:'四十年的配方经验，从一位客人开始。',th:'สี่สิบปีแห่งการพัฒนาสูตร เริ่มจากลูกค้าคนเดียว',ko:'한 명의 고객에서 시작된 40년의 배합 경험.',ja:'一人の顧客から始まった四十年の処方経験。'},
+ e1_p:{zh:'探索塑造 Organica 使命型护肤理念的品牌传承、专业积淀与重要里程碑。',th:'ค้นพบมรดก ความเชี่ยวชาญ และเหตุการณ์สำคัญที่หล่อหลอมแนวทางการดูแลผิวอย่างมีจุดมุ่งหมายของ Organica',ko:'Organica의 목적 있는 스킨케어 철학을 만들어 온 헤리티지와 전문성, 주요 여정을 만나보세요.',ja:'Organicaの目的あるスキンケアへの姿勢を形づくった歴史、専門性、そして歩みをご覧ください。'},
  e2_h:{zh:'系列',th:'คอลเลกชัน',ko:'컬렉션',ja:'コレクション'},
- e2_p:{zh:'三款专注产品。打开任意一款，即可查看其配方、活性成分与使用方法。',th:'ผลิตภัณฑ์ที่คัดสรร 3 รายการ เปิดดูแต่ละรายการเพื่อดูสูตร สารสำคัญ และวิธีใช้',ko:'엄선한 세 가지 제품. 각 제품을 열어 포뮬러, 활성 성분, 사용법을 확인하세요.',ja:'厳選した三つの製品。それぞれの処方、有効成分、使用方法をご覧いただけます。'},
+ e2_p:{zh:'探索以仿生护肤理念打造的系列，融合针对性活性成分、相辅相成的护肤步骤与清晰透明的配方说明。',th:'สำรวจผลิตภัณฑ์สกินแคร์ไบโอมิเมติกที่พัฒนาจากสารสำคัญอย่างมีจุดมุ่งหมาย ขั้นตอนการดูแลที่เสริมกัน และสูตรที่อธิบายอย่างชัดเจน',ko:'목적에 맞는 활성 성분, 서로 보완하는 리추얼, 명확한 포뮬러 설명을 바탕으로 완성된 바이오미메틱 스킨케어를 만나보세요.',ja:'目的に合わせた有用成分、互いを補うリチュアル、明快な処方説明から生まれたバイオミメティックスキンケアをご覧ください。'},
  trust_eyebrow:{zh:'人们为何选择 Organica',th:'ทำไมผู้คนจึงเลือก Organica',ko:'사람들이 Organica를 선택하는 이유',ja:'Organicaが選ばれる理由'},
  trust_h:{zh:'让护肤更容易理解。',th:'สกินแคร์ที่เข้าใจได้ง่ายขึ้น',ko:'더 이해하기 쉬운 스킨케어.',ja:'もっとわかりやすいスキンケア。'},
  trust_p:{zh:'专注的配方、清楚标示的活性成分，以及贴近日常生活的实用护理步骤。',th:'สูตรที่มุ่งเน้น สารสำคัญที่ระบุชื่อชัดเจน และขั้นตอนดูแลที่เหมาะกับชีวิตจริง',ko:'집중된 포뮬러, 명확히 공개된 활성 성분, 실제 생활에 맞는 실용적인 루틴.',ja:'目的の明確な処方、明記された有効成分、実生活に合う実用的なルーティン。'},
@@ -226,7 +353,7 @@ const T={
  footer_copyright:{zh:'© 2026 Organica International',th:'© 2026 Organica International',ko:'© 2026 Organica International',ja:'© 2026 Organica International'},
  not_scheduled:{zh:'尚未安排',th:'ยังไม่ได้กำหนด',ko:'아직 예정되지 않음',ja:'未定'},
  e3_h:{zh:'成分科学',th:'วิทยาศาสตร์',ko:'과학',ja:'サイエンス'},
- e3_p:{zh:'关于我们如何配方的笔记、视频，以及大家真正会问的问题。',th:'บันทึกเกี่ยวกับการพัฒนาสูตรของเรา วิดีโอ และคำถามที่ลูกค้าถามจริง ๆ',ko:'우리가 배합하는 방식에 대한 노트, 영상, 그리고 실제로 자주 받는 질문들.',ja:'処方についてのノート、動画、そして実際によく寄せられる質問。'},
+ e3_p:{zh:'探索成就清晰可见、有效护肤成果的成分、配方技术与专业护肤指导。',th:'ค้นพบส่วนผสม เทคโนโลยีการพัฒนาสูตร และวิดีโอแนะนำขั้นตอนการดูแลผิวที่อยู่เบื้องหลังผลลัพธ์ที่มองเห็นได้และมีประสิทธิภาพ',ko:'눈에 보이는 효과적인 스킨케어 결과를 뒷받침하는 성분, 포뮬레이션 기술, 가이드 리추얼을 알아보세요.',ja:'目に見える効果的なスキンケア結果を支える成分、処方技術、ガイド付きリチュアルをご紹介します。'},
  sp_eyebrow:{zh:'招牌之作',th:'สินค้าซิกเนเจอร์',ko:'시그니처',ja:'シグネチャー'},
  sp_h:{zh:'一瓶。',th:'หนึ่งขวด',ko:'하나의 병.',ja:'ひとつのボトル。'},
  sp_h_b:{zh:'六种活性成分。',th:'หกสารสำคัญ',ko:'여섯 가지 성분.',ja:'六つの成分。'},
@@ -272,7 +399,7 @@ const T={
  s2_cta:{zh:'选购优惠',th:'ช้อปข้อเสนอ',ko:'혜택 보기',ja:'オファーを見る'},
  s3_eyebrow:{zh:'活动',th:'อีเวนต์',ko:'이벤트',ja:'イベント'},
  s3_cta:{zh:'活动详情',th:'รายละเอียดอีเวนต์',ko:'이벤트 상세',ja:'イベント詳細'},
- house_eyebrow:{zh:'品牌',th:'เกี่ยวกับเรา',ko:'브랜드',ja:'ブランド'},
+ house_eyebrow:{zh:'关于我们',th:'เกี่ยวกับเรา',ko:'회사 소개',ja:'私たちについて'},
  house_h:{zh:'一个刻意保持精简的产品线。',th:'ไลน์สินค้าที่ตั้งใจให้เล็ก',ko:'의도적으로 작게 유지한 라인.',ja:'あえて小さく保った製品ライン。'},
  house_p:{zh:'歐佳麗卡國際在新加坡研制仿生护肤品，并于亚洲六个市场销售。我们公开每一瓶的成分，保持产品线简短，宁可把一件产品讲清楚，也不愿罗列二十件。',th:'Organica International พัฒนาสูตรสกินแคร์ไบโอมิเมติกในสิงคโปร์ และจำหน่ายในหกตลาดทั่วเอเชีย เราเปิดเผยส่วนผสมทุกขวด เก็บไลน์สินค้าให้สั้น และเลือกที่จะอธิบายสินค้าชิ้นเดียวให้ดี มากกว่าจะลิสต์ยี่สิบชิ้น',ko:'Organica International은 싱가포르에서 바이오미메틱 스킨케어를 개발하고 아시아 6개 시장에서 판매합니다. 모든 성분을 공개하고, 라인을 짧게 유지하며, 스무 개를 나열하기보다 하나를 제대로 설명합니다.',ja:'Organica Internationalはシンガポールでバイオミメティックスキンケアを開発し、アジア6市場で販売しています。全成分を公開し、ラインを短く保ち、20品を並べるより1品を丁寧に説明することを選びます。'},
  p1_h:{zh:'仿生设计',th:'ออกแบบแบบไบโอมิเมติก',ko:'바이오미메틱 설계',ja:'バイオミメティック設計'},
@@ -583,7 +710,55 @@ setLang(storedLanguage(),false);
   });
 })();
 
-/* ---------- Collection: picker, navigates to the product's own page ---------- */
+/* ---------- Collection: scroll-led product runway ---------- */
+(function collectionRunway(){
+  const runway=document.getElementById('collectionRunway');
+  if(!runway) return;
+  const products=[...runway.querySelectorAll('.collection-product')];
+  const dots=[...runway.querySelectorAll('.collection-dots i')];
+  const previous=runway.querySelector('.collection-prev');
+  const next=runway.querySelector('.collection-next');
+  let active=0;
+  let touchStartX=0;
+
+  function show(index){
+    active=(index+products.length)%products.length;
+    products.forEach((product,i)=>{
+      const selected=i===active;
+      product.classList.toggle('is-active',selected);
+      product.setAttribute('aria-hidden',String(!selected));
+    });
+    dots.forEach((dot,i)=>dot.classList.toggle('is-active',i===active));
+  }
+  function step(direction){ show(active+direction); }
+
+  previous?.addEventListener('click',()=>step(-1));
+  next?.addEventListener('click',()=>step(1));
+  products.forEach(product=>{
+    const visual=product.querySelector('.collection-product-visual');
+    if(!visual) return;
+    visual.setAttribute('role','link');
+    visual.setAttribute('tabindex','0');
+    visual.setAttribute('aria-label',`View ${product.querySelector('h2')?.textContent||'product'}`);
+    const open=()=>{window.location.href=product.dataset.href};
+    visual.addEventListener('click',open);
+    visual.addEventListener('keydown',event=>{
+      if(event.key==='Enter'||event.key===' '){event.preventDefault();open()}
+    });
+  });
+  runway.addEventListener('keydown',event=>{
+    if(event.key==='ArrowLeft'){event.preventDefault();step(-1)}
+    if(event.key==='ArrowRight'){event.preventDefault();step(1)}
+  });
+  runway.addEventListener('touchstart',event=>{touchStartX=event.touches[0].clientX},{passive:true});
+  runway.addEventListener('touchend',event=>{
+    const distance=touchStartX-event.changedTouches[0].clientX;
+    if(Math.abs(distance)>45) step(distance>0?1:-1);
+  },{passive:true});
+  show(0);
+})();
+
+/* ---------- Legacy collection picker ---------- */
 (function(){
   const cards=[...document.querySelectorAll('.ecard')];
   const stage=document.querySelector('.edit-stage');
