@@ -2486,3 +2486,41 @@ img,video,iframe{max-width:100%}
   .burger{width:38px;min-width:38px}
   .wrap{padding-inline:15px}
 }
+
+/* Mobile landing hero: a compact two-line headline panel that leaves the
+   JUVE bottle visible. Kept last so broad responsive typography cannot
+   override this composition. */
+@media(max-width:700px){
+  .home-page .hero-art-slide .sgrid{
+    padding-inline:clamp(22px,6vw,30px);
+    padding-bottom:64px;
+  }
+  .home-page .hero-art-slide .scopy{
+    width:min(100%,370px);
+    padding:12px 14px;
+  }
+  .home-page .hero-art-slide .scopy .eyebrow{
+    margin-bottom:5px;
+    font-size:7.5px;
+  }
+  .home-page .hero-art-slide .scopy h1{
+    max-width:none;
+    margin-bottom:6px;
+    font-size:clamp(24px,7vw,28px)!important;
+    line-height:1.04;
+    text-wrap:balance;
+  }
+  .home-page .hero-art-slide .scopy .lede{
+    font-size:10px;
+    line-height:1.38;
+  }
+  .home-page .hero-art-slide .scta{margin-top:9px}
+  .home-page .hero-art-slide .scta .btn{min-height:44px}
+}
+
+@media(max-width:360px){
+  .home-page .hero-art-slide .sgrid{padding-inline:18px}
+  .home-page .hero-art-slide .scopy h1{
+    font-size:clamp(22px,6.8vw,25px)!important;
+  }
+}
