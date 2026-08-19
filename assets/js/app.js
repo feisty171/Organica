@@ -67,7 +67,7 @@ addEventListener('keydown',e=>{if(e.key==='Escape'){closeAcct();document.getElem
   let currentYear=null, activeStartY=0, ticking=false;
 
   function findActiveIndex(){
-    const refY=window.innerHeight*0.4;
+    const refY=window.innerHeight*0.5;
     let best=0, bestDist=Infinity;
     items.forEach((it,i)=>{
       const r=it.getBoundingClientRect();
@@ -89,7 +89,7 @@ addEventListener('keydown',e=>{if(e.key==='Escape'){closeAcct();document.getElem
       const key=it.dataset.labelKey;
       const h3=it.querySelector('h3');
       lb.textContent = h3 ? h3.textContent : '';
-      lb.dataset.i = key;
+      if(key) lb.dataset.i=key; else delete lb.dataset.i;
       pg.style.height = ((idx+1)/items.length*100)+'%';
       Object.values(media).forEach(m=>m.classList.remove('on'));
       if(media[year]) media[year].classList.add('on');
@@ -418,7 +418,8 @@ const T={
  sci_h:{zh:'每一款产品背后的细节。',th:'รายละเอียดเบื้องหลังทุกสิ่งที่เราสร้าง',ko:'우리가 만드는 모든 것의 근거.',ja:'すべての製品を支える詳細。'},
  sci_p:{zh:'每项说明都控制在证据支持的范围内。这里收录产品页仅作概述的完整细节。',th:'ทุกข้อความอยู่ในขอบเขตที่มีหลักฐานรองรับ ที่นี่รวบรวมรายละเอียดซึ่งหน้าผลิตภัณฑ์สรุปไว้เท่านั้น',ko:'모든 표현은 근거가 뒷받침하는 범위에 한정합니다. 제품 페이지에서 요약한 세부 내용을 이곳에 담았습니다.',ja:'すべての表現を根拠で支えられる範囲に限定。製品ページでは要約した詳細をここにまとめています。'},
  vid_eyebrow:{zh:'视频',th:'วิดีโอ',ko:'영상',ja:'動画'},
- vid_h:{zh:'不只阅读，也看看实际护理步骤。',th:'ชมขั้นตอนจริง ไม่ใช่แค่อ่าน',ko:'글이 아닌 실제 루틴을 확인하세요.',ja:'読むだけでなく、実際のルーティンを。'},
+ vid_h:{zh:'探索焕亮肌肤背后的护理仪式',th:'ค้นพบขั้นตอนการดูแลผิวเบื้องหลังผิวเปล่งประกาย',ko:'빛나는 피부를 위한 리추얼을 만나보세요',ja:'輝く肌を導くリチュアルを発見'},
+ vid_p:{zh:'通过分步骤视频引导每一个护理环节，帮助您充分发挥日常护肤的功效。',th:'วิดีโอแนะนำทีละขั้นตอนเพื่อพาคุณผ่านทุกขั้นตอนการดูแล และช่วยให้กิจวัตรสกินแคร์ของคุณมีประสิทธิภาพสูงสุด',ko:'단계별 영상으로 각 리추얼을 안내하여 스킨케어 루틴의 효과를 충분히 누릴 수 있도록 도와드립니다.',ja:'ステップごとの動画で各リチュアルをご案内し、毎日のスキンケアルーティンを最大限に活かせるようサポートします。'},
  faq_eyebrow:{zh:'常见问题',th:'คำถามที่พบบ่อย',ko:'자주 묻는 질문',ja:'よくある質問'},
  pdp_desc_h:{zh:'产品说明',th:'รายละเอียดผลิตภัณฑ์',ko:'제품 설명',ja:'製品説明'},
  blog_h:{zh:'科学赋能',th:'ขับเคลื่อนด้วยวิทยาศาสตร์',ko:'과학으로 완성하다',ja:'科学の力で'},
@@ -661,4 +662,73 @@ setLang(storedLanguage(),false);
   }
   window.pdpGo=n=>{idx=n;render()};
   window.pdpNav=d=>{idx=(idx+d+srcs.length)%srcs.length;render()};
+})();
+
+/* =====================================================
+   PREMIUM ATMOSPHERE + MICRO-INTERACTIONS
+   Native browser APIs only: no GSAP dependency required.
+   ===================================================== */
+(function premiumExperience(){
+  const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const precisePointer=matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  /* 1. Low-opacity ambient light follows the pointer with eased movement. */
+  if(!reduceMotion){
+    const glow=document.createElement('div');
+    glow.className='premium-ambient';
+    glow.setAttribute('aria-hidden','true');
+    document.body.appendChild(glow);
+    let x=innerWidth*.5,y=innerHeight*.34,queued=false;
+    addEventListener('pointermove',event=>{
+      x=event.clientX;y=event.clientY;
+      if(queued) return;
+      queued=true;
+      requestAnimationFrame(()=>{
+        glow.style.setProperty('--glow-x',x+'px');
+        glow.style.setProperty('--glow-y',y+'px');
+        queued=false;
+      });
+    },{passive:true});
+  }
+
+  /* 2. Premium depth plus a restrained pointer-aware card tilt. */
+  const depthCards=[...document.querySelectorAll(
+    '.teaser,.pcard,.artcard,.vidcard,.heritage-summary,.mvgrid .mv,.office-card'
+  )];
+  depthCards.forEach(card=>card.classList.add('premium-depth'));
+  if(precisePointer&&!reduceMotion){
+    depthCards.forEach(card=>{
+      let frame=0;
+      card.addEventListener('pointermove',event=>{
+        const rect=card.getBoundingClientRect();
+        const rx=((event.clientY-rect.top)/rect.height-.5)*-2.2;
+        const ry=((event.clientX-rect.left)/rect.width-.5)*2.8;
+        cancelAnimationFrame(frame);
+        frame=requestAnimationFrame(()=>{
+          card.style.transform=`perspective(900px) translateY(-4px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+        });
+      });
+      card.addEventListener('pointerleave',()=>{
+        cancelAnimationFrame(frame);
+        card.style.transform='';
+      });
+    });
+  }
+
+  /* 3. Fluid section reveals with a subtle stagger down the page. */
+  const revealSections=[...document.querySelectorAll(
+    'main > section:not(.hero),main > .pdp-description,main > .pdp-related'
+  )];
+  if(!reduceMotion&&'IntersectionObserver' in window){
+    revealSections.forEach((section,index)=>{
+      section.classList.add('premium-reveal');
+      section.style.setProperty('--reveal-delay',(index%3)*70+'ms');
+    });
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(!entry.isIntersecting) return;
+      entry.target.classList.add('premium-in');
+      observer.unobserve(entry.target);
+    }),{threshold:.08,rootMargin:'0px 0px -7% 0px'});
+    revealSections.forEach(section=>observer.observe(section));
+  }
 })();
