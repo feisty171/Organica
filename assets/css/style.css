@@ -137,8 +137,8 @@ header.solid::before{opacity:0}
   .hero-art-slide .hero-art-bg{
     top:0;
     height:100%;
-    object-position:62% center;
-    filter:brightness(.58) saturate(.9)
+    object-position:70% center;
+    filter:brightness(.72) saturate(.92)
   }
   .hero-art-slide:after{
     content:"";
@@ -146,11 +146,11 @@ header.solid::before{opacity:0}
     inset:0;
     z-index:1;
     pointer-events:none;
-    background:linear-gradient(180deg,rgba(20,5,18,.12) 20%,rgba(20,5,18,.78) 76%,rgba(20,5,18,.92))
+    background:linear-gradient(180deg,rgba(20,5,18,.04) 0%,rgba(20,5,18,.08) 45%,rgba(20,5,18,.68) 70%,rgba(20,5,18,.94) 100%)
   }
   .hero-art-slide .sgrid{
     height:100%;
-    padding:42px 18px 54px;
+    padding:min(42svh,330px) 16px 50px;
     display:flex;
     align-items:flex-end
   }
@@ -158,32 +158,33 @@ header.solid::before{opacity:0}
     position:relative;
     z-index:2;
     width:100%;
-    padding:22px 18px;
-    background:rgba(29,8,27,.58);
+    padding:18px;
+    background:linear-gradient(145deg,rgba(29,8,27,.78),rgba(38,17,35,.68));
     border:1px solid rgba(225,199,167,.24);
-    -webkit-backdrop-filter:blur(14px);
-    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter:blur(10px);
     box-shadow:0 20px 50px rgba(12,3,11,.34)
   }
   .hero-art-slide .scopy>:not(.scta){visibility:visible}
-  .hero-art-slide .scopy .eyebrow{margin-bottom:10px}
-  .hero-art-slide .scopy h1{margin:0 0 14px;font-size:clamp(31px,9vw,44px)}
-  .hero-art-slide .scopy .lede{margin:0;font-size:13px;line-height:1.65}
+  .hero-art-slide .scopy .eyebrow{margin-bottom:8px;font-size:9px;line-height:1.45;letter-spacing:.2em}
+  .hero-art-slide .scopy h1{margin:0 0 10px;font-size:clamp(30px,8.5vw,36px);line-height:1.02}
+  .hero-art-slide .scopy .lede{margin:0;font-size:12px;line-height:1.5;max-width:34em}
   .hero-art-slide .scta{
     position:static;
     display:grid;
-    grid-template-columns:1fr;
-    gap:10px;
-    margin-top:20px
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    margin-top:16px
   }
   .hero-art-slide .scta .btn,
   .hero-art-slide .scta .btn:first-child,
   .hero-art-slide .scta .btn:last-child{
     width:100%;
-    min-height:48px;
+    min-height:46px;
     height:auto;
-    padding:12px 18px;
-    font-size:10px
+    padding:10px 12px;
+    font-size:9px;
+    letter-spacing:.14em
   }
   .hero-art-slide .smeta{display:none}
 }
