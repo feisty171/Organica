@@ -2479,6 +2479,45 @@ img,video,iframe{max-width:100%}
   .home-page .expcard:nth-child(3) .ph-bg img{object-position:54% 50%}
 }
 
+/* Landing discovery cards: the shared mobile card rules below are designed
+   for overlay cards. These destination cards use a stacked media/content
+   layout, so keep their artwork locked to a real, edge-to-edge media row. */
+@media(max-width:600px){
+  .home-page .explore .expcard{
+    aspect-ratio:auto;
+    min-height:0;
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:clamp(190px,58vw,230px) auto;
+    align-items:stretch;
+  }
+  .home-page .explore .expcard .ph-bg{
+    position:relative;
+    inset:auto;
+    width:100%;
+    height:100%;
+    min-height:0;
+    padding:0;
+    overflow:hidden;
+    background:transparent;
+  }
+  .home-page .explore .expcard .ph-bg img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    max-width:none;
+    display:block;
+    object-fit:cover;
+  }
+  .home-page .explore .expcard .body{
+    position:relative;
+    inset:auto;
+    width:auto;
+    margin:0;
+  }
+}
+
 @media(max-width:360px){
   :root{--nav:70px}
   .mark img{height:26px;max-width:40vw}
