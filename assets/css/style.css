@@ -2524,3 +2524,11 @@ img,video,iframe{max-width:100%}
     font-size:clamp(22px,6.8vw,25px)!important;
   }
 }
+
+/* Collection carousel: on phones, keep the product name and imagery clear
+   without placing the longer product description over the pack shot. */
+@media(max-width:700px){
+  .collection-page .collection-product-copy p{
+    display:none;
+  }
+}
