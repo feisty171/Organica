@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The House — Organica International</title>
-<link rel="stylesheet" href="assets/css/style.css?v=44">
+<link rel="stylesheet" href="assets/css/style.css?v=45">
 </head>
 <body class="house-page">
 <header id="hdr">
@@ -51,19 +51,16 @@
         <button class="icon-btn" onclick="openAcct('signin')" aria-label="Account" data-i-title="nav_account">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.6-4 5-6 7.5-6s5.9 2 7.5 6"/></svg>
         </button>
-        <button class="burger" onclick="document.getElementById('drawer').classList.toggle('open')" aria-label="Menu"><i></i><i></i><i></i></button>
+        <button class="burger" type="button" onclick="toggleDrawer(event)" aria-label="Open navigation" aria-controls="drawer" aria-expanded="false"><i></i><i></i><i></i></button>
       </div>
     </div>
   </div>
 </header>
 
-<nav class="drawer" id="drawer" onclick="this.classList.remove('open')">
-  <a href="index.html" data-i="nav_house">The House</a>
-  <a href="shop.html" data-i="nav_collection">The Collection</a>
-  <a class="drawer-sub" href="product-juve.html">JUVE</a>
-  <a class="drawer-sub" href="product-mask.html">Bright Mask</a>
-  <a class="drawer-sub" href="product-prepe.html">ProBio Prepé</a>
-  <a href="learn.html" data-i="nav_science">The Science</a>
+<nav class="drawer" id="drawer" aria-label="Mobile navigation">
+  <div class="drawer-group"><div class="drawer-row"><a href="index.html" data-i="nav_house">The House</a><button class="drawer-toggle" type="button" onclick="toggleDrawerGroup(event,this)" aria-label="Show House links" aria-expanded="false"><i></i></button></div><div class="drawer-panel"><a class="drawer-sub" href="house.html#story" data-i="d_story">About Us</a><a class="drawer-sub" href="house.html#contact" data-i="d_contact">Contact Us</a></div></div>
+  <div class="drawer-group"><div class="drawer-row"><a href="shop.html" data-i="nav_collection">The Collection</a><button class="drawer-toggle" type="button" onclick="toggleDrawerGroup(event,this)" aria-label="Show Collection links" aria-expanded="false"><i></i></button></div><div class="drawer-panel"><a class="drawer-sub" href="product-juve.html">JUVE</a><a class="drawer-sub" href="product-mask.html">Bright Mask</a><a class="drawer-sub" href="product-prepe.html">ProBio Prepé</a></div></div>
+  <div class="drawer-group"><div class="drawer-row"><a href="learn.html" data-i="nav_science">The Science</a><button class="drawer-toggle" type="button" onclick="toggleDrawerGroup(event,this)" aria-label="Show Science links" aria-expanded="false"><i></i></button></div><div class="drawer-panel"><a class="drawer-sub" href="learn.html#blog" data-i="d_blog">Blog Posts</a><a class="drawer-sub" href="learn.html#videos" data-i="d_videos">Videos</a></div></div>
 </nav>
 
 <main>
@@ -387,6 +384,6 @@
   </div>
 </aside>
 
-<script src="assets/js/app.js?v=27"></script>
+<script src="assets/js/app.js?v=28"></script>
 </body>
 </html>
