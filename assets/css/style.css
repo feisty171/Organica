@@ -2564,9 +2564,9 @@ img,video,iframe{max-width:100%}
   }
 }
 
-/* Collection carousel: on phones, keep the product name and imagery clear
-   without placing the longer product description over the pack shot. */
+/* Collection carousel: on phones, let the product imagery remain the focus. */
 @media(max-width:700px){
+  .collection-page .collection-product-copy h2,
   .collection-page .collection-product-copy p{
     display:none;
   }
