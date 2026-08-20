@@ -1143,6 +1143,16 @@ footer li a:hover{color:var(--gold-lt)}
 .pdp-related h2{font-size:24px;margin-bottom:24px}
 .pdp-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 
+/* Standalone product launches: keep single supplied packshots fully visible. */
+.single-image-pdp .pdp-main{background:#f5f2ee}
+.single-image-pdp .pdp-main::before{display:none}
+.single-image-pdp .pdp-main .pdp-photo{
+  width:100%;height:100%;max-width:100%;object-fit:contain;object-position:center;
+  padding:clamp(18px,3vw,42px);filter:none;transform:none
+}
+.single-image-pdp .pdp-copy-list{margin:0;padding-left:1.2em;display:grid;gap:10px}
+.single-image-pdp .pdp-copy-list li{padding-left:.2em;color:var(--muted);line-height:1.7}
+
 @media(max-width:1040px){
   .pdp-grid{grid-template-columns:1fr;gap:36px}
   .pdp-gallery{position:static}
@@ -2575,5 +2585,81 @@ img,video,iframe{max-width:100%}
   .collection-page .collection-product-copy h2,
   .collection-page .collection-product-copy p{
     display:none;
+  }
+}
+/* Full-bleed page heroes: keep the fixed navigation visually inside the image. */
+.home-page .hero{
+  height:100svh;
+  min-height:700px;
+  padding-top:0;
+}
+
+.home-page .slides,
+.home-page .slide,
+.home-page .slide-banner picture{
+  height:100%;
+  min-height:100%;
+}
+
+.home-page .slide-banner picture{
+  display:block;
+  overflow:hidden;
+}
+
+.home-page .hero-art-bg,
+.home-page .slide-banner .simg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  max-width:none;
+  max-height:none;
+  object-fit:cover;
+  object-position:center center;
+}
+
+.home-page #hdr:not(.solid),
+.collection-page #hdr:not(.solid){
+  background:transparent;
+  box-shadow:none;
+  -webkit-backdrop-filter:none;
+  backdrop-filter:none;
+}
+
+.collection-page .collection-showcase,
+.collection-page .collection-runway,
+.collection-page .collection-set{
+  margin-top:0;
+  height:100svh;
+}
+
+.collection-page .collection-set{
+  object-fit:cover;
+  object-position:center center;
+}
+
+@supports (height:100dvh){
+  .home-page .hero,
+  .collection-page .collection-showcase,
+  .collection-page .collection-runway,
+  .collection-page .collection-set{
+    height:100dvh;
+  }
+}
+
+@media (min-width:701px){
+  .home-page .hero-art-slide .sgrid{
+    padding-top:var(--nav);
+  }
+}
+
+@media (max-width:700px){
+  .home-page .hero{
+    height:100svh;
+    min-height:100svh;
+  }
+
+  .home-page .slides{
+    min-height:100%;
   }
 }

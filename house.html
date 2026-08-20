@@ -250,7 +250,7 @@
       <div class="stats">
         <div class="st"><p class="v" data-count="7">0</p><p class="k" data-i="stat_markets">Markets across Asia</p></div>
         <div class="st"><p class="v"><span data-count="3192">0</span></p><p class="k" data-i="stat_members">Members</p></div>
-        <div class="st"><p class="v"><span id="bottlesShipped" data-live-value>&mdash;</span></p><p class="k" data-i="stat_bottles">Bottles shipped (live)</p></div>
+        <div class="st"><p class="v"><span id="bottlesShipped" data-live-value>245,901</span></p><p class="k" data-i="stat_bottles">Bottles shipped (live)</p></div>
       </div>
       <ul class="mlist" id="mlist">
         <li data-m="sg" data-i="m_sg">Singapore</li>
@@ -273,17 +273,17 @@
 
   <div class="office-grid">
     <div class="office">
-      <iframe class="map" src="https://www.google.com/maps?q=151%20Lorong%20Chuan%2C%20New%20Tech%20Park%20%2306-07A%20Lobby%20G%2C%20Singapore%20556741&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Organica International Holdings, Singapore"></iframe>
+      <iframe class="map" src="https://www.google.com/maps?q=151%20Lorong%20Chuan%2C%20Lobby%20B%2C%20%2304-02A%2C%20Singapore%20556741&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Organica International Holdings, Singapore"></iframe>
       <div class="body">
         <h3>Organica International Holdings Pte. Ltd.</h3>
         <p class="reg" data-i="ct_hq">Headquarters</p>
-        <p class="addr">151 Lorong Chuan, New Tech Park<br>#06-07A Lobby G<br>Singapore 556741</p>
+        <p class="addr">151 Lorong Chuan, Lobby B<br>#04-02A<br>Singapore 556741</p>
         <div class="rows">
           <div><span class="k">Tel</span><a href="tel:+6562529651">(65) 6252 9651</a></div>
           <div><span class="k">Fax</span><span>(65) 6255 6862</span></div>
           <div><span class="k">Email</span><a href="mailto:info@organicaintl.com">info@organicaintl.com</a></div>
         </div>
-        <a class="dir" href="https://www.google.com/maps/search/?api=1&query=151%20Lorong%20Chuan%2C%20New%20Tech%20Park%20%2306-07A%20Lobby%20G%2C%20Singapore%20556741" target="_blank" rel="noopener"><span class="dl"></span><span data-i="ct_dir">Get directions</span></a>
+        <a class="dir" href="https://www.google.com/maps/search/?api=1&query=151%20Lorong%20Chuan%2C%20Lobby%20B%2C%20%2304-02A%2C%20Singapore%20556741" target="_blank" rel="noopener"><span class="dl"></span><span data-i="ct_dir">Get directions</span></a>
       </div>
     </div>
 
@@ -308,11 +308,11 @@
     <p class="eyebrow" data-i="ct_form_eyebrow">Write to us</p>
   </div>
   <div class="contact-grid" style="grid-template-columns:1fr;justify-items:center">
-    <form class="cform" style="max-width:560px;width:100%" onsubmit="return false">
-      <input type="text" placeholder="Name" data-i-placeholder="ct_name">
-      <input type="email" placeholder="Email" data-i-placeholder="ct_email">
-      <textarea placeholder="Message" data-i-placeholder="ct_message"></textarea>
-      <button class="btn btn-solid" style="align-self:flex-start" data-i="ct_f_send">Send</button>
+    <form class="cform" id="contact-form" style="max-width:560px;width:100%" onsubmit="sendContactEmail(event)">
+      <input type="text" name="name" placeholder="Name" data-i-placeholder="ct_name" autocomplete="name" required>
+      <input type="email" name="email" placeholder="Email" data-i-placeholder="ct_email" autocomplete="email" required>
+      <textarea name="message" placeholder="Message" data-i-placeholder="ct_message" required></textarea>
+      <button type="submit" class="btn btn-solid" style="align-self:flex-start" data-i="ct_f_send">Send</button>
     </form>
   </div>
 </div></section>
@@ -384,6 +384,25 @@
   </div>
 </aside>
 
+<script>
+function buildContactEmailLink(form) {
+  const name = form.elements.name.value.trim();
+  const email = form.elements.email.value.trim();
+  const message = form.elements.message.value.trim();
+  const subject = encodeURIComponent(`Website enquiry from ${name}`);
+  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+  return `mailto:info@organicaintl.com?subject=${subject}&body=${body}`;
+}
+
+function sendContactEmail(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+
+  if (!form.reportValidity()) return;
+  window.location.href = buildContactEmailLink(form);
+}
+</script>
 <script src="assets/js/app.js?v=28"></script>
 </body>
 </html>
