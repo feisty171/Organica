@@ -2266,13 +2266,19 @@ strong,b{color:var(--gold-lt);font-weight:600}
 .science-page #videos::before {
   content: "";
   position: absolute;
-  inset: 4% 0 auto;
+  inset: -72px 0 auto;
   z-index: -1;
-  height: 190px;
+  height: 360px;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(218, 187, 224, .14), transparent 63%),
-    linear-gradient(180deg, rgba(198, 162, 104, .055), transparent 72%);
+    radial-gradient(ellipse at 50% 18%, rgba(218, 187, 224, .18), transparent 64%),
+    linear-gradient(180deg, rgba(34, 11, 32, .36) 0%, rgba(198, 162, 104, .06) 35%, transparent 88%);
+}
+
+.science-page #videos {
+  padding-top: clamp(92px, 9vw, 132px);
+  background:
+    linear-gradient(180deg, rgba(42, 14, 40, .24) 0%, rgba(92, 38, 84, .12) 34%, transparent 78%);
 }
 
 @keyframes scienceOrbit {
