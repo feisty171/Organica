@@ -2662,8 +2662,4 @@ img,video,iframe{max-width:100%}
   .home-page .slides{
     min-height:100%;
   }
-
-  .home-page .hero-art-slide .hero-art-bg{
-    object-position:65% center;
-  }
 }
