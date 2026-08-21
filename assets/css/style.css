@@ -63,7 +63,7 @@ header.solid::before{opacity:0}
 .mark small{display:block;font-family:var(--body);font-size:7.5px;letter-spacing:.36em;color:var(--txt-fade);margin-top:3px}
 .mark img{display:block;height:38px;width:auto}
 .navright{display:flex;align-items:center;gap:34px}
-.navright a,.navright>button{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--txt-dim);transition:color .25s;white-space:nowrap}
+.navright a,.navright>button{font-size:13.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--txt-dim);transition:color .25s;white-space:nowrap}
 .navright a:hover,.navright>button:hover{color:var(--txt)}
 .navsep{width:1px;height:16px;background:rgba(198,162,104,.28)}
 .cart{display:flex;align-items:center;gap:8px}
