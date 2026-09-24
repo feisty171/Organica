@@ -70,13 +70,13 @@ Then open `http://localhost:8080/index.html`.
 
 ## Production deployment
 
-The site is deployed to a Tencent Lighthouse Ubuntu VM (`43.163.98.143`) running Nginx, with `organicaintl.com` and `www.organicaintl.com` pointed at it through Cloudflare (proxied — Cloudflare terminates SSL at the edge; the origin currently serves plain HTTP on port 80).
+The site is deployed to a Tencent Lighthouse Ubuntu VM running Nginx, with `organicaintl.com` and `www.organicaintl.com` pointed at it through Cloudflare (proxied — Cloudflare terminates SSL at the edge; the origin currently serves plain HTTP on port 80). The server's IP and SSH access details are intentionally not documented here since this repo is public — ask a current maintainer for connection details.
 
-To ship a change:
+To ship a change (once you have SSH access):
 
 ```sh
 git push origin main
-ssh -i ~/.ssh/organica_lighthouse ubuntu@43.163.98.143 'bash ~/deploy.sh'
+ssh -i <path-to-your-key> ubuntu@<server-ip> 'bash ~/deploy.sh'
 ```
 
 `deploy.sh` (on the server, in the `ubuntu` home directory) pulls the latest `main` from GitHub into `~/organica-repo`, syncs it into the Nginx web root at `/var/www/organicaintl`, and reloads Nginx. There's no CI/CD watching the repo — pushing to GitHub alone does not update the live site, the deploy step above has to be run explicitly each time.
