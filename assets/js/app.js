@@ -46,6 +46,30 @@ document.addEventListener('click',event=>{
 });
 addEventListener('resize',()=>{if(innerWidth>1040)closeDrawer()},{passive:true});
 
+/* ---------- content-aware nav fit ----------
+   Some languages (e.g. Thai) produce longer nav labels than English. Rather than
+   relying only on a fixed viewport breakpoint tuned for English, measure whether
+   the nav actually fits next to the logo and fall back to the hamburger menu
+   whenever it doesn't - regardless of viewport width or which language is active. */
+function fitNav(){
+  const mark=document.querySelector('.mark');
+  const navright=document.querySelector('.navright');
+  if(!mark||!navright)return;
+  document.documentElement.classList.remove('nav-tight');
+  // .mark uses margin-right:auto to push .navright to the far edge, so the
+  // container's scrollWidth/clientWidth always match regardless of how
+  // cramped the content is - measure the real gap between them instead.
+  const NAV_MIN_GAP=40;
+  const gap=navright.getBoundingClientRect().left-mark.getBoundingClientRect().right;
+  if(gap<NAV_MIN_GAP){
+    document.documentElement.classList.add('nav-tight');
+  }
+}
+addEventListener('resize',fitNav,{passive:true});
+document.addEventListener('langchange',fitNav);
+addEventListener('DOMContentLoaded',fitNav);
+fitNav();
+
 /* ---------- carousel ---------- */
 const slides=[...document.querySelectorAll('.slide')],dots=document.getElementById('dots');
 let cur=0,timer;

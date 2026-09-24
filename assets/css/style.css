@@ -62,8 +62,9 @@ header.solid::before{opacity:0}
 .mark{font-family:var(--display);font-size:18px;letter-spacing:.24em;color:var(--txt);white-space:nowrap;margin-right:auto}
 .mark small{display:block;font-family:var(--body);font-size:7.5px;letter-spacing:.36em;color:var(--txt-fade);margin-top:3px}
 .mark img{display:block;height:38px;width:auto}
-.navright{display:flex;align-items:center;gap:34px}
-.navright a,.navright>button{font-size:13.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--txt-dim);transition:color .25s;white-space:nowrap}
+.navright{display:flex;align-items:center;gap:34px;flex-shrink:0}
+.navright>.navlink{flex-shrink:0}
+.navright a,.navright>button{font-size:13.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--txt-dim);transition:color .25s;white-space:nowrap;flex-shrink:0}
 .navright a:hover,.navright>button:hover{color:var(--txt)}
 .navsep{width:1px;height:16px;background:rgba(198,162,104,.28)}
 .cart{display:flex;align-items:center;gap:8px}
@@ -369,6 +370,14 @@ footer li a:hover{color:var(--gold-lt)}
 .arow{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(198,162,104,.16);font-size:13.5px}
 .arow span{color:var(--txt-fade)}
 .hidden{display:none!important}
+
+/* Content-aware nav fallback: JS (fitNav in app.js) adds this class whenever the
+   translated nav labels don't actually fit next to the logo, independent of
+   viewport width, so longer languages don't get cramped before the 1040px
+   breakpoint below would otherwise kick in. */
+html.nav-tight .navright a{display:none}
+html.nav-tight .navright{gap:20px}
+html.nav-tight .burger{display:flex}
 
 /* ================== RESPONSIVE ================== */
 @media(max-width:1040px){
