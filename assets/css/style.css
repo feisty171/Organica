@@ -607,8 +607,8 @@ html.nav-tight .burger{display:flex}
 .visual-prepe{
   left:50%;
   bottom:17.5%;
-  width:min(720px,52vw);
-  height:min(720px,68vh);
+  width:min(880px,58vw);
+  height:min(880px,74vh);
 }
 .collection-product-visual img{
   object-position:50% 100%;
@@ -1122,7 +1122,7 @@ html.nav-tight .burger{display:flex}
 .pdp-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
 .pdp-cta .btn{flex:1;min-width:160px}
 
-.pdp-description{margin-top:70px;padding-top:44px;border-top:1px solid rgba(198,162,104,.18)}
+.pdp-description{margin-top:46px;padding-top:32px;border-top:1px solid rgba(198,162,104,.18)}
 .pdp-desc-toggle summary{font-family:var(--display);font-size:24px;color:var(--txt);cursor:pointer;
   list-style:none;display:flex;justify-content:space-between;align-items:center}
 .pdp-desc-toggle summary::-webkit-details-marker{display:none}
@@ -1148,7 +1148,7 @@ html.nav-tight .burger{display:flex}
 .pdp-reviews{margin-top:70px;padding-top:44px;border-top:1px solid rgba(198,162,104,.18)}
 .pdp-reviews h2{font-size:24px;margin-bottom:16px}
 
-.pdp-related{margin-top:70px;padding-top:44px;border-top:1px solid rgba(198,162,104,.18)}
+.pdp-related{margin-top:46px;padding-top:32px;border-top:1px solid rgba(198,162,104,.18)}
 .pdp-related h2{font-size:24px;margin-bottom:24px}
 .pdp-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 
@@ -2042,7 +2042,7 @@ strong,b{color:var(--gold-lt);font-weight:600}
 }
 
 /* Discovery introduction: one balanced editorial hierarchy above the cards. */
-.home-page .discovery-chapter{padding-top:clamp(94px,11vh,118px)}
+.home-page .discovery-chapter{padding-top:clamp(64px,7vh,88px)}
 .home-page .discovery-heading{
   display:flex;
   flex-direction:column;
@@ -2355,7 +2355,7 @@ h1,h2,h3,h4,.display-type{font-family:var(--display);font-weight:400;letter-spac
 p{text-wrap:pretty}
 
 .wrap{width:min(100%,var(--content));padding-inline:clamp(20px,3vw,30px)}
-.section{padding-block:clamp(72px,8vw,110px)}
+.section{padding-block:clamp(48px,5.5vw,76px)}
 .shead{margin-bottom:clamp(34px,4vw,52px)}
 .shead h2{font-size:clamp(34px,4.8vw,58px);line-height:1.08}
 .pagehero h1{font-size:clamp(40px,5.6vw,64px);line-height:1.04}
@@ -2424,7 +2424,7 @@ img,video,iframe{max-width:100%}
 
 @media (min-width:701px) and (max-width:1040px){
   .wrap{padding-inline:clamp(24px,4vw,40px)}
-  .section{padding-block:clamp(76px,9vw,96px)}
+  .section{padding-block:clamp(56px,7vw,76px)}
   .explore,.lgrid,.artgrid,.vidgrid,.pdp-related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .explore>*:last-child,.lgrid>*:last-child{grid-column:1/-1;max-width:calc(50% - 10px);width:100%;justify-self:center}
   .pdp-grid{grid-template-columns:minmax(0,1fr);gap:46px}
